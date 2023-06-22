@@ -1,19 +1,28 @@
 {
   inputs = {
     nix-gaming.url = "github:fufexan/nix-gaming";
-
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    leftwm.url = "github:leftwm/leftwm";
+    pagbar.url = "github:vesdev/pagbar";
+    helix.url = "github:helix-editor/helix";
   }; 
  
-  outputs = { self, nixpkgs, nix-gaming, home-manager, ...}@attrs: {
+  outputs = { self, nixpkgs, leftwm, ...}@attrs: 
+  let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config = { allowUnfree = true; };
+      overlays = [
+        leftwm.overlay
+      ];
+    }; 
+  in
+  {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system pkgs;
       specialArgs = attrs;
       modules = [ 
-        ./configuration.nix
+        ./configuration.nix	
       ];    
     };
   };

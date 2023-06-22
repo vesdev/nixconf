@@ -1,0 +1,35 @@
+{ pkgs, nix-gaming, pagbar,  ... }: {
+    environment.systemPackages = with pkgs; [
+    gh
+    tmux
+    helix
+    alacritty
+    feh
+    polybar
+    rofi
+    libinput
+    jq
+    xwinwrap
+    nodePackages_latest.pnpm
+    picom-jonaburg
+    pkgs.linuxPackages_latest.perf
+    librewolf
+    neofetch
+    vscodium
+    mpv
+    discord-canary
+    pcmanfm
+    xarchiver
+    flameshot
+    obs-studio
+    mullvad-vpn
+    krita
+    inkscape
+    brave
+    pagbar.packages.${pkgs.hostPlatform.system}.default
+    godot_4
+    chatterino2
+    element-desktop
+    nix-gaming.packages.${pkgs.hostPlatform.system}.osu-stable
+  ];
+}

@@ -1,40 +1,58 @@
-# Edit this configuration file to define what should be installed on
-{ config, pkgs, nix-gaming, ... }: {
+{ config, pkgs, nix-gaming, leftwm, ... }: {
+
   system.stateVersion = "22.11";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];  
-  nixpkgs.config.allowUnfree = true;
+
+  imports = [
+    ./hardware-configuration.nix
+    ./pci-passthrough.nix
+    ./packages.nix
+    "${nix-gaming}/modules/pipewireLowLatency.nix"
+  ];
+    
+  boot = {
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+  };
   
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      "${nix-gaming}/modules/pipewireLowLatency.nix"
-    ]; 
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "nixos"; # Define your hostname.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-
+  users.users.ves = {
+    isNormalUser = true;
+    home = "/home/ves";
+    extraGroups = [ "wheel" "docker" ]; 
+    initialPassword = "ves";
+  };
+  
   time.timeZone = "Europe/Helsinki";
   i18n.defaultLocale = "en_US.UTF-8";
+
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true;
+    wireguard.enable = true;
+  };
+  
+  services = {
+    mullvad-vpn.enable = true;
+    openssh.enable = true;
+  };
  
   nix.settings = {
     substituters = [ "https://nix-gaming.cachix.org" ];
     trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
   };
 
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    git
-    cachix
-    wine
-    gh
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override {fonts = [ "FiraCode" "DroidSansMono" ]; })
+  ];
+  
+  services.udev.packages = [
+    pkgs.android-udev-rules
   ];
 
-  services.openssh.enable = true;
-  
+  virtualisation.docker.enable = true;
+  environment.variables.SUDO_EDITOR = "hx";
+    
   hardware = {
     opengl.enable = true;
     opengl.driSupport32Bit = true;
@@ -49,6 +67,8 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
+
+    bash.shellAliases.nd = "nix develop";
   };
 
   environment.pathsToLink = [ "/libexec" ];
@@ -59,24 +79,9 @@
       Option "TearFree" "false"
     '';
 
-    desktopManager = {
-      xterm.enable = false;
-    };
-
+    desktopManager.xterm.enable = false;
     displayManager.lightdm.enable = true;
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3-gaps;
-      extraPackages = with pkgs; [
-        dmenu
-        polybar
-        feh
-        alacritty
-        pavucontrol
-        arandr
-      ];
-    };
-
+    windowManager.leftwm. enable = true;
   }; 
   
   sound.enable = true; 
@@ -90,23 +95,14 @@
     
     lowLatency = {
       enable = true;
-      quantum = 256; # tweak for less latency, too low will crackle
+      quantum = 128; # tweak for less latency, too low will crackle
       rate = 48000;
     };  
-  };
+  }; 
   
-  users.users.ves = {
-    isNormalUser = true;
-    home = "/home/ves";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      firefox
-      neofetch
-      vscodium
-      nix-gaming.packages.${pkgs.hostPlatform.system}.osu-stable
-    ];
-    initialPassword = "ves";
+  xdg.mime.defaultApplications = {
+    "text/html" = "librewolf.desktop";
+    "x-scheme-handler/http" = "librewolf.desktop";
+    "x-scheme-handler/https" = "librewolf.desktop";
   };
-
 }
-
