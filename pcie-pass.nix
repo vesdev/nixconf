@@ -2,7 +2,7 @@
 {  
   # CHANGE: intel_iommu enables iommu for intel CPUs with VT-d
   # use amd_iommu if you have an AMD CPU with AMD-Vi
-  boot.kernelParams = [ "amd_iommu-on" "pcie_aspm=off"  ];
+  boot.kernelParams = [ "amd_iommu=on" "pcie_aspm=off"  ];
     
   # These modules are required for PCI passthrough, and must come before early modesetting stuff
   boot.kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" "vfio_virqfd" ];

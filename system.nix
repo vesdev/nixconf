@@ -54,8 +54,13 @@
     opengl.driSupport32Bit = true;
     opentabletdriver.enable = true;
   };
+
+  environment.systemPackages = [
+    pkgs.gh
+  ];
    
   programs = {
+    git.enable = true;
     gamemode.enable = true;
     steam = {
       enable = true;
