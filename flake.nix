@@ -24,7 +24,7 @@
       specialArgs = {inherit username nix-gaming;};
       modules = [ 
         ./system.nix
-        ./sys-packages.nix
+        ./system-packages.nix
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
