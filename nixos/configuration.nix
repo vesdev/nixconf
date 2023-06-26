@@ -53,7 +53,16 @@
     opengl.enable = true;
     opengl.driSupport32Bit = true;
     opentabletdriver.enable = true;
-  }; 
+  };
+   
+  programs = {
+    gamemode.enable = true;
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+  };
 
   environment.pathsToLink = [ "/libexec" ];
   services.xserver = {
