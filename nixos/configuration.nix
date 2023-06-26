@@ -1,12 +1,12 @@
-{ config, pkgs, nix-gaming, leftwm, ... }: {
-
-  system.stateVersion = "22.11";
+{ config, pkgs, nix-gaming, leftwm, ... }: 
+{
+  nixpkgs.config.allowUnfree = true;
+  system.stateVersion = "23.05";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];  
 
   imports = [
     ./hardware-configuration.nix
-    ./pci-passthrough.nix
-    ./packages.nix
+    ./vm.nix
     "${nix-gaming}/modules/pipewireLowLatency.nix"
   ];
     
@@ -21,8 +21,8 @@
     home = "/home/ves";
     extraGroups = [ "wheel" "docker" ]; 
     initialPassword = "ves";
-  };
-  
+  };  
+
   time.timeZone = "Europe/Helsinki";
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -45,10 +45,6 @@
   fonts.fonts = with pkgs; [
     (nerdfonts.override {fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
-  
-  services.udev.packages = [
-    pkgs.android-udev-rules
-  ];
 
   virtualisation.docker.enable = true;
   environment.variables.SUDO_EDITOR = "hx";
@@ -58,18 +54,6 @@
     opengl.driSupport32Bit = true;
     opentabletdriver.enable = true;
   }; 
-
-  programs = {
-    git.enable = true;
-    gamemode.enable = true;
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-    };
-
-    bash.shellAliases.nd = "nix develop";
-  };
 
   environment.pathsToLink = [ "/libexec" ];
   services.xserver = {
@@ -81,7 +65,7 @@
 
     desktopManager.xterm.enable = false;
     displayManager.lightdm.enable = true;
-    windowManager.leftwm. enable = true;
+    windowManager.leftwm.enable = true;
   }; 
   
   sound.enable = true; 

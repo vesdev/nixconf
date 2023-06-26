@@ -1,7 +1,8 @@
-{ pkgs, nix-gaming, pagbar,  ... }: {
-    environment.systemPackages = with pkgs; [
+{ config, pkgs, nix-gaming, pagbar, ... }: 
+{
+  home.packages = with pkgs; [
     gh
-    tmux
+    pavucontrol
     helix
     alacritty
     feh
@@ -9,10 +10,8 @@
     rofi
     libinput
     jq
-    xwinwrap
     nodePackages_latest.pnpm
-    picom-jonaburg
-    pkgs.linuxPackages_latest.perf
+    linuxPackages_latest.perf
     librewolf
     neofetch
     vscodium
@@ -25,11 +24,23 @@
     mullvad-vpn
     krita
     inkscape
-    brave
-    pagbar.packages.${pkgs.hostPlatform.system}.default
+    pagbar.packages.${hostPlatform.system}.default
     godot_4
     chatterino2
     element-desktop
-    nix-gaming.packages.${pkgs.hostPlatform.system}.osu-stable
+    nix-gaming.packages.${hostPlatform.system}.osu-stable
   ];
+
+  programs = {
+    home-manager.enable = true;
+    git.enable = true;
+    gamemode.enable = true;
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+
+    bash.shellAliases.nd = "nix develop";
+  };
 }

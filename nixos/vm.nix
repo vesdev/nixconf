@@ -1,4 +1,4 @@
-{config, pkgs, ... }:
+{ config, pkgs, ... }:
 {  
   # CHANGE: intel_iommu enables iommu for intel CPUs with VT-d
   # use amd_iommu if you have an AMD CPU with AMD-Vi
