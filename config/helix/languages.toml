@@ -1,0 +1,3 @@
+[[language]]
+name = "rust"
+language-server = { command = "rust-analyzer", environment = { "CARGO_TARGET_DIR" = "target/analyzer" } }

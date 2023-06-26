@@ -35,6 +35,7 @@
             };
 
             imports = [
+              ./config
               ./packages.nix
             ];
           };
