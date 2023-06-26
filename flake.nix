@@ -15,19 +15,21 @@
   };
  
   outputs = { self, nixpkgs, home-manager, nix-gaming, pagbar, ...}:
-  {
+  let
+    username = "ves"; 
+  in{
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       #for pipewrite low latency in configuration.nix
-      specialArgs = {inherit nix-gaming;};
+      specialArgs = {inherit username nix-gaming;};
       modules = [ 
-        ./nixos/configuration.nix
+        ./system.nix
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.ves = {
-            home = rec {
-              username = "ves";
+            home = {
+              inherit username;
               homeDirectory = "/home/${username}";
               stateVersion = "23.05";
             };

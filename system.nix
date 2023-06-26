@@ -1,4 +1,4 @@
-{ config, pkgs, nix-gaming, leftwm, ... }: 
+{ config, pkgs, username, nix-gaming, leftwm, ... }: 
 {
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "23.05";
@@ -6,7 +6,7 @@
 
   imports = [
     ./hardware-configuration.nix
-    ./vm.nix
+    ./pcie-pass.nix
     "${nix-gaming}/modules/pipewireLowLatency.nix"
   ];
     
@@ -16,11 +16,11 @@
     loader.efi.canTouchEfiVariables = true;
   };
   
-  users.users.ves = {
+  users.users.${username} = {
     isNormalUser = true;
-    home = "/home/ves";
+    home = "/home/${username}";
     extraGroups = [ "wheel" "docker" ]; 
-    initialPassword = "ves";
+    initialPassword = username;
   };  
 
   time.timeZone = "Europe/Helsinki";

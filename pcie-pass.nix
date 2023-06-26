@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, username, ... }:
 {  
   # CHANGE: intel_iommu enables iommu for intel CPUs with VT-d
   # use amd_iommu if you have an AMD CPU with AMD-Vi
@@ -25,11 +25,11 @@
   };
   
   # CHANGE: add your own user here
-  users.groups.libvirtd.members = [ "root" "ves" ];
+  users.groups.libvirtd.members = [ "root" username ];
 
-  users.users.ves.extraGroups = [ "libvirtd" ];
+  users.users.${username}.extraGroups = [ "libvirtd" ];
   systemd.tmpfiles.rules = [
-    "f /dev/shm/looking-glass 0660 ves qemu-libvirtd -"
+    "f /dev/shm/looking-glass 0660 ${username} qemu-libvirtd -"
   ];
 
 }
