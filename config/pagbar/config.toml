@@ -1,0 +1,16 @@
+[colors]
+background = "#1c1e26"
+text = "#e95378"
+text-secondary = "#353747"
+
+[bar.main]
+monitor = 0
+position = "top"
+size = 50
+
+
+# [bar.top]
+# monitor = 0
+# position = "top"
+# size = 50
+
