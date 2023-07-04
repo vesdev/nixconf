@@ -24,4 +24,4 @@ fi
 
 
 # polybar -c $SCRIPTPATH/polybar.config
-pagbar &
+pagbar --config $SCRIPTPATH/pagbar.toml &

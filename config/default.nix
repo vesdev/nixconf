@@ -6,5 +6,6 @@
     ./alacritty
     ./rofi
     ./pagbar
+    ./bash
   ];
 }
