@@ -159,3 +159,4 @@ family: FiraCode
 # Colors (Blood Moon)
 import:
   - ~/.config/alacritty/themes/horizon-dark.yaml
+

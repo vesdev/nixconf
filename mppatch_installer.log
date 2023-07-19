@@ -1,0 +1,120 @@
+
+================================================================================
+MPPatch version 0.1.3
+Revision 8adb8b73, built on May 8, 2021 by jenkins@himawari
+
+Build ID   : 3e5748f5-a000-46d0-87d3-cd86ca811320
+Build Date : 2021-05-08T12:40:07Z
+Revision   : 8adb8b735e884f26ae8e750339bbf213f8b556a4
+Tree Status: <clean>
+================================================================================
+
+[2023-07-12T19:31:40Z/ INFO] Changing patch package...
+[2023-07-12T19:31:40Z/ INFO] Changing installer path to /home/ves/.steam/steam/steamapps/common/Sid Meier's Civilization V
+[2023-07-12T19:31:40Z/ INFO] Checking patch status...
+[2023-07-12T19:31:41Z/ INFO] Status: NotInstalled(true)
+[2023-07-12T19:31:54Z/ INFO] Executing: installing MPPatch...
+[2023-07-12T19:31:54Z/ INFO] Checking patch status...
+[2023-07-12T19:31:54Z/ INFO] Status: NotInstalled(true)
+[2023-07-12T19:31:54Z/ INFO] Checking patch status...
+[2023-07-12T19:31:54Z/ INFO] Status: NotInstalled(true)
+[2023-07-12T19:31:54Z/ INFO] Installing patch...
+[2023-07-12T19:31:54Z/ INFO] - Target version: cc06b647821ec5e7cca3c397f6b0d4726f0106cdd67bcf074d494bea2607a8ca
+[2023-07-12T19:31:54Z/ INFO] - Renaming Civ5XP -> Civ5XP.orig
+[2023-07-12T19:31:54Z/ INFO] - Creating directory /home/ves/.steam/steam/steamapps/common/Sid Meier's Civilization V/steamassets/assets/dlc/mppatch
+[2023-07-12T19:31:54Z/ INFO] - Creating directory /home/ves/.steam/steam/steamapps/common/Sid Meier's Civilization V/steamassets/assets/dlc/mppatch/runtime
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/runtime/mppatch_chatprotocol.lua (size: 3258, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Creating directory /home/ves/.steam/steam/steamapps/common/Sid Meier's Civilization V/steamassets/assets/dlc/mppatch/patches
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_10_mainmenu_printversion.lua (size: 2043, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Creating directory /home/ves/.steam/steam/steamapps/common/Sid Meier's Civilization V/steamassets/assets/gameplay/xml/newtext/mppatch_textdata
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/gameplay/xml/newtext/mppatch_textdata/df74f698234311e689c48fef6d8f889e_v1_textdata_ui_text_text_en_us.xml (size: 2549, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_6_ingame_chatcommands.lua (size: 2437, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_11_mainmenu_status.lua (size: 1824, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/runtime/mppatch_mtutils.lua (size: 2607, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_5_protocol_kickunpatched.lua (size: 5721, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_12_mainmenu_resetpatch.lua (size: 1439, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Creating directory /home/ves/.steam/steam/steamapps/common/Sid Meier's Civilization V/steamassets/assets/dlc/mppatch/luaoverrides
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/luaoverrides/stagingroom.lua (size: 87498, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/runtime/mppatch_softhook.lua (size: 2156, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/runtime/mppatch_uiutils.lua (size: 2350, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/luaoverrides/contentswitch.lua (size: 606, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_2_lobby_skip.lua (size: 1456, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/luaoverrides/mainmenu.lua (size: 9305, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_softhook_info.lua (size: 1544, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Creating directory /home/ves/.steam/steam/steamapps/common/Sid Meier's Civilization V/steamassets/assets/dlc/mppatch/screens
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/screens/mppatch_multiplayerproxy.xml (size: 1429, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_3_mpgamesetupscreen_settitle.lua (size: 1237, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/runtime/mppatch_modutils.lua (size: 3808, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_0_modsbrowser_forcereload.lua (size: 1802, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_13_contentswitch_debug.lua (size: 1332, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/df74f698234311e689c48fef6d8f889e_v1.civ5pkg (size: 1953, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/luaoverrides/instancemanager.lua (size: 8064, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_9_diplocorner_suppresscommands.lua (size: 1532, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/luaoverrides/loadmenu.lua (size: 26814, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/luaoverrides/mpgameoptions.lua (size: 43494, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/runtime/mppatch_utils.lua (size: 4077, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_8_protocol_chathandler.lua (size: 2389, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_14_multiplayerselect_keepmods.lua (size: 1694, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/luaoverrides/multiplayerselect.lua (size: 6698, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_15_stagingroom_suppresscommands.lua (size: 1504, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_4_protocol_resetleaders.lua (size: 1418, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/runtime/mppatch_version.lua (size: 4701, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/runtime/mppatch_runtime.lua (size: 3337, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/luaoverrides/joiningroom.lua (size: 13268, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/runtime/mppatch_serialize.lua (size: 8763, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/screens/mppatch_multiplayerproxy.lua (size: 1139, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_1_modsmenu_enablempmenu.lua (size: 3309, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing steamassets/assets/dlc/mppatch/patches/mppatch_patch_7_eventsdebug.lua (size: 10976, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing mppatch_core.so (size: 102736, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing mppatch_luajit.so (size: 3404300, executable: false)
+[2023-07-12T19:31:54Z/ INFO] - Installing Civ5XP (size: 360, executable: true)
+[2023-07-12T19:31:54Z/ INFO] - Installing Civ5XP.launch (size: 204, executable: true)
+[2023-07-12T19:31:54Z/ INFO] - Installing mppatch_config.ini (size: 165, executable: false)
+[2023-07-12T19:31:55Z/ INFO] - Writing patch state
+[2023-07-12T19:31:55Z/ INFO] MPPatch has been installed.
+[2023-07-12T19:31:59Z/ INFO] Checking patch status...
+[2023-07-12T19:31:59Z/ INFO] - File Civ5XP.orig successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/runtime/mppatch_chatprotocol.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_10_mainmenu_printversion.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/gameplay/xml/newtext/mppatch_textdata/df74f698234311e689c48fef6d8f889e_v1_textdata_ui_text_text_en_us.xml successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_6_ingame_chatcommands.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_11_mainmenu_status.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/runtime/mppatch_mtutils.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_5_protocol_kickunpatched.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_12_mainmenu_resetpatch.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/luaoverrides/stagingroom.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/runtime/mppatch_softhook.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/runtime/mppatch_uiutils.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/luaoverrides/contentswitch.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_2_lobby_skip.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/luaoverrides/mainmenu.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_softhook_info.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/screens/mppatch_multiplayerproxy.xml successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_3_mpgamesetupscreen_settitle.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/runtime/mppatch_modutils.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_0_modsbrowser_forcereload.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_13_contentswitch_debug.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/df74f698234311e689c48fef6d8f889e_v1.civ5pkg successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/luaoverrides/instancemanager.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_9_diplocorner_suppresscommands.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/luaoverrides/loadmenu.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/luaoverrides/mpgameoptions.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/runtime/mppatch_utils.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_8_protocol_chathandler.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_14_multiplayerselect_keepmods.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/luaoverrides/multiplayerselect.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_15_stagingroom_suppresscommands.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_4_protocol_resetleaders.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/runtime/mppatch_version.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/runtime/mppatch_runtime.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/luaoverrides/joiningroom.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/runtime/mppatch_serialize.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/screens/mppatch_multiplayerproxy.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_1_modsmenu_enablempmenu.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File steamassets/assets/dlc/mppatch/patches/mppatch_patch_7_eventsdebug.lua successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File mppatch_core.so successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File mppatch_luajit.so successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File Civ5XP.launch successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File mppatch_config.ini successflly validated.
+[2023-07-12T19:31:59Z/ INFO] - File Civ5XP successflly validated.
+[2023-07-12T19:31:59Z/ INFO] Status: Installed

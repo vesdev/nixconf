@@ -1,5 +1,7 @@
-{ config, pkgs, nix-gaming, leftwm, ... }: 
+{ config, pkgs, nix-gaming, leftwm, nix-ld, ... }: 
 {
+  nixpkgs.config.allowUnfree = true;
+
   imports = [
     ./hardware-configuration.nix
     ./pcie-pass.nix
@@ -7,9 +9,15 @@
   ];
 
   boot = {
-    # kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
+    kernelParams = [ 
+      "initcall_blacklist=acpi_cpufreq_init"
+      "amd_pstate=active"
+      "amd_pstate.shared_mem=1" 
+    ];
+    kernelModules = [ "amd-pstate" ];
   };
 
   fonts.fonts = with pkgs; [
@@ -46,8 +54,16 @@
       enable = true;
 
       deviceSection = ''
-        Option "TearFree" "false"
+        Option "TearFree" "true"
       '';
+
+      libinput = {
+        enable = true;
+        mouse = {
+          accelProfile = "flat";
+          accelSpeed = "4.0";
+        };
+      };
 
       desktopManager.xterm.enable = false;
       displayManager.lightdm.enable = true;
@@ -63,7 +79,7 @@
     
       lowLatency = {
         enable = true;
-        quantum = 128; # tweak for less latency, too low will crackle
+        quantum = 48; # tweak for less latency, too low will crackle
         rate = 48000;
       };  
     }; 

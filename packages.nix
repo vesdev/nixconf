@@ -5,12 +5,14 @@
     gh
     neofetch
     jq
+    bottom
 
     # deps
     libinput
     nodePackages_latest.pnpm
     linuxPackages_latest.perf
-
+    openjdk
+    
     # --apps--
     
       # system
@@ -23,30 +25,41 @@
       feh
       alacritty
       pagbar.packages.${hostPlatform.system}.default
-
+      arandr
+      
       # user
       librewolf
       krita
-      inkscape
+      # inkscape
       discord-canary
-      chatterino2
+      # chatterino2
       mullvad-vpn
       obs-studio
+      # nix-gaming.packages.${hostPlatform.system}.wine-discord-ipc-bridge
+      # nix-gaming.packages.${hostPlatform.system}.wine-osu
       nix-gaming.packages.${hostPlatform.system}.osu-stable
     
       # dev
       helix
-      vscodium
+      # vscodium
 
     # -------
   ];
 
   programs = {
     home-manager.enable = true;
-    git.enable = true;
-
-    bash.shellAliases = {
-      nd = "nix develop";
+    starship.enable = true;
+    starship.enableNushellIntegration = true;
+    nushell = {
+      enable = true;
+      shellAliases = {
+        nd = "nix develop";
+      };
+      configFile.text = ''
+        let-env config = {
+          show_banner: false,
+        }
+      '';
     };
   };
 }

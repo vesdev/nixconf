@@ -12,16 +12,28 @@
     leftwm.url = "github:leftwm/leftwm";
     pagbar.url = "github:vesdev/pagbar";
     helix.url = "github:helix-editor/helix";
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
  
-  outputs = { self, nixpkgs, home-manager, nix-gaming, pagbar, ...}:
+  outputs = { self, nixpkgs, home-manager, nix-gaming, pagbar, leftwm, nix-ld, ...}:
   let
-    username = "ves"; 
+    system = "x86_64-linux";
+    username = "ves";
+    pkgs = import nixpkgs {
+      inherit system;
+      config = { allowUnfree = true; };
+      overlays = [
+        leftwm.overlay
+      ];
+    };
   in{
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit pkgs;
       #for pipewrite low latency in configuration.nix
-      specialArgs = {inherit username nix-gaming;};
+      specialArgs = {inherit username nix-gaming nix-ld;};
       modules = [ 
         ./system.nix
         ./system-packages.nix

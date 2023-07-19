@@ -5,12 +5,12 @@ text-secondary = "#353747"
 
 [bar.main]
 monitor = 0
-position = "bottom"
+position = "top"
 size = 50
 
 
 [bar.right]
 monitor = 1
-position = "right"
+position = "top"
 size = 50
 

@@ -1,6 +1,5 @@
 { config, pkgs, username, ... }: 
 {
-  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "23.05";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];  
   powerManagement.cpuFreqGovernor = "performance";
@@ -10,6 +9,7 @@
     home = "/home/${username}";
     extraGroups = [ "wheel" "docker" ]; 
     initialPassword = username;
+    shell = pkgs.nushell;
   };  
 
   time.timeZone = "Europe/Helsinki";
@@ -20,7 +20,10 @@
     trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
   };
 
-  environment.variables.SUDO_EDITOR = "hx";
+  environment = {
+    variables.SUDO_EDITOR = "hx";
+    shells = [ pkgs.nushell ];
+  };
     
   hardware = {
     opengl.enable = true;
