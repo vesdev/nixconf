@@ -30,6 +30,7 @@
       # user
       librewolf
       krita
+      handbrake
       # inkscape
       discord-canary
       # chatterino2

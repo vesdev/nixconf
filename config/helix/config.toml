@@ -10,6 +10,7 @@ pagedown = "no_op"
 home = "no_op"
 end = "no_op"
 C-s = ":w"
+C-p = [ "insert_newline", "paste_before" ]
 
 [keys.insert]
 up = "no_op"
@@ -20,7 +21,7 @@ pageup = "no_op"
 pagedown = "no_op"
 home = "no_op"
 end = "no_op"
-"C-[" = "normal_mode"
+"C-q" = "normal_mode"
 C-s = ":w"
 
 [editor]
