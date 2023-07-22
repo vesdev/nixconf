@@ -1,7 +1,8 @@
 {
-  description = "ves anixos config";
+  description = "ves nixos config";
 
   inputs = {
+
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -12,13 +13,10 @@
     leftwm.url = "github:leftwm/leftwm";
     pagbar.url = "github:vesdev/pagbar";
     helix.url = "github:helix-editor/helix";
-    nix-ld = {
-      url = "github:Mic92/nix-ld";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
+
   };
  
-  outputs = { self, nixpkgs, home-manager, nix-gaming, pagbar, leftwm, nix-ld, ...}:
+  outputs = { self, nixpkgs, home-manager, nix-gaming, pagbar, leftwm, ...}:
   let
     system = "x86_64-linux";
     username = "ves";
@@ -32,15 +30,13 @@
   in{
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit pkgs;
-      #for pipewrite low latency in configuration.nix
-      specialArgs = {inherit username nix-gaming nix-ld;};
+      specialArgs = {inherit username nix-gaming home-manager;};
       modules = [ 
         ./system.nix
-        ./system-packages.nix
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.ves = {
+          home-manager.users.${username} = {
             home = {
               inherit username;
               homeDirectory = "/home/${username}";
@@ -57,5 +53,4 @@
       ];
     };
   };
-
 }

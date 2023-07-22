@@ -59,7 +59,7 @@
     sloppy_mouse_follows_focus: true,
     auto_derive_workspaces: true,
     keybind: [
-        (command: Execute, value: "rofi -combi-modi window,drun,run,ssh -theme squared-material-red -show combi", modifier: ["modkey"], key: "space"),
+        (command: Execute, value: "pkill rofi || rofi -combi-modi window,drun,run,ssh -theme squared-material-red -show window -icon-theme \"Papirus\" -show-icons", modifier: ["modkey"], key: "space"),
         (command: Execute, value: "alacritty", modifier: ["modkey"], key: "Return"),
         (command: Execute, value: "librewolf", modifier: ["modkey"], key: "b"),
         (command: Execute, value: "pkill picom", modifier: ["modkey", "Shift"], key: "p"),
