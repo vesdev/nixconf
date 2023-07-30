@@ -27,7 +27,7 @@
   in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system pkgs;
-      specialArgs = {inherit nix-gaming home-manager;};
+      specialArgs = {inherit home-manager;};
       modules = [
         "${nix-gaming}/modules/pipewireLowLatency.nix"
         ./system.nix
