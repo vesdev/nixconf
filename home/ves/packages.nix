@@ -1,4 +1,4 @@
-{ config, pkgs, nix-gaming, pagbar, ... }: 
+{ config, pkgs, ... }: 
 {
   home.packages = with pkgs; [
     # cli
@@ -25,7 +25,7 @@
       rofi
       feh
       alacritty
-      pagbar.packages.${hostPlatform.system}.default
+      pagbar
       arandr
       
       # user
@@ -37,10 +37,8 @@
       chatterino2
       mullvad-vpn
       obs-studio
-      # nix-gaming.packages.${hostPlatform.system}.wine-discord-ipc-bridge
-      # nix-gaming.packages.${hostPlatform.system}.wine-osu
-      nix-gaming.packages.${hostPlatform.system}.osu-stable
-      nix-gaming.packages.${hostPlatform.system}.osu-lazer-bin
+      osu-stable
+      osu-lazer-bin
 
       # dev
       helix

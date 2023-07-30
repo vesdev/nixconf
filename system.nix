@@ -6,7 +6,6 @@
   imports = [
     ./hardware
     ./home
-    "${nix-gaming}/modules/pipewireLowLatency.nix"
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];  

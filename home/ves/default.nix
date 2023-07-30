@@ -1,4 +1,4 @@
-{ config, pkgs, pagbar, nix-gaming, ...}:
+{ config, pkgs, home-manager, ...}:
 let
   username = "ves"; 
 in {
@@ -26,7 +26,6 @@ in {
           ./packages.nix
         ];
       };
-      home-manager.extraSpecialArgs = {inherit nix-gaming pagbar;};
     }
   ];
 }
