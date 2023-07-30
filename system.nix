@@ -1,11 +1,11 @@
-{ config, pkgs, username, nix-gaming, ... }: 
+{ config, pkgs, nix-gaming, home-manager, ... }: 
 {
   system.stateVersion = "23.05";
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ./hardware-configuration.nix
-    ./pcie-pass.nix
+    ./hardware
+    ./home
     "${nix-gaming}/modules/pipewireLowLatency.nix"
   ];
 
@@ -17,14 +17,6 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
   };
-
-  users.users.${username} = {
-    isNormalUser = true;
-    home = "/home/${username}";
-    extraGroups = [ "wheel" "docker" ]; 
-    initialPassword = username;
-    shell = pkgs.nushell;
-  };
     
   time.timeZone = "Europe/Helsinki";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -32,6 +24,8 @@
   nix.settings = {
     substituters = [ "https://nix-gaming.cachix.org" ];
     trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
+
+    trusted-users = [ "ves" ];
   };
 
   environment = {
@@ -109,7 +103,7 @@
     
       lowLatency = {
         enable = true;
-        quantum = 48; # tweak for less latency, too low will crackle
+        quantum = 256; # tweak for less latency, too low will crackle
         rate = 48000;
       };  
     }; 

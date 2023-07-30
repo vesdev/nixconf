@@ -6,6 +6,7 @@
     neofetch
     jq
     bottom
+    joshuto
 
     # deps
     libinput
@@ -33,13 +34,14 @@
       handbrake
       # inkscape
       discord-canary
-      # chatterino2
+      chatterino2
       mullvad-vpn
       obs-studio
       # nix-gaming.packages.${hostPlatform.system}.wine-discord-ipc-bridge
       # nix-gaming.packages.${hostPlatform.system}.wine-osu
       nix-gaming.packages.${hostPlatform.system}.osu-stable
-    
+      nix-gaming.packages.${hostPlatform.system}.osu-lazer-bin
+
       # dev
       helix
       # vscodium
@@ -62,5 +64,7 @@
         }
       '';
     };
+    direnv.enable = true;
+    direnv.nix-direnv.enable = true;
   };
 }
