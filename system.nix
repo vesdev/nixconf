@@ -29,7 +29,8 @@
 
   environment = {
     variables.SUDO_EDITOR = "hx";
-    shells = [ pkgs.nushell ];
+    variables.EDITOR = "hx";
+    # shells = [ pkgs.nushell ];
   };
     
   hardware = {
@@ -43,7 +44,7 @@
   sound.enable = true; 
   security.rtkit.enable = true;  
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 

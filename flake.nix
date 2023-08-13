@@ -10,11 +10,11 @@
 
     nix-gaming.url = "github:fufexan/nix-gaming";
     leftwm.url = "github:leftwm/leftwm";
-    pagbar.url = "github:vesdev/pagbar";
+    # pagbar.url = "github:vesdev/pagbar";
     joshuto.url = "github:kamiyaa/joshuto";
   };
  
-  outputs = { self, nixpkgs, home-manager, nix-gaming, pagbar, leftwm, joshuto, ...}:
+  outputs = { self, nixpkgs, home-manager, nix-gaming, leftwm, joshuto, ...}:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; config.allowUnfree = true; } // {      
@@ -22,7 +22,7 @@
       joshuto = joshuto.packages.${system}.default;
       osu-stable = nix-gaming.packages.${system}.osu-stable;
       osu-lazer-bin = nix-gaming.packages.${system}.osu-lazer-bin;
-      pagbar = pagbar.packages.${system}.default;
+      # pagbar = pagbar.packages.${system}.default;
     };
   in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {

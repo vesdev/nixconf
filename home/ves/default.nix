@@ -5,10 +5,9 @@ in {
   imports = [
     {users.users.${username} = {
       isNormalUser = true;
-      home = "/home/${username}";
       extraGroups = [ "wheel" "docker" ]; 
       initialPassword = username;
-      shell = pkgs.nushell;
+      # shell = pkgs.nushell;
     };}
 
     home-manager.nixosModules.home-manager {

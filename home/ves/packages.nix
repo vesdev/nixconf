@@ -13,6 +13,8 @@
     nodePackages_latest.pnpm
     linuxPackages_latest.perf
     openjdk
+    pamixer
+    pulseaudio
     
     # --apps--
     
@@ -25,7 +27,7 @@
       rofi
       feh
       alacritty
-      pagbar
+      polybar
       arandr
       
       # user
@@ -50,18 +52,21 @@
   programs = {
     home-manager.enable = true;
     starship.enable = true;
-    starship.enableNushellIntegration = true;
-    nushell = {
+    starship.enableBashIntegration = true;
+    bash = {
       enable = true;
       shellAliases = {
         nd = "nix develop";
+        jh = "joshuto";
       };
-      configFile.text = ''
-        let-env config = {
-          show_banner: false,
-        }
-      '';
+      # configFile.text = ''
+      #   $env.config = {
+      #     show_banner: false,
+      #   }
+      # '';
     };
+
+    bash.enableCompletion = true;
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
   };

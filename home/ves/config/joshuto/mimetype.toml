@@ -1,0 +1,13 @@
+[class]
+text_default = [ { command = "hx" }]
+
+[extension]
+rs.app_list	= [ { command = "hx" } ]
+toml.app_list	= [ { command = "hx" } ]
+nix.app_list	= [ { command = "hx" } ]
+
+[mimetype]
+
+# text/*
+[mimetype.text]
+inherit = "text_default"
