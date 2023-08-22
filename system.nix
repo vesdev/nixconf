@@ -30,7 +30,7 @@
   environment = {
     variables.SUDO_EDITOR = "hx";
     variables.EDITOR = "hx";
-    # shells = [ pkgs.nushell ];
+    shells = [ pkgs.nushell ];
   };
     
   hardware = {
@@ -73,6 +73,10 @@
   services = {
     mullvad-vpn.enable = true;
     openssh.enable = true;
+
+    udev.packages = [
+      pkgs.qmk-udev-rules
+    ];
     
     xserver = {
       enable = true;

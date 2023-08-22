@@ -1,13 +1,19 @@
-{ config, pkgs, ... }: 
-{
+{ config, pkgs, ... }:
+let
+  shellAliases = {
+    nd = "nix develop";
+    jh = "joshuto";
+  };
+in {
   home.packages = with pkgs; [
     # cli
     gh
     neofetch
     jq
     bottom
-    joshuto
-
+    joshuto 
+    qmk
+    
     # deps
     libinput
     nodePackages_latest.pnpm
@@ -52,21 +58,22 @@
   programs = {
     home-manager.enable = true;
     starship.enable = true;
-    starship.enableBashIntegration = true;
-    bash = {
+    starship.enableNushellIntegration = true;
+    nushell = {
       enable = true;
-      shellAliases = {
-        nd = "nix develop";
-        jh = "joshuto";
-      };
-      # configFile.text = ''
-      #   $env.config = {
-      #     show_banner: false,
-      #   }
-      # '';
+      inherit shellAliases;
+      configFile.text = ''
+        $env.config = {
+          show_banner: false,
+        }
+      '';
     };
 
-    bash.enableCompletion = true;
+    bash = {
+      enable = true;
+      inherit shellAliases;
+    };
+
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
   };
