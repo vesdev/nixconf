@@ -83,7 +83,10 @@
 
       deviceSection = ''
         Option "TearFree" "true"
+        Option "EnablePageFlip" "off"
       '';
+
+      layout = "de(us)";
 
       libinput = {
         enable = true;

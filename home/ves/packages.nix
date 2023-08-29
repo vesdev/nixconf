@@ -3,6 +3,7 @@ let
   shellAliases = {
     nd = "nix develop";
     jh = "joshuto";
+    lg = "lazygit";
   };
 in {
   home.packages = with pkgs; [
@@ -13,6 +14,8 @@ in {
     bottom
     joshuto 
     qmk
+    lazygit
+    appimage-run
     
     # deps
     libinput
