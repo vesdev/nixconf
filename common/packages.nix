@@ -2,7 +2,7 @@
 let
   shellAliases = {
     nd = "nix develop";
-    jh = "joshuto";
+    # jh = "joshuto";
     lg = "lazygit";
   };
 in {
@@ -12,8 +12,8 @@ in {
     neofetch
     jq
     bottom
-    joshuto 
-    qmk
+    # joshuto 
+    # qmk
     lazygit
     appimage-run
     
@@ -41,15 +41,15 @@ in {
       
       # user
       librewolf
-      krita
-      handbrake
+      # krita
+      # handbrake
       # inkscape
       discord-canary
       chatterino2
       mullvad-vpn
-      obs-studio
-      osu-stable
-      osu-lazer-bin
+      # obs-studio
+      # osu-stable
+      # osu-lazer-bin
 
       # dev
       helix

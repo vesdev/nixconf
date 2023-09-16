@@ -3,14 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    home-manager.url = "github:nix-community/home-manager/master";
     nix-gaming.url = "github:fufexan/nix-gaming";
     leftwm.url = "github:leftwm/leftwm";
-    # pagbar.url = "github:vesdev/pagbar";
     joshuto.url = "github:kamiyaa/joshuto";
   };
  
@@ -22,16 +17,20 @@
       joshuto = joshuto.packages.${system}.default;
       osu-stable = nix-gaming.packages.${system}.osu-stable;
       osu-lazer-bin = nix-gaming.packages.${system}.osu-lazer-bin;
-      # pagbar = pagbar.packages.${system}.default;
+    };
+
+    commonArgs = {
+        inherit system pkgs;
+        specialArgs = {inherit home-manager nix-gaming;};
     };
   in {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      inherit system pkgs;
-      specialArgs = {inherit home-manager;};
-      modules = [
-        "${nix-gaming}/modules/pipewireLowLatency.nix"
-        ./system.nix
-      ];
+    nixosConfigurations = {
+      pc = nixpkgs.lib.nixosSystem (commonArgs // {
+        modules = [ ./global.nix ./pc ];
+      });
+      laptop = nixpkgs.lib.nixosSystem ( commonArgs // {
+        modules = [ ./global.nix ./laptop ];
+      });  
     };
   };
 }
