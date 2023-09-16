@@ -7,7 +7,7 @@ in {
       isNormalUser = true;
       extraGroups = [ "wheel" "docker" ]; 
       initialPassword = username;
-      shell = pkgs.nushell;
+      # shell = pkgs.nushell;
     };}
 
     home-manager.nixosModules.home-manager {

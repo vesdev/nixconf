@@ -19,6 +19,7 @@ in
     OVMF
     dconf
     looking-glass-client
+    scream
   ];
 
   virtualisation.libvirtd = {
@@ -32,7 +33,18 @@ in
   users.users.${username}.extraGroups = [ "libvirtd" ];
 
   systemd.tmpfiles.rules = [
+    "f /dev/shm/scream 0660 alex qemu-libvirtd -"
     "f /dev/shm/looking-glass 0660 ${username} qemu-libvirtd -"
   ];
 
+  systemd.user.services.scream-ivshmem = {
+    enable = true;
+    description = "Scream IVSHMEM";
+    serviceConfig = {
+      ExecStart = "${pkgs.scream}/bin/scream-ivshmem-pulse /dev/shm/scream";
+      Restart = "always";
+    };
+    wantedBy = [ "multi-user.target" ];
+    requires = [ "pulseaudio.service" ];
+  };
 }

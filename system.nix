@@ -30,7 +30,7 @@
   environment = {
     variables.SUDO_EDITOR = "hx";
     variables.EDITOR = "hx";
-    shells = [ pkgs.nushell ];
+    # shells = [ pkgs.nushell ];
   };
     
   hardware = {
@@ -50,7 +50,7 @@
 
   networking = {
     hostName = "nixos";
-    networkmanager.enable = true;
+    wireless.iwd.enable = true;
     wireguard.enable = true;
   };
   
@@ -69,6 +69,26 @@
       dedicatedServer.openFirewall = true;
     };
   };
+
+  systemd.tmpfiles.rules = [
+    "w /proc/sys/vm/compaction_proactiveness - - - - 0"
+    "w /proc/sys/vm/min_free_kbytes - - - - 1048576"
+    "w /proc/sys/vm/swappiness - - - - 10"
+    "w /sys/kernel/mm/lru_gen/enabled - - - - 5"
+    "w /proc/sys/vm/zone_reclaim_mode - - - - 0"
+    "w /sys/kernel/mm/transparent_hugepage/enabled - - - - never"
+    "w /sys/kernel/mm/transparent_hugepage/shmem_enabled - - - - never"
+    "w /sys/kernel/mm/transparent_hugepage/khugepaged/defrag - - - - 0"
+    "w /proc/sys/vm/page_lock_unfairness - - - - 1"
+    "w /proc/sys/kernel/sched_child_runs_first - - - - 0"
+    "w /proc/sys/kernel/sched_autogroup_enabled - - - - 1"
+    "w /proc/sys/kernel/sched_cfs_bandwidth_slice_us - - - - 500"
+    "w /sys/kernel/debug/sched/latency_ns  - - - - 1000000"
+    "w /sys/kernel/debug/sched/migration_cost_ns - - - - 500000"
+    "w /sys/kernel/debug/sched/min_granularity_ns - - - - 500000"
+    "w /sys/kernel/debug/sched/wakeup_granularity_ns  - - - - 0"
+    "w /sys/kernel/debug/sched/nr_migrate - - - - 8"
+  ];
 
   services = {
     mullvad-vpn.enable = true;
@@ -110,7 +130,7 @@
     
       lowLatency = {
         enable = true;
-        quantum = 256; # tweak for less latency, too low will crackle
+        quantum = 64; # tweak for less latency, too low will crackle
         rate = 48000;
       };  
     }; 

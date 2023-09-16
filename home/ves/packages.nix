@@ -28,7 +28,7 @@ in {
     # --apps--
     
       # system
-      pcmanfm
+      xfce.thunar
       xarchiver
       pavucontrol
       flameshot
@@ -60,17 +60,17 @@ in {
 
   programs = {
     home-manager.enable = true;
-    starship.enable = true;
-    starship.enableNushellIntegration = true;
-    nushell = {
-      enable = true;
-      inherit shellAliases;
-      configFile.text = ''
-        $env.config = {
-          show_banner: false,
-        }
-      '';
-    };
+    # starship.enable = true;
+    # starship.enableNushellIntegration = true;
+    # nushell = {
+    #   enable = true;
+    #   inherit shellAliases;
+    #   configFile.text = ''
+    #     $env.config = {
+    #       show_banner: false,
+    #     }
+    #   '';
+    # };
 
     bash = {
       enable = true;

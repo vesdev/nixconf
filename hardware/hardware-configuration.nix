@@ -11,18 +11,11 @@
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
-  boot.kernelParams = [ 
-    # "initcall_blacklist=acpi_cpufreq_init"
-    # "amd_pstate=active"
-    # "amd_pstate.shared_mem=1"
-    "tsc=reliable" 
-    "clocksource=tsc" 
-  ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/8bfcd56d-e7a1-45bd-9145-e68dfd37fab8";
-      fsType = "ext4";
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/494A-22A0";
+      fsType = "vfat";
     };
 
   fileSystems."/home" =
@@ -30,9 +23,9 @@
       fsType = "ext4";
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/5887-32C1";
-      fsType = "vfat";
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/d1f0b8ae-52ff-4445-8f73-69c22c2d767d";
+      fsType = "ext4";
     };
 
   swapDevices = [ ];
