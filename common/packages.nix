@@ -4,6 +4,7 @@ let
     nd = "nix develop";
     # jh = "joshuto";
     lg = "lazygit";
+    switch = "sudo nixos-rebuild switch --flake";
   };
 in {
   home.packages = with pkgs; [

@@ -12,9 +12,10 @@ in
   
   # CHANGE: Don't forget to put your own PCI IDs here
   boot.extraModprobeConfig ="options vfio-pci ids=10de:1f08,10de:10f9,10de:1ada,10de:1adb";
+  boot.extraModulePackages = [ pkgs.linuxPackages_xanmod_latest.kvmfr ];
   
   environment.systemPackages = with pkgs; [
-    virtmanager
+    virt-manager
     qemu
     OVMF
     dconf
@@ -47,4 +48,9 @@ in
     wantedBy = [ "multi-user.target" ];
     requires = [ "pulseaudio.service" ];
   };
+
+  services.udev.extraRules = ''
+    SUBSYSTEM=="kvmfr", OWNER="${username}", GROUP="kvm", MODE="0660"
+  '';
+
 }

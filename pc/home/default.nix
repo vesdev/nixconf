@@ -6,6 +6,7 @@ in {
     ../../common/gaming.nix
     ../../common/network.nix
     ../../common/leftwm.nix
+    # ../../common/sway.nix
     ../../common/pipewire.nix
 
     {
@@ -28,6 +29,9 @@ in {
         variables.SUDO_EDITOR = "hx";
         variables.EDITOR = "hx";
       };
+      xdg.portal.enable = true;
+      xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+#       services.flatpak.enable = true;
     }
 
     home-manager.nixosModules.home-manager {

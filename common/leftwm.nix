@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   services = {
     
@@ -13,13 +14,29 @@
       libinput = {
         enable = true;
         mouse.accelProfile = "flat";
-        mouse.accelSpeed = "4.0";
+        # mouse.accelSpeed = "4.0";
       };
 
       desktopManager.xterm.enable = false;
-      displayManager.lightdm.enable = true;
+      displayManager.sddm.enable = true;
       windowManager.leftwm.enable = true;
     };
 
   }; 
+
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+          Type = "simple";
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+        };
+    };
+  };
 }

@@ -1,54 +1,60 @@
 # syntax
 string = "orange"
-constant = "#a95ec9"
-"constant.numeric" = "#e4b28f"
-"constant.builtin" = "#e4b28f"
-variable = "#d55070"
+constant = "purple"
+"constant.numeric" = "orange"
+"constant.builtin" = "orange"
+variable = "red"
 comment = "#26cf98"
-special = "#a96ec9"
-"punctuation.bracket" = "#a96ec9"
-keyword = "#a96ec9"
-function = "#24a2ae"
-label = "#e4b28f"
-type = "#e4b28f"
-namespace = "#e4b28f"
+special = "purple"
+"punctuation.bracket" = "purple"
+keyword = "purple"
+function = "blue"
+label = "orange"
+type = "orange"
+namespace = "orange"
 
 #ui
-"ui.background" = { bg = "background", fg = "dark-pink" }
+"ui.background" = { bg = "bg", fg = "dark-pink" }
 "ui.background.separator" = "dark-pink"
-"ui.text" = "#d5d8da"
-"ui.text.focus" = "#26cf98"
+"ui.text" = "white"
+"ui.text.focus" = "green"
 "ui.text.inactive" = "selection"
 "ui.text.info" = "orange"
 "ui.cursor" = { modifiers = ["reversed"] }
 "ui.cursor.primary" = { modifiers = ["reversed"] }
 "ui.cursor.match" = { bg = "selection" }
-"ui.gutter" = "#2f3138"
-"ui.gutter.selected" = "#797b80"
+"ui.gutter" = "gray"
+"ui.gutter.selected" = "light-gray"
 "ui.selection" = { bg = "selection" }
-"ui.virtual.indent-guide" = { fg = "#2f3138"}
-"ui.statusline" = { bg = "shadow", fg = "orange" }
+"ui.virtual.indent-guide" = { fg = "gray"}
+"ui.statusline" = { bg = "dark-bg", fg = "orange" }
 
-"ui.popup" = { bg = "shadow", fg = "orange" }
-"ui.help" = { bg = "shadow", fg = "orange" }
-"ui.menu" = { bg = "shadow", fg = "orange" }
+"ui.popup" = { bg = "dark-bg", fg = "orange" }
+"ui.help" = { bg = "dark-bg", fg = "orange" }
+"ui.menu" = { bg = "dark-bg", fg = "orange" }
 "ui.window" = "selection"
 
-"diagnostic" = { underline = { style = "curl" } }
-"diagnostic.hint" = { underline = { color = "orange", style = "curl" } }
-"diagnostic.info" = { underline = { color = "green", style = "curl" } }
-"diagnostics.error" = { underline = { color = "dark-pink", style = "curl"} }
+"diagnostic.hint" = { underline = { color = "green", style = "curl" } }
+"diagnostic.info" = { underline = { color = "blue", style = "curl" } }
+"diagnostics.error" = { underline = { color = "red", style = "curl"} }
 "diagnostics.warning" = { underline = { color = "orange", style = "curl"} }
 
 "warning" = { fg = "orange", modifiers = ["bold"] }
-"error" = { fg = "dark-pink", modifiers = ["bold"] }
-"info" = { fg = "green", modifiers = ["bold"] }
-"hint" = { fg = "orange", modifiers = ["bold"] }
+"error" = { fg = "red", modifiers = ["bold"] }
+"info" = { fg = "blue", modifiers = ["bold"] }
+"hint" = { fg = "green", modifiers = ["bold"] }
 
 [palette]
-background = "#1c1e26"
-shadow = "#16161c"
+white = "#d5d8da"
+gray = "#2f3138"
+light-gray = "#797b80"
+bg = "#1c1e26"
+dark-bg = "#16161c"
 dark-pink = "#e95378"
 selection = "#353747"
 green = "#26cf98"
 orange = "#e4a88a"
+# light-orange = "#e4b28f"
+purple = "#a95ec9"
+red = "#d55070"
+blue = "#24a2ae"

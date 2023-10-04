@@ -48,4 +48,13 @@
     };
   };
 
+  #disable smoothing for otd artist mode
+  environment.etc = {
+    "libinput/local-overrides.quirks".text = ''
+      [OpenTabletDriver Virtual Tablets]
+      MatchName=OpenTabletDriver*
+      AttrTabletSmoothing=0
+    '';
+  };
+
 }
