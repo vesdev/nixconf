@@ -36,7 +36,6 @@
               xorg.xcbproto
               xorg.xcbutilimage
               xorg.xcbutilwm.dev
-              stdenv
             ];
           };
           default = polybar;
