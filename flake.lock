@@ -655,12 +655,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-EMpuUbmpzBo7wh/y9KEJRFMqf6r0UUUio/2A4PWScl8=",
-        "path": "/nix/store/dw2yd9xjcf9dckc873gj6c661v6pab6b-source/common/polybar",
+        "narHash": "sha256-D2S2NnGNpIVV/ISRlEkRXs4uX63h1l7oaFpzFD2/AXQ=",
+        "path": "/nix/store/n3ddhkhhfb2r84pkm0j48spf6hll4phh-source/common/polybar",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/dw2yd9xjcf9dckc873gj6c661v6pab6b-source/common/polybar",
+        "path": "/nix/store/n3ddhkhhfb2r84pkm0j48spf6hll4phh-source/common/polybar",
         "type": "path"
       }
     },

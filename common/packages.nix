@@ -25,6 +25,7 @@ in {
     openjdk
     pamixer
     pulseaudio
+    cava
     
     # --apps--
     

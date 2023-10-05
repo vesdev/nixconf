@@ -30,8 +30,8 @@ C-s = ":w"
 
 [editor]
 mouse = false
-true-color = true
 bufferline = "always"
+# true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
