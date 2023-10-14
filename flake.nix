@@ -7,11 +7,10 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     leftwm.url = "github:leftwm/leftwm";
     joshuto.url = "github:kamiyaa/joshuto";
-    hyprland.url = "github:/hyprwm/Hyprland";
     polybar.url = "./common/polybar";
   };
  
-  outputs = { self, nixpkgs, hyprland, home-manager, nix-gaming, leftwm, joshuto, polybar, ...}:
+  outputs = { self, nixpkgs, home-manager, nix-gaming, leftwm, joshuto, polybar, ...}:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { 
@@ -33,7 +32,6 @@
     nixosConfigurations = {
       pc = nixpkgs.lib.nixosSystem (commonArgs // {
         modules = [ 
-          hyprland.nixosModules.default
           ./global.nix 
           ./pc 
         ];

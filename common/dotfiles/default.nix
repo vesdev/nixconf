@@ -6,5 +6,6 @@
     ./alacritty
     ./rofi
     ./joshuto
+    ./polybar
   ];
 }

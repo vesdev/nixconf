@@ -19,5 +19,6 @@ set background
 # xsetroot -solid "#1c1717"
 
 
-polybar -c $SCRIPTPATH/polybar.config
+polybar -c $HOME/.config/polybar/polybar.config
+# polybar
 # pagbar --config $SCRIPTPATH/pagbar.toml &

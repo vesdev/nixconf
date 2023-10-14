@@ -12,9 +12,13 @@ in {
     {
       users.users.${username} = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "docker" ]; 
+        extraGroups = [ "wheel" "docker" "video" ]; 
         initialPassword = username;
       };
+
+      services.udev.extraRules = ''
+        ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
+      '';
 
       nix.settings.trusted-users = [ "ves" ];
 
@@ -31,7 +35,6 @@ in {
       };
       xdg.portal.enable = true;
       xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-#       services.flatpak.enable = true;
     }
 
     home-manager.nixosModules.home-manager {
@@ -48,6 +51,7 @@ in {
           ../../common/packages.nix
           ../../common/dotfiles
           ./packages.nix
+          ./dotfiles
           # ./config
         ];
       };
