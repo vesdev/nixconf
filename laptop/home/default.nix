@@ -8,6 +8,7 @@ in {
     ../../common/leftwm.nix
     # ../../common/sway.nix
     ../../common/pipewire.nix
+    ../../common/gtk.nix
 
     {
       users.users.${username} = {
