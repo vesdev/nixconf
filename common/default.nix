@@ -29,4 +29,5 @@
   ];
   
   programs.git.enable = true;
+  programs.dconf.enable = true;
 }
