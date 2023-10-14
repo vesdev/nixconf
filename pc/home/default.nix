@@ -6,7 +6,6 @@ in {
     ../../common/gaming.nix
     ../../common/network.nix
     ../../common/leftwm.nix
-    ../../common/sway.nix
     ../../common/pipewire.nix
 
     {
@@ -47,7 +46,9 @@ in {
         imports = [
           ../../common/packages.nix
           ../../common/dotfiles
+          ../../common/gtk.nix
           ./packages.nix
+          ./dotfiles
           # ./config
         ];
       };
