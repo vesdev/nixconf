@@ -32,12 +32,15 @@
     nixosConfigurations = {
       pc = nixpkgs.lib.nixosSystem (commonArgs // {
         modules = [ 
-          ./global.nix 
+          ./common 
           ./pc 
         ];
       });
       laptop = nixpkgs.lib.nixosSystem ( commonArgs // {
-        modules = [ ./global.nix ./laptop ];
+        modules = [ 
+          ./common 
+          ./laptop 
+        ];
       });  
     };
   };

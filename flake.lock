@@ -656,11 +656,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-D2S2NnGNpIVV/ISRlEkRXs4uX63h1l7oaFpzFD2/AXQ=",
-        "path": "/nix/store/pf7cg537cav92mh4wc5prqspnqvwsyg5-source/common/polybar",
+        "path": "/nix/store/f1sdgwcnf7xn2rph2wnlqs6r45cgq29d-source/common/polybar",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/pf7cg537cav92mh4wc5prqspnqvwsyg5-source/common/polybar",
+        "path": "/nix/store/f1sdgwcnf7xn2rph2wnlqs6r45cgq29d-source/common/polybar",
         "type": "path"
       }
     },
