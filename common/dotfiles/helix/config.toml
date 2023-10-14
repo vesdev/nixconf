@@ -1,4 +1,4 @@
-theme = "horizon-dark"
+theme = "keko"
 
 [keys.normal]
 up = "no_op"
@@ -29,8 +29,9 @@ end = "no_op"
 C-s = ":w"
 
 [editor]
-mouse = false
+# mouse = false
 bufferline = "always"
+line-number = "relative"
 # true-color = true
 
 [editor.cursor-shape]

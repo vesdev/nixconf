@@ -29,5 +29,4 @@
   ];
   
   programs.git.enable = true;
-
 }

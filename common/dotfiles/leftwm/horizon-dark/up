@@ -12,11 +12,11 @@ ln -s $SCRIPTPATH/down /tmp/leftwm-theme-down
 #set the theme.ron config
 leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
 
-#set background
-if [ -x "$(command -v feh)" ]; then
-  feh --bg-fill $SCRIPTPATH/wallpaper.jpg
-fi
-# xsetroot -solid "#1c1e26"
+set background
+ if [ -x "$(command -v feh)" ]; then
+   feh --bg-fill $SCRIPTPATH/wallpaper.jpg
+ fi
+# xsetroot -solid "#1c1717"
 
 
 polybar -c $SCRIPTPATH/polybar.config
