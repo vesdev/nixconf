@@ -1,0 +1,28 @@
+# Colors (keko)
+colors:
+  # Primary colors
+  primary:
+    background: '0x1c1717'
+    foreground: '0xb0adad'
+
+  # Normal colors
+  normal:
+    black: '0x020202'
+    red: '0xbe423e'
+    green: '0x459d6c'
+    yellow: '0xe48e6e'
+    blue: '0x798696'
+    magenta: '0xe8704b'
+    cyan: '0x827f7f'
+    white: '0xb0adad'
+
+  # Bright colors
+  bright:
+    black: '0x020202'
+    red: '0xbe423e'
+    green: '0x459d6c'
+    yellow: '0xe48e6e'
+    blue: '0x798696'
+    magenta: '0xe8704b'
+    cyan: '0x827f7f'
+    white: '0xb0adad'

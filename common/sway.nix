@@ -1,9 +1,10 @@
 { pkgs, ... }:
 {
-  programs.sway.enable = true;
+  programs.hyprland.enable = true;
 
   environment.systemPackages = with pkgs; [
     wayland
     wdisplays
+    wofi
   ];
 }

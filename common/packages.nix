@@ -2,6 +2,7 @@
 let
   shellAliases = {
     nd = "nix develop";
+    nl = "echo $SHLVL";
     # jh = "joshuto";
     lg = "lazygit";
     switch = "sudo nixos-rebuild switch --flake";
@@ -25,6 +26,7 @@ in {
     openjdk
     pamixer
     pulseaudio
+    cava
     
     # --apps--
     
