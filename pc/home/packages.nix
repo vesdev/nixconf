@@ -1,6 +1,6 @@
-{ pkgs, ...}:
+{ pkgs, myPkgs, ...}:
 {
-  home.packages = with pkgs; [  
+  home.packages = with pkgs; with myPkgs; [  
     brave
     vscodium
     qmk
@@ -11,6 +11,6 @@
     (osu-stable.override {
       location = "$HOME/.local/share/osu-stable";
     })
-    osu-lazer-bin
+    osu-lazer
   ];
 }

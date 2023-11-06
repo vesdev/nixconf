@@ -1,7 +1,6 @@
 { config, pkgs, home-manager, ... }: 
 {
   system.stateVersion = "23.05";
-  nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];  
 
   time.timeZone = "Europe/Helsinki";

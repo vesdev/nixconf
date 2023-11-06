@@ -1,6 +1,6 @@
-[[language]]
-name = "rust"
-language-server = { command = "rust-analyzer", environment = { "CARGO_TARGET_DIR" = "target/analyzer" } }
+[language-server.rust-analyzer.config.check]
+command = "clippy"
 
-[language.config]
-checkOnSave = { command = "clippy" }
+[[language]]
+name = "nix"
+formatter = { command = "nixpkgs-fmt" }

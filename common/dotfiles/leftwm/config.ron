@@ -61,6 +61,7 @@
         (command: Execute, value: "rofi -combi-modi drun,run,ssh -theme squared-material-red -show combi -icon-theme \"Papirus\" -show-icons", modifier: ["modkey"], key: "space"),
         (command: Execute, value: "alacritty", modifier: ["modkey"], key: "Return"),
         (command: Execute, value: "librewolf", modifier: ["modkey"], key: "b"),
+        (command: Execute, value: "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle", modifier: ["modkey"], key: "v"),
         (command: Execute, value: "looking-glass-client -m KEY_HOME", modifier: ["modkey"], key: "g"),
         (command: CloseWindow, value: "", modifier: ["modkey", "Shift"], key: "q"),
         (command: SoftReload, value: "", modifier: ["modkey", "Shift"], key: "r"),

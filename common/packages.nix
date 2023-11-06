@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, myPkgs, ... }:
 let
   shellAliases = {
     nd = "nix develop";
     nl = "echo $SHLVL";
+    ngc = "sudo nix-collect-gargbage -d";
     # jh = "joshuto";
     lg = "lazygit";
     switch = "sudo nixos-rebuild switch --flake";
@@ -14,8 +15,6 @@ in {
     neofetch
     jq
     bottom
-    # joshuto 
-    # qmk
     lazygit
     appimage-run
     
@@ -39,24 +38,17 @@ in {
       rofi
       feh
       alacritty
-      polybar
+      myPkgs.polybar
       arandr
       
       # user
       librewolf
-      # krita
-      # handbrake
-      # inkscape
-      discord-canary
+      discord
       chatterino2
       mullvad-vpn
-      # obs-studio
-      # osu-stable
-      # osu-lazer-bin
 
       # dev
       helix
-      # vscodium
 
     # -------
   ];

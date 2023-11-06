@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, myPkgs, ... }:
 {
   services = {
     
@@ -19,7 +19,10 @@
 
       desktopManager.xterm.enable = false;
       displayManager.sddm.enable = true;
-      windowManager.leftwm.enable = true;
+      windowManager.leftwm = {
+        enable = true;
+        package = myPkgs.leftwm;
+      };
     };
 
   }; 
