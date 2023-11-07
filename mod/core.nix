@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, ... }: 
+{ pkgs, home-manager, ... }: 
 {
   system.stateVersion = "23.05";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];  

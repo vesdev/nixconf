@@ -1,6 +1,6 @@
-{ pkgs, myPkgs, ...}:
+{ pkgs, mod, ...}:
 {
-  home.packages = with pkgs; with myPkgs; [  
+  home.packages = with pkgs; with mod; [  
     brave
     vscodium
     qmk

@@ -1,5 +1,7 @@
-{ pkgs, myPkgs, ... }:
-{
+{ pkgs, leftwm, ... }:
+let
+  package = leftwm.packages.${pkgs.system}.leftwm;
+in {
   services = {
     
     xserver = {
@@ -21,7 +23,7 @@
       displayManager.sddm.enable = true;
       windowManager.leftwm = {
         enable = true;
-        package = myPkgs.leftwm;
+        inherit package;
       };
     };
 
