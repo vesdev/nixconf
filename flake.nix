@@ -17,7 +17,7 @@
       config.allowUnfree = true;
     };
   in with import ./mod {inherit inputs pkgs;}; mkOS {
-    modules.pc = [
+    pc = [
       core
       gaming
       network
@@ -25,7 +25,7 @@
       pipewire
     ];
 
-    modules.laptop = [
+    laptop = [
       core
       gaming
       network

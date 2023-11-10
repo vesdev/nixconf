@@ -1,4 +1,4 @@
-{ mod, nixpkgs, home-manager, pkgs, ... }: { modules }:
+{ mod, nixpkgs, home-manager, pkgs, ... }: hosts:
   {
     nixosConfigurations =
       builtins.mapAttrs (name: value: nixpkgs.lib.nixosSystem {
@@ -12,6 +12,6 @@
 
           modules = value ++ [ ../+${name} ]; 
         }
-      ) modules;
+      ) hosts;
   }
 
