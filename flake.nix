@@ -25,15 +25,14 @@
       pipewire
     ];
 
-    # TODO: update laptop config
-    # host.laptop = [
-    #   core
-    #   gaming
-    #   network
-    #   hyprland
-    #   pipewire
+    host.laptop = [
+      core
+      gaming
+      network
+      hyprland
+      pipewire
 
-    #   ./laptop 
-    # ];    
+      ./laptop 
+    ];    
   };
 }
