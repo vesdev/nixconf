@@ -55,6 +55,7 @@ in {
     wdisplays
     wofi
     hyprpaper
+    waybar
   ];
 }
 

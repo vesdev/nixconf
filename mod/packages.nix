@@ -1,12 +1,11 @@
-{...}:
-  { pkgs, mod, host, ... }:
+{ mod , pkgs, ... }: { host, ... }:
   let
     shellAliases = {
       nd = "nix develop";
       nl = "echo $SHLVL";
-      ngc = "sudo nix-collect-gargbage -d";
-      jh = "joshuto";
+      ngc = "sudo nix-collect-garbage -d";
       lg = "lazygit";
+      ls = "eza";
       switch = "sudo nixos-rebuild switch --flake .#${host}";
     };
   in {
@@ -18,6 +17,7 @@
       bottom
       lazygit
       appimage-run
+      eza
     
       # deps
       libinput
@@ -56,17 +56,6 @@
 
     programs = {
       home-manager.enable = true;
-      # starship.enable = true;
-      # starship.enableNushellIntegration = true;
-      # nushell = {
-      #   enable = true;
-      #   inherit shellAliases;
-      #   configFile.text = ''
-      #     $env.config = {
-      #       show_banner: false,
-      #     }
-      #   '';
-      # };
 
       bash = {
         enable = true;

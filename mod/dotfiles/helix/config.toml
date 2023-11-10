@@ -1,4 +1,4 @@
-theme = "keko"
+theme = "horizon-dark"
 
 [keys.normal]
 up = "no_op"
@@ -11,10 +11,6 @@ home = "no_op"
 end = "no_op"
 C-s = ":w"
 C-p = [ "insert_newline", "paste_before" ]
-C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
-C-h = ["unindent"]
-C-l = ["indent" ]
 
 [keys.insert]
 up = "no_op"

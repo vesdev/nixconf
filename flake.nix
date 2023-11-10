@@ -6,32 +6,23 @@
     home-manager.url = "github:nix-community/home-manager/master";
     nix-gaming.url = "github:fufexan/nix-gaming";
     leftwm.url = "github:leftwm/leftwm";
-    joshuto.url = "github:kamiyaa/joshuto";
+    eza.url = "github:eza-community/eza";
     hyprland.url = "github:hyprwm/Hyprland";
   };
  
-  outputs = inputs@{...}:
+  outputs = inputs:
   let  
-    system = "x86_64-linux";
-
     pkgs = import inputs.nixpkgs { 
-      inherit system; 
+      system = "x86_64-linux";
       config.allowUnfree = true;
     };
-
-    mod = import ./mod {inherit inputs pkgs;};
-
-  in with mod; mod.mkOS {
-    inherit inputs system pkgs mod;
-
+  in with import ./mod {inherit inputs pkgs;}; mkOS {
     host.pc = [
       core
       gaming
       network
       hyprland
       pipewire
-
-      ./pc 
     ];
 
     # TODO: update laptop config

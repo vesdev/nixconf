@@ -1,16 +1,16 @@
-{...}:
-  { inputs, system, pkgs, mod, host }:
-  let
-    home-manager = inputs.home-manager;
-  in {
+{ mod, nixpkgs, home-manager, pkgs, ... }: { host }:
+  {
     nixosConfigurations =
-      builtins.mapAttrs (name: value: inputs.nixpkgs.lib.nixosSystem {
-          inherit system pkgs;
+      builtins.mapAttrs (name: value: nixpkgs.lib.nixosSystem {
+          inherit pkgs;
+          system = pkgs.system;
+
           specialArgs = {
             inherit home-manager mod;
             host = name;
           };
-          modules = value; 
+
+          modules = value ++ [ ../+${name} ]; 
         }
       ) host;
   }

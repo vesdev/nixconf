@@ -1,13 +1,10 @@
-{ config, pkgs, home-manager, ...}:
+{ pkgs, mod, host, home-manager, ... }:
 let
   username = "ves"; 
 in {
   imports = [
-    ../../common/gaming.nix
-    ../../common/network.nix
-    ../../common/leftwm.nix
-    # ../../common/sway.nix
-    ../../common/pipewire.nix
+
+    ./hardware-configuration.nix
 
     {
       users.users.${username} = {
@@ -20,7 +17,7 @@ in {
         ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
       '';
 
-      nix.settings.trusted-users = [ "ves" ];
+      nix.settings.trusted-users = [ username ];
 
       xdg.mime.defaultApplications = {
         "text/html" = "librewolf.desktop";
@@ -38,6 +35,8 @@ in {
     }
 
     home-manager.nixosModules.home-manager {
+      home-manager.extraSpecialArgs = {inherit mod host;};
+
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.users.${username} = {
@@ -47,15 +46,15 @@ in {
           stateVersion = "23.05";
         };
 
-        imports = [
-          ../../common/packages.nix
-          ../../common/dotfiles
-          ../../common/gtk.nix
+        imports = [          
+          dotfiles
+          gtk
+          packages
           ./packages.nix
           ./dotfiles
-          # ./config
         ];
       };
     }
+
   ];
 }

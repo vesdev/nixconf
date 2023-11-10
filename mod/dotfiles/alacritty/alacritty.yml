@@ -158,5 +158,5 @@ family: FiraCode
 #draw_bold_text_with_bright_colors: false
 # Colors (Blood Moon)
 import:
-  - ~/.config/alacritty/themes/keko.yaml
+  - ~/.config/alacritty/themes/horizon-dark.yml
 

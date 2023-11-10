@@ -1,9 +1,10 @@
 { inputs, pkgs, ... }:
 let
-  args = inputs // {inherit pkgs;};
   
-  mod = with inputs; {
-    mkOS = import ./mkOS.nix {};
+  mod = with inputs; let 
+    args = inputs // {inherit pkgs mod;};
+  in {
+    mkOS = import ./mkOS.nix args;
     core = import ./core.nix args;
     polybar = pkgs.callPackage ./polybar.nix {};
     pipewire = import ./pipewire.nix args;
@@ -13,9 +14,9 @@ let
     network = import ./network.nix args;
     leftwm = import ./leftwm.nix args;
     dotfiles = import ./dotfiles args;
-    joshuto = joshuto.packages.${pkgs.system}.default;
     osu-stable = nix-gaming.packages.${pkgs.system}.osu-stable;
     osu-lazer = nix-gaming.packages.${pkgs.system}.osu-lazer-bin;
-    packages = import ./packages.nix (args // {inherit mod;});
+    eza = eza.packages.${pkgs.system}.default;
+    packages = import ./packages.nix args;
   };
 in (mod)
