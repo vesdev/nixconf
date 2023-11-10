@@ -31,8 +31,6 @@
       network
       hyprland
       pipewire
-
-      ./laptop 
     ];    
   };
 }
