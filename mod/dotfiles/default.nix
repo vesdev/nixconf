@@ -7,5 +7,7 @@
     ./rofi
     ./joshuto
     ./polybar
+    ./hypr
+    ./waybar
   ];
 }
