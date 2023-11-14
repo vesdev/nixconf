@@ -18,6 +18,7 @@
       lazygit
       appimage-run
       eza
+      sshfs
     
       # deps
       libinput
