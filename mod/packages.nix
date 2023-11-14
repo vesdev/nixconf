@@ -27,6 +27,7 @@
       pamixer
       pulseaudio
       cava
+      nixfmt
     
       # --apps--
     

@@ -11,7 +11,7 @@
 
   environment = {
     pathsToLink = [ "/libexec" ];
-    systemPackages = [ pkgs.gh ];
+    systemPackages = [ pkgs.gh pkgs.glab ];
   };
   
   hardware = {

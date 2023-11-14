@@ -10,7 +10,14 @@
             host = name;
           };
 
-          modules = value ++ [ ../+${name} ]; 
+          modules = value ++ [ 
+            ../+${name}
+            {
+              networking = {
+                hostName = "nixos-${name}";    
+              };
+            }
+          ]; 
         }
       ) hosts;
   }

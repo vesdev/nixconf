@@ -6,7 +6,6 @@
   };
   
   networking = {
-    hostName = "nixos";
     wireless.iwd.enable = true;
     wireguard.enable = true;
   };

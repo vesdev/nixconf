@@ -3,4 +3,4 @@ command = "clippy"
 
 [[language]]
 name = "nix"
-formatter = { command = "nixpkgs-fmt" }
+formatter = { command = "nixfmt" }
