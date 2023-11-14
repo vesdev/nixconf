@@ -12,6 +12,7 @@ let
     gtk = import ./gtk.nix args;
     gaming = import ./gaming.nix args;
     network = import ./network.nix args;
+    vagrant-network = import ./vagrant-network.nix args;
     leftwm = import ./leftwm.nix args;
     dotfiles = import ./dotfiles args;
     osu-stable = nix-gaming.packages.${pkgs.system}.osu-stable;
