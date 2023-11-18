@@ -40,7 +40,6 @@
         pavucontrol
         flameshot
         mpv
-        rofi
         feh
         alacritty
         mod.polybar

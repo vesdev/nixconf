@@ -53,7 +53,7 @@ in {
   environment.systemPackages = with pkgs; [
     wayland
     wdisplays
-    wofi
+    rofi-wayland
     hyprpaper
     waybar
   ];
