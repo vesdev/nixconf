@@ -11,5 +11,12 @@
   networking.firewall.interfaces."virbr1" = {                                   
     allowedTCPPorts = [ 2049 ];                                               
     allowedUDPPorts = [ 2049 ];                                               
-  };     
+  }; 
+
+  environment.etc = {
+    "vbox/networks.conf".text = ''
+      * 10.0.0.0/8 192.168.0.0/16
+      * 2001::/64
+    '';
+  };  
 }

@@ -1,15 +1,14 @@
 { pkgs, ... }:
 {
-  home.file.".config/hypr/hyprpaper.conf".source = pkgs.lib.mkDefault ./hyprpaper.conf;
-  home.file.".config/hypr/wallpaper.jpg".source = pkgs.lib.mkDefault ./wallpaper.jpg;
-  home.file.".config/hypr/hyprland.conf".text = pkgs.lib.mkDefault ''
-
-  monitor=DP-2,2560x1440@170,1080x480,1
-  monitor=DP-3,1920x1080@144,3640x840,1
-  monitor=HDMI-A-1,1920x1080@60,0x0,1,transform,1
-  workspace=1,m:DP-2,
-  workspace=2,m:DP-3,
-  workspace=3,m:HDMI-A-1,
+  # monitor=DP-2,2560x1440@170,1080x480,1
+  # monitor=DP-3,1920x1080@144,3640x840,1
+  # monitor=HDMI-A-1,1920x1080@60,0x0,1,transform,1
+  # workspace=1,m:DP-2,
+  # workspace=2,m:DP-3,
+  # workspace=3,m:HDMI-A-1,
+  home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
+  home.file.".config/hypr/wallpaper.jpg".source = ./wallpaper.jpg;
+  home.file.".config/hypr/hyprland.conf".text = ''
 
   input {
       kb_layout = de
@@ -76,7 +75,8 @@
 
   bind = $mod, Return, exec, alacritty
   bind = $mod, B, exec, librewolf
-  bind = $mod, Space, exec, wofi --show drun --theme squared-material-red
+  bind = $mod, Space, exec, rofi -combi-modi drun,run,ssh -theme squared-material-red -show combi -icon-theme \"Papirus\" -show-icons
+
   bind = $mod, Q, killactive, 
   bind = $mod SHIFT, X, exit, 
   bind = $mod, f, fullscreen, 

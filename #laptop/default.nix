@@ -1,15 +1,19 @@
 { pkgs, mod, host, home-manager, ... }:
-let
-  username = "ves"; 
+let username = "ves";
 in {
-  imports = [
+  imports = with mod; [
 
     ./hardware-configuration.nix
+    core
+    gaming
+    network
+    hyprland
+    pipewire
 
     {
       users.users.${username} = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "docker" "video" ]; 
+        extraGroups = [ "wheel" "docker" "video" ];
         initialPassword = username;
       };
 
@@ -34,8 +38,9 @@ in {
       xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     }
 
-    home-manager.nixosModules.home-manager {
-      home-manager.extraSpecialArgs = {inherit mod host;};
+    home-manager.nixosModules.home-manager
+    {
+      home-manager.extraSpecialArgs = { inherit mod host; };
 
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
@@ -46,13 +51,7 @@ in {
           stateVersion = "23.05";
         };
 
-        imports = [          
-          dotfiles
-          gtk
-          packages
-          ./packages.nix
-          ./dotfiles
-        ];
+        imports = [ dotfiles gtk packages ./packages.nix ./dotfiles ];
       };
     }
 

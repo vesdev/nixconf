@@ -1,16 +1,21 @@
 { pkgs, mod, host, home-manager, ... }:
-let
-  username = "ves";
+let username = "ves";
 in {
-  imports = [
-  
+  imports = with mod; [
+
     ./hardware-configuration.nix
-    ./pcie-pass.nix    
+    ./virt.nix
+    core
+    gaming
+    network
+    vagrant-network
+    hyprland
+    pipewire
 
     {
       users.users.${username} = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "docker" ]; 
+        extraGroups = [ "wheel" "docker" "video" ];
         initialPassword = username;
       };
 
@@ -22,17 +27,19 @@ in {
         "x-scheme-handler/https" = "librewolf.desktop";
       };
 
-      services.udev.packages = [ pkgs.qmk-udev-rules ];
       environment = {
         variables.SUDO_EDITOR = "hx";
         variables.EDITOR = "hx";
       };
       xdg.portal.enable = true;
       xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+      services.logind.lidSwitch = "ignore";
     }
 
-    home-manager.nixosModules.home-manager {
-      home-manager.extraSpecialArgs = {inherit mod host;};
+    home-manager.nixosModules.home-manager
+    {
+      home-manager.extraSpecialArgs = { inherit mod host; };
 
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
@@ -43,7 +50,7 @@ in {
           stateVersion = "23.05";
         };
 
-        imports = with mod; [
+        imports = [
           dotfiles
           gtk
           packages

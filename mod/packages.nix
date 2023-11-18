@@ -19,6 +19,7 @@
       appimage-run
       eza
       sshfs
+      ripgrep
       zellij
     
       # deps
@@ -39,7 +40,6 @@
         pavucontrol
         flameshot
         mpv
-        rofi
         feh
         alacritty
         mod.polybar
