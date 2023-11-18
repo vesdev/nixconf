@@ -3,13 +3,13 @@
 the config is structured like this:
 - modules are stored in mod/
 to easily share common behaviour across systems
-- system profiles start with the +prefix
+- system profiles start with the #prefix
 
 ```
 ├── flake.nix
 ├── mod
 │   ├── default.nix
 │   modules ...
-├── +laptop
-└── +pc
+├── #laptop
+└── #pc
 ```

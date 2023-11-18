@@ -19,6 +19,8 @@
       appimage-run
       eza
       sshfs
+      ripgrep
+      zellij
     
       # deps
       libinput

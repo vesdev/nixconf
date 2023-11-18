@@ -6,8 +6,8 @@
     ./alacritty
     ./rofi
     ./joshuto
-    ./polybar
     ./hypr
+    ./polybar
     ./waybar
   ];
 }
