@@ -12,5 +12,6 @@
       location = "$HOME/.local/share/osu-stable";
     })
     osu-lazer
+    kitty
   ];
 }

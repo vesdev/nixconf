@@ -9,5 +9,6 @@
     ./polybar
     ./hypr
     ./waybar
+    ./kitty
   ];
 }
