@@ -1,7 +1,7 @@
 { pkgs, mod, host, home-manager, ... }:
 let username = "ves";
 in {
-  imports = [
+  imports = with mod; [
 
     ./hardware-configuration.nix
     ./pcie-pass.nix

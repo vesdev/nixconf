@@ -76,7 +76,8 @@
 
   bind = $mod, Return, exec, alacritty
   bind = $mod, B, exec, librewolf
-  bind = $mod, Space, exec, wofi --show drun --theme squared-material-red
+  bind = $mod, Space, exec, rofi -combi-modi drun,run,ssh -theme squared-material-red -show combi -icon-theme \"Papirus\" -show-icons
+
   bind = $mod, Q, killactive, 
   bind = $mod SHIFT, X, exit, 
   bind = $mod, f, fullscreen, 
