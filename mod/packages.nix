@@ -7,10 +7,18 @@
       lg = "lazygit";
       ls = "eza";
       switch = "sudo nixos-rebuild switch --flake .#${host}";
+      cat = "bat";
+      rg = "batgrep";
     };
   in {
     home.packages = with pkgs; [
-      # cli
+      #not in use
+      # mod.polybar
+      # flameshot
+      # zellij
+      # cava
+      
+      # cli/tui
       gh
       neofetch
       jq
@@ -20,7 +28,11 @@
       eza
       sshfs
       ripgrep
-      zellij
+      helix
+      glow
+      bat
+      bat-extras.batgrep
+      bat-extras.prettybat
     
       # deps
       libinput
@@ -29,32 +41,31 @@
       openjdk
       pamixer
       pulseaudio
-      cava
       nixfmt
+      ltex-ls
+      marksman
+      xdg-utils
     
-      # --apps--
+      # system
+      xfce.thunar
+      xarchiver
+      pavucontrol
+      mpv
+      feh
+      alacritty
+      arandr
     
-        # system
-        xfce.thunar
-        xarchiver
-        pavucontrol
-        flameshot
-        mpv
-        feh
-        alacritty
-        mod.polybar
-        arandr
-      
-        # user
-        librewolf
-        discord
-        chatterino2
-        mullvad-vpn
-
-        # dev
-        helix
-
-      # -------
+      # apps
+      librewolf
+      webcord-vencord
+      # (pkgs.discord.override {
+      #   # remove any overrides that you don't want
+      #   withopenasar = true;
+      #   withvencord = true;
+      #   nss = nss_latest;
+      # })
+      chatterino2
+      mullvad-vpn
     ];
 
     programs = {
@@ -63,6 +74,10 @@
       bash = {
         enable = true;
         inherit shellAliases;
+
+        bashrcExtra = ''
+          export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+        '';
       };
 
       direnv.enable = true;

@@ -4,3 +4,7 @@ command = "clippy"
 [[language]]
 name = "nix"
 formatter = { command = "nixfmt" }
+
+[[language]]
+name = "markdown"
+language-servers = [ "marksman", "ltex-ls" ]
