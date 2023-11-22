@@ -71,6 +71,11 @@
       new_is_master = false
   }
 
+  misc {
+    #weeb removal
+    force_default_wallpaper = 0
+  }
+
   $mod = SUPER
 
   bind = $mod, Return, exec, alacritty

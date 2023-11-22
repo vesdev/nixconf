@@ -21,16 +21,11 @@ in {
 
       nix.settings.trusted-users = [ username ];
 
-      xdg.mime.defaultApplications = {
-        "text/html" = "librewolf.desktop";
-        "x-scheme-handler/http" = "librewolf.desktop";
-        "x-scheme-handler/https" = "librewolf.desktop";
-      };
-
       environment = {
         variables.SUDO_EDITOR = "hx";
         variables.EDITOR = "hx";
       };
+
       xdg.portal.enable = true;
       xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
@@ -50,13 +45,18 @@ in {
           stateVersion = "23.05";
         };
 
-        imports = [
-          dotfiles
-          gtk
-          packages
-          ./packages.nix
-          ./dotfiles
-        ];
+        imports = [ dotfiles gtk packages ./packages.nix ./dotfiles ];
+
+        xdg = {
+          enable = true;
+          mimeApps = {
+            defaultApplications = {
+              "text/html" = "librewolf.desktop";
+              "x-scheme-handler/http" = "librewolf.desktop";
+              "x-scheme-handler/https" = "librewolf.desktop";
+            };
+          };
+        };
       };
     }
 

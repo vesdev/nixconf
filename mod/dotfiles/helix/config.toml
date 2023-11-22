@@ -28,7 +28,8 @@ C-s = ":w"
 # mouse = false
 bufferline = "always"
 line-number = "relative"
-# true-color = true
+#fix ssh colors not working
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"

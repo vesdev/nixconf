@@ -5,9 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     nix-gaming.url = "github:fufexan/nix-gaming";
-    leftwm.url = "github:leftwm/leftwm";
-    eza.url = "github:eza-community/eza";
     hyprland.url = "github:hyprwm/Hyprland";
+    eza.url = "github:eza-community/eza";
+
+    # not in use
+    # leftwm.url = "github:leftwm/leftwm";
   };
 
   outputs = inputs:
