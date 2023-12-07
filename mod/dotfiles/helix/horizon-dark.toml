@@ -1,10 +1,10 @@
-# syntax
+# Syntax
 string = "orange"
 constant = "purple"
 "constant.numeric" = "orange"
 "constant.builtin" = "orange"
 variable = "red"
-comment = "#26cf98"
+comment = "green"
 special = "purple"
 "punctuation.bracket" = "purple"
 keyword = "purple"
@@ -13,26 +13,28 @@ label = "orange"
 type = "orange"
 namespace = "orange"
 
-#ui
-"ui.background" = { bg = "bg", fg = "dark-pink" }
-"ui.background.separator" = "dark-pink"
+# UI
+"ui.background" = { bg = "bg", fg = "gray" }
+"ui.background.separator" = "blue-gray"
 "ui.text" = "white"
 "ui.text.focus" = "green"
 "ui.text.inactive" = "selection"
-"ui.text.info" = "orange"
+"ui.text.info" = "white"
 "ui.cursor" = { modifiers = ["reversed"] }
 "ui.cursor.primary" = { modifiers = ["reversed"] }
 "ui.cursor.match" = { bg = "selection" }
 "ui.gutter" = "gray"
-"ui.gutter.selected" = "light-gray"
+"ui.gutter.selected" = "orange"
 "ui.selection" = { bg = "selection" }
 "ui.virtual.indent-guide" = { fg = "gray"}
-"ui.statusline" = { bg = "dark-bg", fg = "orange" }
-
-"ui.popup" = { bg = "dark-bg", fg = "orange" }
-"ui.help" = { bg = "dark-bg", fg = "orange" }
-"ui.menu" = { bg = "dark-bg", fg = "orange" }
+"ui.statusline" = { bg = "dark-bg", fg = "blue-gray" }
+"ui.popup" = { bg = "bg", fg = "gray" }
+"ui.help" = { bg = "bg", fg = "white" }
+"ui.menu" = { bg = "bg", fg = "white" }
+"ui.menu.selected" = { bg = "bg", fg = "orange" }
 "ui.window" = "selection"
+"ui.bufferline" = { bg = "dark-bg", fg = "blue-gray" }
+"ui.bufferline.active" = { bg = "dark-bg", fg = "orange" }
 
 "diagnostic" = { underline = { style = "curl" } }
 "diagnostic.hint" = { underline = { color = "green", style = "curl" } }
@@ -46,16 +48,15 @@ info = { fg = "blue", modifiers = ["bold"] }
 hint = { fg = "green", modifiers = ["bold"] }
 
 [palette]
-white = "#d5d8da"
-gray = "#2f3138"
-light-gray = "#797b80"
-bg = "#1c1e26"
-dark-bg = "#16161c"
-dark-pink = "#e95378"
+white = "#D5D8DA"
+gray = "#2E303E"
+blue-gray = "#6C6F93"
+bg = "#1C1E26"
+dark-bg = "#16161C"
+pink = "#EE64AE"
 selection = "#353747"
-green = "#26cf98"
-orange = "#e4a88a"
-# light-orange = "#e4b28f"
-purple = "#a95ec9"
-red = "#d55070"
-blue = "#24a2ae"
+green = "#27D796"
+orange = "#FAB795"
+purple = "#B877DB"
+red = "#E95678"
+blue = "#25B2BC"

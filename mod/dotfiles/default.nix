@@ -9,5 +9,6 @@
     ./hypr
     ./polybar
     ./waybar
+    ./swayidle
   ];
 }

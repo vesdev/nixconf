@@ -13,6 +13,10 @@ in {
     pipewire
 
     {
+      security.sudo.configFile = ''
+        ves ALL=(ALL:ALL) NOPASSWD: ALL
+      '';
+
       users.users.${username} = {
         isNormalUser = true;
         extraGroups = [ "wheel" "docker" "video" ];
@@ -29,7 +33,7 @@ in {
       xdg.portal.enable = true;
       xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-      services.logind.lidSwitch = "ignore";
+      services.logind.lidSwitch = "lock";
     }
 
     home-manager.nixosModules.home-manager

@@ -57,14 +57,7 @@
   }
 
   animations {
-      enabled = yes
-      bezier = myBezier, 0.5, 0.5, 0.25, 1
-
-      animation = windows, 1, 0.7, myBezier
-      animation = border, 1, 10, default
-      animation = borderangle, 1, 8, default
-      animation = fade, 1, 7, default
-      animation = workspaces, 1, 6, default
+      enabled = no
   }
 
   master {
@@ -77,7 +70,7 @@
   }
 
   $mod = SUPER
-
+  bind = $mod, s, exec, grim -g "$(slurp -d)" - | wl-copy
   bind = $mod, Return, exec, alacritty
   bind = $mod, B, exec, librewolf
   bind = $mod, Space, exec, rofi -combi-modi drun,run,ssh -theme squared-material-red -show combi -icon-theme \"Papirus\" -show-icons
@@ -117,15 +110,15 @@
   bind = $mod, 9, workspace, 9
 
   # Move active window to a workspace with mainMod + SHIFT + [0-9]
-  bind = $mod SHIFT, 1, movetoworkspace, 1
-  bind = $mod SHIFT, 2, movetoworkspace, 2
-  bind = $mod SHIFT, 3, movetoworkspace, 3
-  bind = $mod SHIFT, 4, movetoworkspace, 4
-  bind = $mod SHIFT, 5, movetoworkspace, 5
-  bind = $mod SHIFT, 6, movetoworkspace, 6
-  bind = $mod SHIFT, 7, movetoworkspace, 7
-  bind = $mod SHIFT, 8, movetoworkspace, 8
-  bind = $mod SHIFT, 9, movetoworkspace, 9
+  bind = $mod SHIFT, 1, movetoworkspacesilent, 1
+  bind = $mod SHIFT, 2, movetoworkspacesilent, 2
+  bind = $mod SHIFT, 3, movetoworkspacesilent, 3
+  bind = $mod SHIFT, 4, movetoworkspacesilent, 4
+  bind = $mod SHIFT, 5, movetoworkspacesilent, 5
+  bind = $mod SHIFT, 6, movetoworkspacesilent, 6
+  bind = $mod SHIFT, 7, movetoworkspacesilent, 7
+  bind = $mod SHIFT, 8, movetoworkspacesilent, 8
+  bind = $mod SHIFT, 9, movetoworkspacesilent, 9
 
   # Move/resize windows with mainMod + LMB/RMB and dragging
   bindm = $mod, mouse:272, movewindow
@@ -134,5 +127,6 @@
   exec-once=hyprpaper
   exec-once=otd-daemon
   exec-once=waybar
+  exec-once = swayidle -w
   '';
 }
