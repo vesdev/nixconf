@@ -26,6 +26,8 @@ in {
     inherit package;
   };
 
+  security.pam.services.swaylock = { };
+  
   services.greetd = {
     enable = true;
     settings = {
@@ -60,6 +62,11 @@ in {
     rofi-wayland
     hyprpaper
     waybar
+    grim
+    slurp
+    wl-clipboard
+    swayidle
+    swaylock
   ];
 }
 

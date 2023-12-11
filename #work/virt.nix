@@ -13,6 +13,10 @@ in
     # dconf
   ];
 
+  networking.extraHosts = ''
+    192.168.33.16 makupalat.fi.local www.makupalat.fi.local
+  '';
+
   # virtualisation.libvirtd = {
   #   enable = true;
   #   qemu.ovmf.enable = true;

@@ -29,6 +29,7 @@
     (nerdfonts.override {fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
   
+  # services.fwupd.enable = true;
   programs.git.enable = true;
   programs.dconf.enable = true;
 

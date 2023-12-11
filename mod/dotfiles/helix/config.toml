@@ -40,5 +40,5 @@ hidden = false
 
 [editor.indent-guides]
 render = true
-character = "╎"
-skip-levels = 1
+character = "▏"
+# skip-levels = 1
