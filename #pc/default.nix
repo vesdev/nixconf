@@ -12,6 +12,11 @@ in {
     pipewire
 
     {
+      networking.extraHosts = ''
+        192.168.33.16 makupalat.fi.local www.makupalat.fi.local
+      '';
+
+      services.fwupd.enable = true;
       users.users.${username} = {
         isNormalUser = true;
         extraGroups = [ "wheel" "docker" ];

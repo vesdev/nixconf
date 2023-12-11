@@ -34,7 +34,7 @@
   services = {
     pipewire.lowLatency = {
         enable = true;
-        quantum = 64; # tweak for less latency, too low will crackle
+        quantum = 48; # tweak for less latency, too low will crackle
         rate = 48000;
     };  
   };

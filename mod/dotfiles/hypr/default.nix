@@ -38,38 +38,23 @@
   }
 
   env = WLR_DRM_NO_ATOMIC,1
-  windowrulev2 = immediate, class:^(osu)$
+  windowrulev2 = immediate, xwayland:1
 
   decoration {
-      rounding = 10
-      active_opacity = 0.95
-      inactive_opacity = 0.8
-    
+      rounding = 0
+      active_opacity = 1
+      inactive_opacity = 1
+      drop_shadow = no
       blur {
-          enabled = true
-          size = 8
-          passes = 1
+        enabled = false
       }
-
-      drop_shadow = yes
-      shadow_range = 18
-      shadow_render_power = 4
-      col.shadow = rgba(1a1a1aee)
   }
 
   animations {
-      enabled = yes
-      bezier = myBezier, 0.5, 0.5, 0.25, 1
-
-      animation = windows, 1, 0.7, myBezier
-      animation = border, 1, 10, default
-      animation = borderangle, 1, 8, default
-      animation = fade, 1, 7, default
-      animation = workspaces, 1, 6, default
+    enabled = no
   }
-
-  master {
-      new_is_master = false
+  master { 
+    new_is_master = false
   }
 
   $mod = SUPER
