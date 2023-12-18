@@ -362,6 +362,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_6": {
+      "locked": {
+        "lastModified": 1697456312,
+        "narHash": "sha256-roiSnrqb5r+ehnKCauPLugoU8S36KgmWraHgRqVYndo=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ca012a02bf8327be9e488546faecae5e05d7d749",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "powertest": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -424,7 +440,8 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nix-gaming": "nix-gaming",
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_5",
+        "twitch-tui": "twitch-tui"
       }
     },
     "rust-overlay": {
@@ -522,6 +539,24 @@
       "original": {
         "type": "tarball",
         "url": "http://rime.cx/v1/github/semnix/treefmt-nix.tar.gz"
+      }
+    },
+    "twitch-tui": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_6"
+      },
+      "locked": {
+        "lastModified": 1702812139,
+        "narHash": "sha256-0LWChtn6RZ6HAnJH+GMLC1UYRgbHb2zAeVP8V4QoC/8=",
+        "owner": "vesdev",
+        "repo": "twitch-tui",
+        "rev": "8fc1236a94127d96dec4189ed8db8b591ee45edd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vesdev",
+        "repo": "twitch-tui",
+        "type": "github"
       }
     },
     "wlroots": {

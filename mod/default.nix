@@ -16,10 +16,11 @@ let
     osu-stable = nix-gaming.packages.${pkgs.system}.osu-stable;
     osu-lazer = nix-gaming.packages.${pkgs.system}.osu-lazer-bin;
     eza = eza.packages.${pkgs.system}.default;
-    packages = import ./packages.nix args;
+    twitch-tui = twitch-tui.packages.${pkgs.system}.default;
 
     # stuff thats not currently being used that takes long to build
     # leftwm = import ./leftwm.nix args;
     # polybar = pkgs.callPackage ./polybar.nix {};
+    packages = import ./packages.nix args;
   };
 in (mod)

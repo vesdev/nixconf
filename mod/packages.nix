@@ -9,6 +9,7 @@
       switch = "sudo nixos-rebuild switch --flake .#${host}";
       cat = "bat";
       rg = "batgrep";
+      scan = "iwctl station wlan0 scan";
     };
   in {
     home.packages = with pkgs; [
@@ -33,6 +34,7 @@
       bat
       bat-extras.batgrep
       bat-extras.prettybat
+      mod.twitch-tui
     
       # deps
       libinput

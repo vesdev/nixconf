@@ -28,7 +28,7 @@
   }
 
   general {
-      gaps_in = 8
+      gaps_in = 0
       gaps_out = 16
       border_size = 1
       col.active_border = rgba(e4a88aff) rgba(e95378ff) 90deg
@@ -59,7 +59,8 @@
 
   $mod = SUPER
 
-  bind = $mod, Return, exec, alacritty
+  bind = $mod, s, exec, grim -g "$(slurp -d)" - | wl-copy
+  bind = $mod, Return, exec, kitty
   bind = $mod, B, exec, librewolf
   bind = $mod, Space, exec, rofi -combi-modi drun,run,ssh -theme squared-material-red -show combi -icon-theme \"Papirus\" -show-icons
 
