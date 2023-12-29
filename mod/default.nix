@@ -13,10 +13,15 @@ let
     network = import ./network.nix args;
     vagrant-network = import ./vagrant-network.nix;
     dotfiles = import ./dotfiles args;
+
+    bitwig-studio = import ./bitwig.nix {};
     osu-stable = nix-gaming.packages.${pkgs.system}.osu-stable;
     osu-lazer = nix-gaming.packages.${pkgs.system}.osu-lazer-bin;
     eza = eza.packages.${pkgs.system}.default;
+    helix = helix.packages.${pkgs.system}.default;
     twitch-tui = twitch-tui.packages.${pkgs.system}.default;
+    # agenix-cli = agenix.packages.${pkgs.system}.default;
+    # agenix = agenix.nixosModules.default;
 
     # stuff thats not currently being used that takes long to build
     # leftwm = import ./leftwm.nix args;

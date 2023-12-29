@@ -1,6 +1,7 @@
-{ pkgs, mod, host, home-manager, ... }:
+{ config, pkgs, mod, host, home-manager, ... }:
 let username = "ves";
 in {
+
   imports = with mod; [
 
     ./hardware-configuration.nix
@@ -10,8 +11,16 @@ in {
     network
     hyprland
     pipewire
+    # agenix
 
     {
+      # age.secrets.secret-patch = {
+
+      #   file = ../secrets/secret-patch.age;
+
+      #   symlink = false;
+      # };
+
       networking.extraHosts = ''
         192.168.33.16 makupalat.fi.local www.makupalat.fi.local
       '';
@@ -38,6 +47,8 @@ in {
       };
       xdg.portal.enable = true;
       xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+      services.flatpak.enable = true;
     }
 
     home-manager.nixosModules.home-manager
@@ -51,6 +62,12 @@ in {
           inherit username;
           homeDirectory = "/home/${username}";
           stateVersion = "23.05";
+
+          # packages = [
+          #   (pkgs.callPackage bitwig-studio {
+          #     wideHardo = config.age.secrets.secret-patch.path;
+          #   })
+          # ];
         };
 
         imports = with mod; [ dotfiles gtk packages ./packages.nix ./dotfiles ];

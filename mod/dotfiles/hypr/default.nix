@@ -1,11 +1,11 @@
 { pkgs, ... }:
 {
   home.file.".config/hypr/hyprpaper.conf".source = pkgs.lib.mkDefault ./hyprpaper.conf;
-  home.file.".config/hypr/wallpaper.jpg".source = pkgs.lib.mkDefault ./wallpaper.jpg;
+  home.file.".config/hypr/wallpaper.png".source = pkgs.lib.mkDefault ./wallpaper.png;
   home.file.".config/hypr/hyprland.conf".text = pkgs.lib.mkDefault ''
 
-  monitor=DP-2,2560x1440@170,1080x480,1
-  monitor=DP-3,1920x1080@144,3640x840,1
+  monitor=DP-2,2560x1440@170,1080x768,1.25
+  monitor=DP-3,1920x1080@144,3128x840,1
   monitor=HDMI-A-1,1920x1080@60,0x0,1,transform,1
   workspace=1,m:DP-2,
   workspace=2,m:DP-3,
@@ -28,8 +28,8 @@
   }
 
   general {
-      gaps_in = 0
-      gaps_out = 16
+      gaps_in = 4
+      gaps_out = 8
       border_size = 1
       col.active_border = rgba(e4a88aff) rgba(e95378ff) 90deg
       col.inactive_border = rgba(e4a88aff) rgba(00000000) 90deg
@@ -42,11 +42,11 @@
 
   decoration {
       rounding = 0
-      active_opacity = 1
-      inactive_opacity = 1
+      active_opacity = 0.95
+      inactive_opacity = 0.8
       drop_shadow = no
       blur {
-        enabled = false
+        enabled = true
       }
   }
 
@@ -55,6 +55,10 @@
   }
   master { 
     new_is_master = false
+  }
+
+  xwayland {
+    force_zero_scaling = true
   }
 
   $mod = SUPER
@@ -66,8 +70,10 @@
 
   bind = $mod, Q, killactive, 
   bind = $mod SHIFT, X, exit, 
-  bind = $mod, f, fullscreen, 
-  bind = $mod, m, fullscreen, 1 
+  bind = $mod SHIFT, f, fullscreen, 
+  bind = $mod, f, fullscreen, 1 
+  bind = $mod, t, togglefloating  
+  bind = $mod, o, toggleopaque  
 
   # Move focus with mainMod + arrow keys
   bind = $mod, h, movefocus, l
@@ -88,6 +94,16 @@
   bind = $mod ALT, j, layoutmsg, orientationbottom
 
   # Switch workspaces with mainMod + [0-9]
+  bind = $mod, 1, moveworkspacetomonitor, 1 current
+  bind = $mod, 2, moveworkspacetomonitor, 2 current
+  bind = $mod, 3, moveworkspacetomonitor, 3 current
+  bind = $mod, 4, moveworkspacetomonitor, 4 current
+  bind = $mod, 5, moveworkspacetomonitor, 5 current
+  bind = $mod, 6, moveworkspacetomonitor, 6 current
+  bind = $mod, 7, moveworkspacetomonitor, 7 current
+  bind = $mod, 8, moveworkspacetomonitor, 8 current
+  bind = $mod, 9, moveworkspacetomonitor, 9 current
+
   bind = $mod, 1, workspace, 1
   bind = $mod, 2, workspace, 2
   bind = $mod, 3, workspace, 3
@@ -99,15 +115,15 @@
   bind = $mod, 9, workspace, 9
 
   # Move active window to a workspace with mainMod + SHIFT + [0-9]
-  bind = $mod SHIFT, 1, movetoworkspace, 1
-  bind = $mod SHIFT, 2, movetoworkspace, 2
-  bind = $mod SHIFT, 3, movetoworkspace, 3
-  bind = $mod SHIFT, 4, movetoworkspace, 4
-  bind = $mod SHIFT, 5, movetoworkspace, 5
-  bind = $mod SHIFT, 6, movetoworkspace, 6
-  bind = $mod SHIFT, 7, movetoworkspace, 7
-  bind = $mod SHIFT, 8, movetoworkspace, 8
-  bind = $mod SHIFT, 9, movetoworkspace, 9
+  bind = $mod SHIFT, 1, movetoworkspacesilent, 1
+  bind = $mod SHIFT, 2, movetoworkspacesilent, 2
+  bind = $mod SHIFT, 3, movetoworkspacesilent, 3
+  bind = $mod SHIFT, 4, movetoworkspacesilent, 4
+  bind = $mod SHIFT, 5, movetoworkspacesilent, 5
+  bind = $mod SHIFT, 6, movetoworkspacesilent, 6
+  bind = $mod SHIFT, 7, movetoworkspacesilent, 7
+  bind = $mod SHIFT, 8, movetoworkspacesilent, 8
+  bind = $mod SHIFT, 9, movetoworkspacesilent, 9
 
   # Move/resize windows with mainMod + LMB/RMB and dragging
   bindm = $mod, mouse:272, movewindow

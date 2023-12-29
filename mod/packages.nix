@@ -29,7 +29,7 @@
       eza
       sshfs
       ripgrep
-      helix
+      mod.helix
       glow
       bat
       bat-extras.batgrep
@@ -44,9 +44,10 @@
       pamixer
       pulseaudio
       nixfmt
-      ltex-ls
       marksman
       xdg-utils
+      unrar
+      # mod.agenix-cli
     
       # system
       xfce.thunar
@@ -79,6 +80,8 @@
 
         bashrcExtra = ''
           export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+          export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
+          export PATH=$PATH:/var/lib/flatpak/exports/bin
         '';
       };
 

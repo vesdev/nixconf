@@ -1,4 +1,4 @@
-{ pkgs, mod, ...}:
+{ config, pkgs, mod, ...}:
 {
   home.packages = with pkgs; with mod; [  
     brave
@@ -13,5 +13,8 @@
     })
     osu-lazer
     kitty
+    qbittorrent
+    yabridge
+    yabridgectl
   ];
 }
