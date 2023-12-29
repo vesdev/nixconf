@@ -10,5 +10,6 @@
     ./polybar
     ./waybar
     ./swayidle
+    ./kitty
   ];
 }

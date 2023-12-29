@@ -55,7 +55,7 @@
       pavucontrol
       mpv
       feh
-      alacritty
+      kitty
       arandr
     
       # apps
