@@ -1,15 +1,11 @@
-# nixos_config
+my nixos config
 
-the config is structured like this:
-- modules are stored in mod/
-to easily share common behaviour across systems
-- system profiles start with the #prefix
 
-```
-├── flake.nix
-├── mod
-│   ├── default.nix
-│   modules ...
-├── #laptop
-└── #pc
-```
+if you're just looking around
+each nixos device is prefixed with #
+
+
+stuff thats shared between devices is in mod/
+
+mod/nixos/ is just nixos modules
+mod/hm/ is home-manager modules

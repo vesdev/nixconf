@@ -1,7 +1,7 @@
 { config, pkgs, mod, ...}:
 {
-  home.packages = with pkgs; with mod; [  
-    brave
+  home.packages = with pkgs; with mod.pkgs; [  
+    ungoogled-chromium
     vscodium
     qmk
     krita

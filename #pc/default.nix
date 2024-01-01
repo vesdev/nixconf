@@ -2,7 +2,7 @@
 let username = "ves";
 in {
 
-  imports = with mod; [
+  imports = with mod.nixos; [
 
     ./hardware-configuration.nix
     ./pcie-pass.nix
@@ -34,17 +34,12 @@ in {
 
       nix.settings.trusted-users = [ username ];
 
-      xdg.mime.defaultApplications = {
-        "text/html" = "librewolf.desktop";
-        "x-scheme-handler/http" = "librewolf.desktop";
-        "x-scheme-handler/https" = "librewolf.desktop";
-      };
-
       services.udev.packages = [ pkgs.qmk-udev-rules ];
       environment = {
         variables.SUDO_EDITOR = "hx";
         variables.EDITOR = "hx";
       };
+
       xdg.portal.enable = true;
       xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
@@ -70,7 +65,11 @@ in {
           # ];
         };
 
-        imports = with mod; [ dotfiles gtk packages ./packages.nix ./dotfiles ];
+        imports = with mod.hm; [
+          dotfiles gtk common-pkgs
+          ./packages.nix ./dotfiles 
+          xdg 
+        ];
       };
     }
 

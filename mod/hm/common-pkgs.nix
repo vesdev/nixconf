@@ -29,12 +29,12 @@
       eza
       sshfs
       ripgrep
-      mod.helix
+      mod.pkgs.helix
       glow
       bat
       bat-extras.batgrep
       bat-extras.prettybat
-      mod.twitch-tui
+      mod.pkgs.twitch-tui
     
       # deps
       libinput
@@ -46,8 +46,8 @@
       nixfmt
       marksman
       xdg-utils
+      xdg-terminal-exec
       unrar
-      # mod.agenix-cli
     
       # system
       xfce.thunar

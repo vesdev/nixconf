@@ -1,4 +1,4 @@
-{ pkgs, hyprland, ... }:
+{ pkgs, mod, ... }:
 let
   xwayland = pkgs.xwayland.overrideAttrs (old: {
     patches = (old.patches or [ ]) ++ [
@@ -10,9 +10,9 @@ let
     ];
   });
 
-  package = hyprland.packages.${pkgs.system}.hyprland.override {
+  package = mod.pkgs.hyprland.override {
     inherit xwayland;
-    wlroots = hyprland.packages.${pkgs.system}.wlroots-hyprland.override {
+    wlroots = mod.pkgs.wlroots-hyprland.override {
       wlroots = pkgs.wlroots.override { inherit xwayland; };
     };
   };
@@ -60,6 +60,7 @@ in {
     wayland
     wdisplays
     rofi-wayland
+    rofi-calc
     hyprpaper
     waybar
     grim

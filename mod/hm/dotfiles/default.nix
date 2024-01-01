@@ -7,7 +7,6 @@
     ./rofi
     ./joshuto
     ./hypr
-    ./polybar
     ./waybar
     ./swayidle
     ./kitty

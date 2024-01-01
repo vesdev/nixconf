@@ -71,9 +71,10 @@
   bind = $mod, Q, killactive, 
   bind = $mod SHIFT, X, exit, 
   bind = $mod SHIFT, f, fullscreen, 
+  bind = $mod CONTROL, f, fakefullscreen, 
   bind = $mod, f, fullscreen, 1 
   bind = $mod, t, togglefloating  
-  bind = $mod, o, toggleopaque  
+  bind = $mod, d, toggleopaque  
 
   # Move focus with mainMod + arrow keys
   bind = $mod, h, movefocus, l

@@ -1,8 +1,5 @@
-{ pkgs, nix-gaming, ... }:
+{ pkgs, mod, ... }:
 {
-  imports = [
-    "${nix-gaming}/modules/pipewireLowLatency.nix"
-  ];
   
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
@@ -31,14 +28,6 @@
     "w /sys/kernel/debug/sched/nr_migrate - - - - 8"
   ];
   
-  services = {
-    pipewire.lowLatency = {
-        enable = true;
-        quantum = 48; # tweak for less latency, too low will crackle
-        rate = 48000;
-    };  
-  };
-
   programs = {
     gamemode.enable = true;
     steam = {
