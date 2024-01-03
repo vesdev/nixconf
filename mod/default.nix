@@ -5,8 +5,8 @@ let
     config.allowUnfree = true;
   };
 
-  # temporary mod attr set
-  # for module internal use
+  # mod attr set
+  # destructures stuff for ease of use
   mod = {
     pkgs = with inputs; {
       hyprland = hyprland.packages.${pkgs.system}.hyprland;
@@ -25,12 +25,9 @@ let
 
   modArgs = { inherit pkgs mod; };
 
-  # construct final mod attr set
-  mod = {
-    inherit (mod.pkgs);
-    # nixos modules
-    nixos = import ./nixos { inherit modArgs; };
-    # home-manager modules
-    hm = import ./hm { inherit modArgs; };
-  };
-in with inputs; (import ./hosts.nix { inherit nixpkgs home-manager mod pkgs; } hosts)
+  # nixos modules
+  mod."nixos" = import ./nixos { inherit modArgs; };
+  # home-manager modules
+  mod."hm" = import ./hm { inherit modArgs; };
+in with inputs;
+(import ./hosts.nix { inherit nixpkgs home-manager mod pkgs; } hosts)

@@ -11,12 +11,9 @@
     helix.url = "github:helix-editor/helix";
   };
 
-  outputs = inputs: import ./mod {
-    inherit inputs;
-    hosts = [
-      "pc"
-      "laptop"
-      "work"  
-    ];
-  };
+  outputs = inputs:
+    import ./mod {
+      inherit inputs;
+      hosts = [ "pc" "laptop" "work" ];
+    };
 }

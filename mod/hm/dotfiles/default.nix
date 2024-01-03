@@ -1,14 +1,11 @@
 {...}:
 {
   imports = [
-    ./helix
-    ./leftwm
-    ./alacritty
-    ./rofi
-    ./joshuto
-    ./hypr
-    ./waybar
-    ./swayidle
-    ./kitty
+    ./helix.nix
+    ./rofi.nix
+    ./waybar.nix
+    ./kitty.nix
+    ./hypr.nix
+    ./swayidle.nix
   ];
 }

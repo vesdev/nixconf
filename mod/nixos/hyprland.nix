@@ -27,7 +27,7 @@ in {
   };
 
   security.pam.services.swaylock = { };
-  
+
   services.greetd = {
     enable = true;
     settings = {
@@ -40,10 +40,6 @@ in {
       '';
     };
   };
-
-  # environment.etc."greetd/environments".text = ''
-  #   Hyprland
-  # '';
 
   systemd.services.greetd.serviceConfig = {
     Type = "idle";

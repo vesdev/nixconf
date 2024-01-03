@@ -1,11 +1,12 @@
-{ pkgs, mod, ... }:
-{
-  
+{ pkgs, mod, ... }: {
+
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   nix.settings = {
     substituters = [ "https://nix-gaming.cachix.org" ];
-    trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
+    trusted-public-keys = [
+      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+    ];
   };
 
   systemd.tmpfiles.rules = [
@@ -27,28 +28,26 @@
     "w /sys/kernel/debug/sched/wakeup_granularity_ns  - - - - 0"
     "w /sys/kernel/debug/sched/nr_migrate - - - - 8"
   ];
-  
+
   programs = {
     gamemode.enable = true;
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
-      package = pkgs.steam.override {
-        extraPkgs = pkgs: with pkgs; [
-          gamescope
-        ];
-      };
+      package =
+        pkgs.steam.override { extraPkgs = pkgs: with pkgs; [ gamescope ]; };
     };
   };
 
   #disable smoothing for otd artist mode
   environment.etc = {
-    "libinput/local-overrides.quirks".text = ''
-      [OpenTabletDriver Virtual Tablets]
-      MatchName=OpenTabletDriver*
-      AttrTabletSmoothing=0
-    '';
+    "libinput/local-overrides.quirks".text = # ini
+      ''
+        [OpenTabletDriver Virtual Tablets]
+        MatchName=OpenTabletDriver*
+        AttrTabletSmoothing=0
+      '';
   };
 
 }

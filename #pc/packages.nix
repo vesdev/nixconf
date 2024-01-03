@@ -1,4 +1,4 @@
-{ config, pkgs, mod, ...}:
+{ pkgs, mod, ...}:
 {
   home.packages = with pkgs; with mod.pkgs; [  
     ungoogled-chromium
