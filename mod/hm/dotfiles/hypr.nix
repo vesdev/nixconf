@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   home.file.".config/hypr/wallpaper.png".source =
     pkgs.lib.mkDefault ./wallpaper.png;
-  home.file.".config/hypr/hyprpaper.conf".text = pkgs.lib.mkDefault # hyprland
+  home.file.".config/hypr/hyprpaper.conf".text = pkgs.lib.mkDefault # hyprlang
     ''
       preload = ~/.config/hypr/wallpaper.png
       #if more than one preload is desired then continue to preload other backgrounds
@@ -55,8 +55,10 @@
       }
 
       env = WLR_DRM_NO_ATOMIC,1
-      windowrulev2 = immediate, xwayland:1
+      windowrulev2 = immediate, class:^(osu!.exe)
+      windowrulev2 = noblur, class:^(osu!.exe)
 
+      misc:disable_splash_rendering = true
       animations:enabled = no
       master:new_is_master = false
       xwayland:force_zero_scaling = true
@@ -133,5 +135,8 @@
       exec-once=hyprpaper
       exec-once=waybar
       exec=otd-daemon
+
+      #disable middle click paste
+      exec-once=wl-paste -p --watch wl-copy -p ''
     '';
 }

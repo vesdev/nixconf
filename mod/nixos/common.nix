@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+  nix.settings.experimental-features = "nix-command flakes";
+
   system.stateVersion = "24.05";
   time.timeZone = "Europe/Helsinki";
   i18n.defaultLocale = "en_US.UTF-8";
