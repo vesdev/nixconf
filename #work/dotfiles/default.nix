@@ -1,7 +1,6 @@
 {
   imports = [
-    ./polybar
-    ./hypr
-    ./waybar
+    ./hypr.nix
+    ./waybar.nix
   ];
 }
