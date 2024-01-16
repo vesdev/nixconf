@@ -137,6 +137,6 @@
       exec=otd-daemon
 
       #disable middle click paste
-      exec-once=wl-paste -p --watch wl-copy -p ''
+      exec-once=wl-paste -p --watch wl-copy -p \'\'
     '';
 }
