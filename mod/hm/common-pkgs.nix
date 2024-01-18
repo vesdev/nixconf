@@ -51,6 +51,7 @@ in {
     xdg-utils
     xdg-terminal-exec
     unrar
+    udiskie
 
     # system
     xfce.thunar

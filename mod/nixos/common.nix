@@ -32,6 +32,9 @@
   programs.git.enable = true;
   programs.dconf.enable = true;
 
+  services.udisks2.enable = true;
+  services.gvfs.enable = true;
+
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";

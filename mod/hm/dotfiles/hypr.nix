@@ -139,6 +139,7 @@
       exec-once=hyprpaper
       exec-once=waybar
       exec=otd-daemon
+      exec-once=udiskie -Ns &
 
       #disable middle click paste
       exec-once=wl-paste -p --watch wl-copy -p \'\'

@@ -30,6 +30,7 @@ in {
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   services.logind.lidSwitch = "lock";
+  services.udev.packages = [ pkgs.qmk-udev-rules ];
 
   home-manager = {
     extraSpecialArgs = { inherit mod host; };
