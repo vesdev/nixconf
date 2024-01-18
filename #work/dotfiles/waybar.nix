@@ -1,9 +1,9 @@
 { config, pkgs, ... }: {
-  home.file.".config/waybar/config".text = pkgs.lib.mkDefault # json
+  home.file.".config/waybar/config".text = # json
     ''
       {
           "layer": "top",
-          "output": [ "DP-2" ],
+          "output": [ "eDP-1" ],
 
           "position": "top",
 

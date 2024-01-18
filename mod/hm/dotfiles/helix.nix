@@ -23,7 +23,7 @@
 
       [[language]]
       name = "markdown"
-      language-servers = [ "marksman", "ltex-ls" ]
+      language-servers = [ "marksman" ]
     '';
 
   home.file.".config/helix/config.toml".text = # toml
