@@ -43,7 +43,14 @@ in {
         stateVersion = "23.05";
       };
 
-      imports = with mod.hm; [ dotfiles gtk xdg common-pkgs ./packages.nix ./dotfiles ];
+      imports = with mod.hm; [
+        dotfiles
+        gtk
+        xdg
+        common-pkgs
+        ./packages.nix
+        ./dotfiles
+      ];
 
     };
   };
