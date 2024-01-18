@@ -46,6 +46,7 @@ in {
     pamixer
     pulseaudio
     nixfmt
+    nil
     marksman
     xdg-utils
     xdg-terminal-exec
@@ -71,6 +72,7 @@ in {
     # })
     chatterino2
     mullvad-vpn
+    zathura
   ];
 
   programs = {

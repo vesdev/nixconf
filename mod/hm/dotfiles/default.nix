@@ -1,5 +1,4 @@
-{...}:
-{
+{ ... }: {
   imports = [
     ./helix.nix
     ./rofi.nix
@@ -7,5 +6,6 @@
     ./kitty.nix
     ./hypr.nix
     ./swayidle.nix
+    ./zathura.nix
   ];
 }

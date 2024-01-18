@@ -22,6 +22,7 @@ in {
 
         "text/english" = textEditor;
         "text/plain" = textEditor;
+        "application/pdf" = "zathura.desktop";
       };
     };
 
@@ -70,6 +71,17 @@ in {
           "image/svg+xml"
           "image/webp"
         ];
+      };
+
+      zathura = {
+        name = "Zathura";
+        genericName = "Document Viewer";
+        exec = "zathura %F";
+        terminal = false;
+        icon = "zathura";
+        startupNotify = false;
+        categories = [ "Utility" "VectorGraphics" "RasterGraphics" ];
+        mimeType = [ "application/pdf" ];
       };
     };
   };
