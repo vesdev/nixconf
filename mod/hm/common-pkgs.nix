@@ -74,6 +74,7 @@ in {
     chatterino2
     mullvad-vpn
     zathura
+    keepassxc
   ];
 
   programs = {
