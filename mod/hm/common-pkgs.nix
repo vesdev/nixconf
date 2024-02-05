@@ -14,12 +14,6 @@ let
   };
 in {
   home.packages = with pkgs; [
-    #not in use
-    # mod.polybar
-    # flameshot
-    # zellij
-    # cava
-
     # cli/tui
     gh
     neofetch
@@ -35,7 +29,6 @@ in {
     bat
     bat-extras.batgrep
     bat-extras.prettybat
-    mod.pkgs.twitch-tui
     xorg.xprop
     du-dust
 
@@ -55,24 +48,16 @@ in {
     udiskie
     mpvpaper
 
-    # system
-    xfce.thunar
-    xarchiver
-    pavucontrol
+    # other
     mpv
     feh
     kitty
-    arandr
 
     # apps
-    librewolf
+    xfce.thunar
+    xarchiver
+    pavucontrol
     webcord-vencord
-    # (pkgs.discord.override {
-    #   # remove any overrides that you don't want
-    #   withopenasar = true;
-    #   withvencord = true;
-    #   nss = nss_latest;
-    # })
     chatterino2
     mullvad-vpn
     zathura
@@ -96,5 +81,14 @@ in {
 
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
+
+    librewolf = {
+      enable = true;
+      settings = {
+        "webgl.disabled" = false;
+        "privacy.resistFingerprinting" = false;
+        "media.ffmpeg.vaapi.enabled" = true;
+      };
+    };
   };
 }
