@@ -126,7 +126,7 @@
       exec=otd-daemon
       exec-once=udiskie -Ns &
 
-      exec-once=mpvpaper '*' ~/.config/hypr/wp.mp4 -o "--panscan=1 --loop"
+      exec-once=mpvpaper '*' ~/.config/hypr/wp.mp4 -o "--panscan=1 --loop --hwdec=vaapi"
 
       #disable middle click paste
       exec-once=wl-paste -p --watch wl-copy -p \'\'
