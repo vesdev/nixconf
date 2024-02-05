@@ -29,12 +29,8 @@
           kb_options =
           kb_rules =
 
-          follow_mouse = 1
-          mouse_refocus=false
-
           touchpad:natural_scroll = no
-
-          sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+          sensitivity = 0
       }
 
       general {
@@ -63,24 +59,29 @@
 
       misc:disable_splash_rendering = true
       misc:vfr = true
+      misc:no_direct_scanout = false
+      input:force_no_accel = true
       animations:enabled = no
-      master:new_is_master = false
       xwayland:force_zero_scaling = true
+
+      master:new_is_master = false
+      master:mfact = 0.75
+      master:allow_small_split = true
 
       $mod = SUPER
 
       bind = $mod, s, exec, grim -g "$(slurp -d)" - | wl-copy
-      bind = $mod, Return, exec, kitty
-      bind = $mod, B, exec, librewolf
-      bind = $mod, Space, exec, rofi -combi-modi drun,run,ssh -theme squared-material-red -show combi -icon-theme Papirus -show-icons
+      bind = $mod, i, exec, kitty
+      bind = $mod, b, exec, librewolf
+      bind = $mod, space, exec, rofi -combi-modi drun,run,ssh -theme squared-material-red -show combi -icon-theme Papirus -show-icons
 
-      bind = $mod, Q, killactive, 
-      bind = $mod SHIFT, X, exit, 
-      bind = $mod SHIFT, f, fullscreen, 
-      bind = $mod CONTROL, f, fakefullscreen, 
-      bind = $mod, f, fullscreen, 1 
+      bind = $mod, q, killactive, 
+      bind = $mod shift, X, exit, 
+
+      bind = $mod, f, fullscreen, 
       bind = $mod, t, togglefloating  
-      bind = $mod, d, toggleopaque  
+      bind = $mod, o, toggleopaque  
+      bind = $mod, m, fullscreen, 1 
 
       # Move focus with mainMod + arrow keys
       bind = $mod, h, movefocus, l
@@ -88,17 +89,19 @@
       bind = $mod, k, movefocus, u
       bind = $mod, j, movefocus, d
 
-      bind = $mod CONTROL, l, resizeactive, 100 0
-      bind = $mod CONTROL, h, resizeactive, -100 0
-      bind = $mod CONTROl, k, resizeactive, 0 -100
-      bind = $mod CONTROL, j, resizeactive, 0 100
+      bind = $mod control, l, resizeactive, 100 0
+      bind = $mod control, h, resizeactive, -100 0
+      bind = $mod control, k, resizeactive, 0 -100
+      bind = $mod control, j, resizeactive, 0 100
 
-      bind = $mod, BACKSLASH, layoutmsg, swapwithmaster master
+      bind = $mod, slash, layoutmsg, swapwithmaster master
+      bind = $mod, comma, layoutmsg, rollnext
+      bind = $mod, period, layoutmsg, rollprev
 
-      bind = $mod ALT, l, layoutmsg, orientationright
-      bind = $mod ALT, h, layoutmsg, orientationleft
-      bind = $mod ALT, k, layoutmsg, orientationtop
-      bind = $mod ALT, j, layoutmsg, orientationbottom
+      bind = $mod alt, l, layoutmsg, orientationright
+      bind = $mod alt, h, layoutmsg, orientationleft
+      bind = $mod alt, k, layoutmsg, orientationtop
+      bind = $mod alt, j, layoutmsg, orientationbottom
 
       # Switch workspaces with mainMod + [0-9]
       bind = $mod, 1, moveworkspacetomonitor, 1 current
@@ -122,15 +125,15 @@
       bind = $mod, 9, workspace, 9
 
       # Move active window to a workspace with mainMod + SHIFT + [0-9]
-      bind = $mod SHIFT, 1, movetoworkspacesilent, 1
-      bind = $mod SHIFT, 2, movetoworkspacesilent, 2
-      bind = $mod SHIFT, 3, movetoworkspacesilent, 3
-      bind = $mod SHIFT, 4, movetoworkspacesilent, 4
-      bind = $mod SHIFT, 5, movetoworkspacesilent, 5
-      bind = $mod SHIFT, 6, movetoworkspacesilent, 6
-      bind = $mod SHIFT, 7, movetoworkspacesilent, 7
-      bind = $mod SHIFT, 8, movetoworkspacesilent, 8
-      bind = $mod SHIFT, 9, movetoworkspacesilent, 9
+      bind = $mod shift, 1, movetoworkspacesilent, 1
+      bind = $mod shift, 2, movetoworkspacesilent, 2
+      bind = $mod shift, 3, movetoworkspacesilent, 3
+      bind = $mod shift, 4, movetoworkspacesilent, 4
+      bind = $mod shift, 5, movetoworkspacesilent, 5
+      bind = $mod shift, 6, movetoworkspacesilent, 6
+      bind = $mod shift, 7, movetoworkspacesilent, 7
+      bind = $mod shift, 8, movetoworkspacesilent, 8
+      bind = $mod shift, 9, movetoworkspacesilent, 9
 
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = $mod, mouse:272, movewindow
