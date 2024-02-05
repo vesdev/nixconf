@@ -44,15 +44,38 @@ in {
         stateVersion = "23.05";
       };
 
-      imports = with mod.hm; [
-        dotfiles
-        gtk
-        xdg
-        common-pkgs
-        ./packages.nix
-        ./dotfiles
-      ];
+      imports = with mod.hm; [ dotfiles gtk xdg common-pkgs ./packages.nix ];
 
+      dotfiles = {
+        hyprland.extraConfig = # bash
+          ''
+            monitor=eDP-1,1920x1080@60,0x0,1
+            workspace=1,m:eDP-1,
+          '';
+
+        waybar.extraConfig = # bash
+          ''
+            "output": [ "eDP-1" ],
+
+            "modules-left": [
+                "hyprland/workspaces",
+                "hyprland/mode"
+            ],
+            "modules-center": [
+            ],
+            "modules-right": [
+                "clock#time",
+                "pulseaudio",
+                "network",
+                "memory",
+                "cpu",
+                "temperature",
+                "battery",
+                "tray",
+                "clock#date",
+            ],
+          '';
+      };
     };
   };
 }
