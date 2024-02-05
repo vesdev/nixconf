@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   home.file.".config/helix/languages.toml".text = # toml
     ''
       [language-server.ra-multiplex]

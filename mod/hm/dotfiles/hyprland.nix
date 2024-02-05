@@ -1,27 +1,9 @@
-{ pkgs, ... }: {
-  # home.file.".config/hypr/wallpaper.png".source =
-  #   pkgs.lib.mkDefault ./wallpaper.png;
+{ config, pkgs, ... }: {
   home.file.".config/hypr/wp.mp4".source = pkgs.lib.mkDefault ./wp.mp4;
-  home.file.".config/hypr/hyprpaper.conf".text = pkgs.lib.mkDefault # hypr
-    ''
-      preload = ~/.config/hypr/wallpaper.png
-      #if more than one preload is desired then continue to preload other backgrounds
-
-      wallpaper = ,~/.config/hypr/wallpaper.png
-      #wallpaper = monitor2,~/.config/hypr/wallpaper.jpg
-      #wallpaper = monitor2,~/.config/hypr/wallpaper.jpg
-
-    '';
 
   home.file.".config/hypr/hyprland.conf".text = pkgs.lib.mkDefault # hypr
     ''
-      # TODO: pass monitor config from the host
-      monitor=DP-2,2560x1440@170,1080x480,1
-      monitor=DP-3,1920x1080@144,3640x840,1
-      monitor=HDMI-A-1,1920x1080@60,0x0,1,transform,1
-      workspace=1,m:DP-2,
-      workspace=2,m:DP-3,
-      workspace=3,m:HDMI-A-1,
+      ${config.dotfiles.hyprland.extraConfig}
 
       input {
           kb_layout = de

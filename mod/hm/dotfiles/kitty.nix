@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   home.file.".config/kitty/kitty.conf".text = ''
     include ./theme.conf
     font_family FiraCode Nerd Font

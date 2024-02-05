@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   home.file.".local/share/rofi/themes/squared-material-red.rasi".text = # rasi
     ''
       * {
@@ -91,5 +91,5 @@
           text-color: inherit;
       }
 
-  '';
+    '';
 }
