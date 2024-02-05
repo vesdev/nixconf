@@ -18,8 +18,9 @@ in {
   # services.fwupd.enable = true;
   users.users.${username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
+    extraGroups = [ "wheel" "docker" "libvirt" ];
   };
+
   nix.settings.trusted-users = [ username ];
 
   home-manager = {
@@ -37,7 +38,7 @@ in {
     };
   };
 
-  services.udev.packages = [ pkgs.qmk-udev-rules ];
+  # services.udev.packages = [ pkgs.qmk-udev-rules ];
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   services.flatpak.enable = true;

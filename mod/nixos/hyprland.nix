@@ -10,19 +10,22 @@ let
     ];
   });
 
-  package = mod.pkgs.hyprland.override {
-    inherit xwayland;
-    wlroots = mod.pkgs.wlroots-hyprland.override {
-      wlroots = pkgs.wlroots.override { inherit xwayland; };
-    };
-  };
+  # package = mod.pkgs.hyprland.override {
+  #   # inherit xwayland;
+  #   wlroots = mod.pkgs.wlroots-hyprland;
+  #   # .override {
+  #   #   # wlroots = pkgs.wlroots.override { inherit xwayland; };
+  #   # };
+
+  # };
 in {
 
   environment.variables.NIXOS_OZONE_WL = "1";
 
   programs.hyprland = {
     enable = true;
-    inherit package;
+    # portalPackage = mod.pkgs.xdg-desktop-portal-hyprland;
+    package = mod.pkgs.hyprland;
   };
 
   security.pam.services.swaylock = { };

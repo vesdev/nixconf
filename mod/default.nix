@@ -1,5 +1,6 @@
 { inputs, hosts }:
 let
+
   pkgs = import inputs.nixpkgs {
     system = "x86_64-linux";
     config.allowUnfree = true;
@@ -11,6 +12,8 @@ let
     pkgs = with inputs; {
       hyprland = hyprland.packages.${pkgs.system}.hyprland;
       wlroots-hyprland = hyprland.packages.${pkgs.system}.wlroots-hyprland;
+      xdg-desktop-portal-hyprland =
+        hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
       osu-stable = nix-gaming.packages.${pkgs.system}.osu-stable;
       osu-lazer = nix-gaming.packages.${pkgs.system}.osu-lazer-bin;
       eza = eza.packages.${pkgs.system}.default;

@@ -1,6 +1,7 @@
 { pkgs, ... }: {
-  home.file.".config/hypr/wallpaper.png".source =
-    pkgs.lib.mkDefault ./wallpaper.png;
+  # home.file.".config/hypr/wallpaper.png".source =
+  #   pkgs.lib.mkDefault ./wallpaper.png;
+  home.file.".config/hypr/wp.mp4".source = pkgs.lib.mkDefault ./wp.mp4;
   home.file.".config/hypr/hyprpaper.conf".text = pkgs.lib.mkDefault # hypr
     ''
       preload = ~/.config/hypr/wallpaper.png
@@ -15,8 +16,8 @@
   home.file.".config/hypr/hyprland.conf".text = pkgs.lib.mkDefault # hypr
     ''
       # TODO: pass monitor config from the host
-      monitor=DP-2,2560x1440@170,1080x768,1.25
-      monitor=DP-3,1920x1080@144,3128x840,1
+      monitor=DP-2,2560x1440@170,1080x480,1
+      monitor=DP-3,1920x1080@144,3640x840,1
       monitor=HDMI-A-1,1920x1080@60,0x0,1,transform,1
       workspace=1,m:DP-2,
       workspace=2,m:DP-3,
@@ -34,11 +35,11 @@
       }
 
       general {
-          gaps_in = 4
-          gaps_out = 8
+          gaps_in = 8
+          gaps_out = 16
           border_size = 1
-          col.active_border = rgba(e4a88aff) rgba(e95378ff) 90deg
-          col.inactive_border = rgba(e4a88aff) rgba(00000000) 90deg
+          col.inactive_border = rgba(00000000) rgba(00000000) 90deg
+          col.active_border = rgba(e4a88aff) rgba(00000000) 90deg
           layout = master
           allow_tearing = true
       }
@@ -46,7 +47,7 @@
       decoration {
           rounding = 0
           active_opacity = 1.0
-          inactive_opacity = 0.9
+          inactive_opacity = 0.75
           drop_shadow = false
           blur:enabled = true
           blur:size = 16
@@ -65,7 +66,6 @@
       xwayland:force_zero_scaling = true
 
       master:new_is_master = false
-      master:mfact = 0.75
       master:allow_small_split = true
 
       $mod = SUPER
@@ -139,10 +139,12 @@
       bindm = $mod, mouse:272, movewindow
       bindm = $mod, mouse:273, resizewindow
 
-      exec-once=hyprpaper
+      # exec-once=hyprpaper
       exec-once=waybar
       exec=otd-daemon
       exec-once=udiskie -Ns &
+
+      exec-once=mpvpaper '*' ~/.config/hypr/wp.mp4 -o "--panscan=1 --loop"
 
       #disable middle click paste
       exec-once=wl-paste -p --watch wl-copy -p \'\'

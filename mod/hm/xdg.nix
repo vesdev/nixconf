@@ -83,6 +83,14 @@ in {
         categories = [ "Utility" "VectorGraphics" "RasterGraphics" ];
         mimeType = [ "application/pdf" ];
       };
+
+      virt-manager = {
+        name = "Virt Manager";
+        exec = "env GDK_BACKEND=x11 virt-manager";
+        terminal = false;
+        icon = "virt-manager";
+        startupNotify = false;
+      };
     };
   };
 }

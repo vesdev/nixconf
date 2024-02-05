@@ -37,6 +37,7 @@ in {
     bat-extras.prettybat
     mod.pkgs.twitch-tui
     xorg.xprop
+    du-dust
 
     # deps
     libinput
@@ -52,6 +53,7 @@ in {
     xdg-terminal-exec
     unrar
     udiskie
+    mpvpaper
 
     # system
     xfce.thunar
@@ -88,6 +90,7 @@ in {
         export MANPAGER="sh -c 'col -bx | bat -l man -p'"
         export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
         export PATH=$PATH:/var/lib/flatpak/exports/bin
+        export VIRSH_DEFAULT_CONNECT_URI=qemu:///system
       '';
     };
 
