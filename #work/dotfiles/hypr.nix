@@ -13,7 +13,7 @@
   home.file.".config/hypr/hyprland.conf".text = # hyprlang
     ''
       # TODO: pass monitor config from the host
-      monitor=eDP-1,1920x1080@60,0x1920,1.5
+      monitor=eDP-1,1920x1080@60,0x1920,1
       monitor=HDMI-A-2,1920x1080@60,90x0,1,transform,1
       workspace=1,m:eDP-1,
       workspace=2,m:HDMI-A-2,
@@ -129,5 +129,7 @@
       exec-once=hyprpaper
       exec-once=waybar
       exec=otd-daemon
+
+      env = QT_QPA_PLATFORM, wayland
     '';
 }
