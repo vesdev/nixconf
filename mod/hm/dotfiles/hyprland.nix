@@ -39,6 +39,7 @@
       env = WLR_DRM_NO_ATOMIC,1
       windowrulev2 = immediate, class:^(osu!.exe)
       windowrulev2 = noblur, class:^(osu!.exe)
+      layerrule = blur,rofi
 
       misc:disable_splash_rendering = true
       misc:disable_hyprland_logo = true
