@@ -18,5 +18,7 @@
       prismlauncher
       lutgen
       ffmpeg
+      piper
     ];
+
 }
