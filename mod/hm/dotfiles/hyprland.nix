@@ -39,8 +39,10 @@
       env = WLR_DRM_NO_ATOMIC,1
       windowrulev2 = immediate, class:^(osu!.exe)
       windowrulev2 = noblur, class:^(osu!.exe)
+      layerrule = blur,rofi
 
       misc:disable_splash_rendering = true
+      misc:disable_hyprland_logo = true
       misc:vfr = true
       misc:no_direct_scanout = false
       misc:cursor_zoom_rigid = true
@@ -57,7 +59,8 @@
       bind = $mod, s, exec, grim -g "$(slurp -d)" - | wl-copy
       bind = $mod, i, exec, kitty
       bind = $mod, b, exec, librewolf
-      bind = $mod, space, exec, rofi -combi-modi drun,run,ssh -theme squared-material-red -show combi -icon-theme Papirus -show-icons
+      bind = $mod, space, exec, rofi -combi-modi run,emoji -show combi -icon-theme Papirus -show-icons
+      bind = $mod, c, exec, rofi -modi calc -show calc -no-show-match -no-sort
 
       bind = $mod, q, killactive, 
       bind = $mod shift, X, exit, 

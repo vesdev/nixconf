@@ -68,6 +68,13 @@ in {
   programs = {
     home-manager.enable = true;
 
+    rofi = {
+      enable = true;
+      package = pkgs.rofi-wayland;
+      plugins = with pkgs; [ rofi-calc rofi-emoji ];
+      theme = "~/.local/share/rofi/themes/squared-material-red.rasi";
+    };
+
     bash = {
       enable = true;
       inherit shellAliases;

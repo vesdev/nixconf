@@ -57,8 +57,6 @@ in {
   environment.systemPackages = with pkgs; [
     wayland
     wdisplays
-    rofi-wayland
-    rofi-calc
     hyprpaper
     waybar
     grim

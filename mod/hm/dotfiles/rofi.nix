@@ -1,14 +1,14 @@
 { ... }: {
-  home.file.".local/share/rofi/themes/squared-material-red.rasi".text = # rasi
+  home.file.".local/share/rofi/themes/squared-material-red.rasi".text = # css
     ''
       * {
           font:   "FiraCode Nerd Font Medium 12";
 
-          bg0:     #1c1e26;
+          bg0:     #1c1e2699;
           bg1:     #16161c;
-          fg0:     #e95378;
+          fg0:     #e4a88a;
 
-          accent-color:     #e95378;
+          accent-color:     #e4a88a;
           urgent-color:     #e4a88a;
 
           background-color:   transparent;
@@ -20,10 +20,15 @@
       }
 
       window {
-          location:   center;
-          width:      480;
+          location:   north;
+          x-offset: 16px;
+          y-offset: -32px;
+          width: calc( 100% - 32px );
 
           background-color:   @bg0;
+          border-color:     @fg0;
+          border-radius: 8px;
+          border: 0px 0px 1px 0px;
       }
 
       inputbar {
