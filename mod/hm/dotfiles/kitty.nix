@@ -3,6 +3,12 @@
     include ./theme.conf
     font_family FiraCode Nerd Font
     confirm_os_window_close 0
+    enabled_layouts fat:bias=70;full_size=1;mirrored=false;,stack
+    map ctrl+shift+i new_window_with_cwd
+    map ctrl+shift+q close_window
+    map ctrl+shift+m toggle_layout stack
+    map ctrl+shift+j next_window
+    map ctrl+shift+k previous_window
   '';
   home.file.".config/kitty/theme.conf".text = ''
     background #1c1e26

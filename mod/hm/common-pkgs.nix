@@ -66,6 +66,8 @@ in {
 
   programs = {
     home-manager.enable = true;
+    zoxide.enable = true;
+    zoxide.enableBashIntegration = true;
 
     rofi = {
       enable = true;
