@@ -45,6 +45,8 @@
       misc:disable_hyprland_logo = true
       misc:vfr = true
       misc:no_direct_scanout = false
+      misc:cursor_zoom_rigid = true
+
       input:force_no_accel = true
       animations:enabled = no
       xwayland:force_zero_scaling = true
@@ -67,6 +69,8 @@
       bind = $mod, t, togglefloating  
       bind = $mod, o, toggleopaque  
       bind = $mod, m, fullscreen, 1 
+      bind = $mod, mouse:275, exec, hyprctl keyword misc:cursor_zoom_factor 3.0
+      bindr = $mod, mouse:275,exec, hyprctl keyword misc:cursor_zoom_factor 1.0 
 
       # Move focus with mainMod + arrow keys
       bind = $mod, h, movefocus, l
@@ -130,6 +134,5 @@
       exec-once=udiskie -Ns &
 
       exec-once=mpvpaper '*' ~/.config/hypr/wp.mp4 -o "--panscan=1 --loop --hwdec=vaapi"
-
     '';
 }

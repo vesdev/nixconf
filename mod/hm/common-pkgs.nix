@@ -41,6 +41,7 @@ in {
     pulseaudio
     nixfmt
     nil
+    taplo
     marksman
     xdg-utils
     xdg-terminal-exec

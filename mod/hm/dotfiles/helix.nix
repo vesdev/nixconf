@@ -1,18 +1,7 @@
 { ... }: {
   home.file.".config/helix/languages.toml".text = # toml
     ''
-      [language-server.ra-multiplex]
-      command = "ra-multiplex"
-      args = [ "client", "--server-path", "rust-analyzer" ]
-
-      [[language]]
-      name = "rust"
-      language-servers = [ "ra-multiplex" ]
-
       [language-server.rust-analyzer.config.check]
-      command = "clippy"
-
-      [language-server.ra-multiplex.config.check]
       command = "clippy"
 
       [[language]]
@@ -24,6 +13,10 @@
       [[language]]
       name = "markdown"
       language-servers = [ "marksman" ]
+
+      [[language]]
+      name = "toml"
+      auto-format = true
     '';
 
   home.file.".config/helix/config.toml".text = # toml
