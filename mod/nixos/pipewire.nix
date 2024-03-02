@@ -1,5 +1,5 @@
 { mod, ... }: {
-  imports = [ mod.nixosModules.pipewire ];
+  # imports = [ mod.nixosModules.pipewire ];
 
   sound.enable = true;
   services.pipewire = {
@@ -9,10 +9,10 @@
     pulse.enable = true;
     jack.enable = true;
 
-    lowLatency = {
-      enable = true;
-      quantum = 48; # tweak for less latency, too low will crackle
-      rate = 48000;
-    };
+    # lowLatency = {
+    #   enable = true;
+    #   quantum = 48; # tweak for less latency, too low will crackle
+    #   rate = 48000;
+    # };
   };
 }

@@ -1,6 +1,7 @@
 { pkgs, mod, ... }: {
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = mod.pkgs.cachyos;
+  environment.systemPackages = [ mod.pkgs.scx ];
 
   nix.settings = {
     substituters = [ "https://nix-gaming.cachix.org" ];

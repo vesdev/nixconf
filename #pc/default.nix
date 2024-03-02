@@ -12,7 +12,8 @@ in {
     hyprland
     pipewire
 
-    home-manager.nixosModules.home-manager
+    mod.nixosModules.home-manager
+    mod.nixosModules.chaotic
   ];
 
   # services.fwupd.enable = true;
@@ -26,6 +27,7 @@ in {
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   services.flatpak.enable = true;
   services.ratbagd.enable = true;
+  # chaotic.mesa-git.enable = true;
 
   home-manager = {
     extraSpecialArgs = { inherit mod host; };
@@ -46,9 +48,11 @@ in {
             monitor=DP-2,2560x1440@170,1080x480,1
             monitor=DP-3,1920x1080@144,3640x840,1
             monitor=HDMI-A-1,1920x1080@60,0x0,1,transform,1
-            workspace=1,m:DP-2,
-            workspace=2,m:DP-3,
-            workspace=3,m:HDMI-A-1,
+            workspace=name:Main, monitor:DP-2, default:true
+            workspace=name:Second, monitor:DP-3, default:true
+            workspace=name:Chat, monitor:HDMI-A-1, default:true, layoutopt:orientation:top
+            exec-once=webcord
+            exec-once=chatterino
           '';
 
         waybar.extraConfig = # bash

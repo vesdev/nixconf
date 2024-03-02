@@ -1,15 +1,21 @@
 { ... }: {
+
   home.file.".config/kitty/kitty.conf".text = ''
     include ./theme.conf
     font_family FiraCode Nerd Font
     confirm_os_window_close 0
     enabled_layouts fat:bias=70;full_size=1;mirrored=false;,stack
+    allow_remote_control yes
     map ctrl+shift+i new_window_with_cwd
     map ctrl+shift+q close_window
-    map ctrl+shift+m toggle_layout stack
     map ctrl+shift+j next_window
     map ctrl+shift+k previous_window
+
+    map --when-focus-on id:1 ctrl+shift+m combine : first_window : new_window_with_cwd
+    map --when-focus-on id:2 ctrl+shift+m combine : second_window : close_other_windows_in_tab
   '';
+
+  # map ctrl+shift+m toggle_layout stack
   home.file.".config/kitty/theme.conf".text = ''
     background #1c1e26
     foreground #e0e0e0
