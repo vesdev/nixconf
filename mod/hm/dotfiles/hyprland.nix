@@ -39,7 +39,11 @@
       env = WLR_DRM_NO_ATOMIC,1
       windowrulev2 = immediate, class:^(osu!.exe)
       windowrulev2 = noblur, class:^(osu!.exe)
+
+      windowrulev2 = workspace name:Chat, class:^(WebCord)
+      windowrulev2 = workspace name:Chat, class:^(com.chatterino.)
       layerrule = blur,rofi
+      # windowrulev2 = stayfocused, class:^(vueko)
 
       misc:disable_splash_rendering = true
       misc:disable_hyprland_logo = true
@@ -59,8 +63,7 @@
       bind = $mod, s, exec, grim -g "$(slurp -d)" - | wl-copy
       bind = $mod, i, exec, kitty
       bind = $mod, b, exec, librewolf
-      bind = $mod, space, exec, rofi -combi-modi run,emoji -show combi -icon-theme Papirus -show-icons
-      bind = $mod, c, exec, rofi -modi calc -show calc -no-show-match -no-sort
+      bind = $mod, space, exec, rofi -combi-modi drun,run,emoji -show combi -icon-theme Papirus -show-icons
 
       bind = $mod, q, killactive, 
       bind = $mod shift, X, exit, 
@@ -93,36 +96,27 @@
       bind = $mod alt, j, layoutmsg, orientationbottom
 
       # Switch workspaces with mainMod + [0-9]
-      bind = $mod, 1, moveworkspacetomonitor, 1 current
-      bind = $mod, 2, moveworkspacetomonitor, 2 current
-      bind = $mod, 3, moveworkspacetomonitor, 3 current
+      bind = $mod, 1, moveworkspacetomonitor, name:Main current
+      bind = $mod, 2, moveworkspacetomonitor, name:Second current
+      bind = $mod, 3, moveworkspacetomonitor, name:Chat current
       bind = $mod, 4, moveworkspacetomonitor, 4 current
       bind = $mod, 5, moveworkspacetomonitor, 5 current
       bind = $mod, 6, moveworkspacetomonitor, 6 current
-      bind = $mod, 7, moveworkspacetomonitor, 7 current
-      bind = $mod, 8, moveworkspacetomonitor, 8 current
-      bind = $mod, 9, moveworkspacetomonitor, 9 current
 
-      bind = $mod, 1, workspace, 1
-      bind = $mod, 2, workspace, 2
-      bind = $mod, 3, workspace, 3
+      bind = $mod, 1, workspace, name:Main
+      bind = $mod, 2, workspace, name:Second
+      bind = $mod, 3, workspace, name:Chat
       bind = $mod, 4, workspace, 4
       bind = $mod, 5, workspace, 5
       bind = $mod, 6, workspace, 6
-      bind = $mod, 7, workspace, 7
-      bind = $mod, 8, workspace, 8
-      bind = $mod, 9, workspace, 9
 
       # Move active window to a workspace with mainMod + SHIFT + [0-9]
-      bind = $mod shift, 1, movetoworkspacesilent, 1
-      bind = $mod shift, 2, movetoworkspacesilent, 2
-      bind = $mod shift, 3, movetoworkspacesilent, 3
+      bind = $mod shift, 1, movetoworkspacesilent, name:Main
+      bind = $mod shift, 2, movetoworkspacesilent, name:Second
+      bind = $mod shift, 3, movetoworkspacesilent, name:Chat
       bind = $mod shift, 4, movetoworkspacesilent, 4
       bind = $mod shift, 5, movetoworkspacesilent, 5
       bind = $mod shift, 6, movetoworkspacesilent, 6
-      bind = $mod shift, 7, movetoworkspacesilent, 7
-      bind = $mod shift, 8, movetoworkspacesilent, 8
-      bind = $mod shift, 9, movetoworkspacesilent, 9
 
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = $mod, mouse:272, movewindow

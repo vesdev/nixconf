@@ -19,10 +19,14 @@ let
       eza = eza.packages.${pkgs.system}.default;
       helix = helix.packages.${pkgs.system}.default;
       twitch-tui = twitch-tui.packages.${pkgs.system}.default;
+      cachyos = chaotic.packages.${pkgs.system}.linuxPackages_cachyos;
+      scx = chaotic.packages.${pkgs.system}.scx;
     };
 
     nixosModules = {
       pipewire = inputs.nix-gaming.nixosModules.pipewireLowLatency;
+      chaotic = inputs.chaotic.nixosModules.default;
+      home-manager = inputs.home-manager.nixosModules.home-manager;
     };
   };
 

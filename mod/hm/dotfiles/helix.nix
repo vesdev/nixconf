@@ -43,6 +43,7 @@
       C-s = ":w"
       C-p = [ "insert_newline", "paste_before" ]
       C-n = [ "select_mode", "move_char_right", "move_prev_word_start", "move_next_word_start", "search_selection" ]
+      C-q = ":buffer-close"
 
       [keys.insert]
       up = "no_op"
@@ -72,10 +73,13 @@
       [editor.file-picker]
       hidden = false
 
+
+
+
+
       [editor.indent-guides]
       render = true
       character = "▏"
-      # skip-levels = 1
     '';
 
   home.file.".config/helix/runtime/queries/rust/injections.csm".text = # scheme

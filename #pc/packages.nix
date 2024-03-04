@@ -2,6 +2,7 @@
   home.packages = with pkgs;
     with mod.pkgs; [
       # (osu-stable.override { location = "$HOME/.local/share/osu-stable"; })
+      blender
       ungoogled-chromium
       vscodium
       qmk
@@ -19,6 +20,8 @@
       lutgen
       ffmpeg
       piper
+      element-desktop
+      bottles
     ];
 
 }
