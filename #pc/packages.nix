@@ -2,12 +2,13 @@
   home.packages = with pkgs;
     with mod.pkgs; [
       # (osu-stable.override { location = "$HOME/.local/share/osu-stable"; })
+      # mod.pkgs.twitch-tui
       blender
       ungoogled-chromium
       vscodium
       qmk
       krita
-      handbrake
+      # handbrake
       chatterino2
       obs-studio
       osu-lazer
@@ -22,6 +23,7 @@
       piper
       element-desktop
       bottles
+      nuclear
     ];
 
 }

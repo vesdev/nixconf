@@ -11,6 +11,7 @@ let
   mod = {
     pkgs = with inputs; {
       hyprland = hyprland.packages.${pkgs.system}.hyprland;
+      hyprlock = hyprlock.packages.${pkgs.system}.hyprlock;
       wlroots-hyprland = hyprland.packages.${pkgs.system}.wlroots-hyprland;
       xdg-desktop-portal-hyprland =
         hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
@@ -19,13 +20,15 @@ let
       eza = eza.packages.${pkgs.system}.default;
       helix = helix.packages.${pkgs.system}.default;
       twitch-tui = twitch-tui.packages.${pkgs.system}.default;
-      cachyos = chaotic.packages.${pkgs.system}.linuxPackages_cachyos;
-      scx = chaotic.packages.${pkgs.system}.scx;
+      vuekobot = inputs.vuekobot.packages.${pkgs.system}.default;
+      # cachyos = chaotic.packages.${pkgs.system}.linuxPackages_cachyos;
+      # scx = chaotic.packages.${pkgs.system}.scx;
     };
 
     nixosModules = {
       pipewire = inputs.nix-gaming.nixosModules.pipewireLowLatency;
-      chaotic = inputs.chaotic.nixosModules.default;
+      vuekobot = inputs.vuekobot.nixosModules.default;
+      # chaotic = inputs.chaotic.nixosModules.default;
       home-manager = inputs.home-manager.nixosModules.home-manager;
     };
   };

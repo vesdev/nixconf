@@ -12,8 +12,8 @@ in {
     hyprland
     pipewire
 
+    mod.nixosModules.vuekobot
     mod.nixosModules.home-manager
-    mod.nixosModules.chaotic
   ];
 
   # services.fwupd.enable = true;
@@ -27,6 +27,26 @@ in {
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   services.flatpak.enable = true;
   services.ratbagd.enable = true;
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [ stdenv.cc.cc.lib icu openssl mono ];
+
+  services.postgresql = {
+    enable = true;
+    # ensureDatabases = [ "byteracer" "vueko" ];
+    authentication = ''
+      local all       postgres     trust
+    '';
+    identMap = ''
+      superuser_map      ves      postgres
+    '';
+  };
+
+  services.vuekobot = {
+    enable = true;
+    package = mod.pkgs.vuekobot;
+    configFile = "/home/ves/dev/vuekobot/vuekobot.toml";
+  };
+
   # chaotic.mesa-git.enable = true;
 
   home-manager = {
@@ -40,7 +60,14 @@ in {
         stateVersion = "23.11";
       };
 
-      imports = with mod.hm; [ dotfiles gtk xdg common-pkgs ./packages.nix ];
+      imports = with mod.hm; [
+        dotfiles
+        gtk
+        xdg
+        shell
+        common-pkgs
+        ./packages.nix
+      ];
 
       dotfiles = {
         hyprland.extraConfig = # bash

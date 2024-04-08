@@ -1,73 +1,128 @@
 { config, pkgs, ... }: {
   home.file.".config/hypr/wp.mp4".source = pkgs.lib.mkDefault ./wp.mp4;
 
+  home.file.".config/hypr/hyprlock.conf".text = pkgs.lib.mkDefault # hypr
+    ''
+      background {
+        monitor =
+        blur_passes = 0
+      }
+
+      label {
+          monitor =
+          text = locked ($USER)
+          color = rgba(200, 200, 200, 1.0)
+          font_size = 25
+          font_family = Noto Sans
+          rotate = 0 # degrees, counter-clockwise
+
+          position = 0, 0
+          halign = center
+          valign = center
+      }
+
+      input-field {
+          monitor =
+          size = 200, 50
+          outline_thickness = 3
+          dots_size = 0.33 # Scale of input-field height, 0.2 - 0.8
+          dots_spacing = 0.15 # Scale of dots' absolute size, 0.0 - 1.0
+          dots_center = false
+          dots_rounding = -1 # -1 default circle, -2 follow input-field rounding
+          outer_color = rgb(151515)
+          inner_color = rgb(200, 200, 200)
+          font_color = rgb(10, 10, 10)
+          fade_on_empty = true
+          fade_timeout = 1000 # Milliseconds before fade_on_empty is triggered.
+          placeholder_text = <i>Input Password...</i> # Text rendered in the input box when it's empty.
+          hide_input = false
+          rounding = -1 # -1 means complete rounding (circle/oval)
+          check_color = rgb(204, 136, 34)
+          fail_color = rgb(204, 34, 34) # if authentication failed, changes outer_color and fail message color
+          fail_text = <i>$FAIL <b>($ATTEMPTS)</b></i> # can be set to empty
+          fail_transition = 300 # transition time in ms between normal outer_color and fail_color
+          capslock_color = -1
+          numlock_color = -1
+          bothlock_color = -1 # when both locks are active. -1 means don't change outer color (same for above)
+          invert_numlock = false # change color if numlock is off
+          swap_font_color = false # see below
+
+          position = 0, -80
+          halign = center
+          valign = center
+      }
+    '';
+
   home.file.".config/hypr/hyprland.conf".text = pkgs.lib.mkDefault # hypr
     ''
       ${config.dotfiles.hyprland.extraConfig}
 
       input {
-          kb_layout = de
-          kb_variant = us
-          kb_model = 
-          kb_options =
-          kb_rules =
-
-          touchpad:natural_scroll = no
-          sensitivity = 0
+        kb_layout = de
+        kb_variant = us
+        touchpad:natural_scroll = no
+        force_no_accel = true
+        sensitivity = 0
       }
 
       general {
-          gaps_in = 8
-          gaps_out = 16
-          border_size = 1
-          col.inactive_border = rgba(00000000) rgba(00000000) 90deg
-          col.active_border = rgba(e4a88aff) rgba(00000000) 90deg
-          layout = master
-          allow_tearing = true
+        gaps_in = 8
+        gaps_out = 16
+        border_size = 1
+        col.inactive_border = rgba(00000000) rgba(00000000) 90deg
+        col.active_border = rgba(e4a88aff) rgba(00000000) 90deg
+        layout = master
+        allow_tearing = true
       }
 
-      decoration {
-          rounding = 0
-          active_opacity = 1.0
-          inactive_opacity = 0.75
-          drop_shadow = false
-          blur:enabled = true
-          blur:size = 16
-          blur:passes = 2
-      }
-
-      env = WLR_DRM_NO_ATOMIC,1
-      windowrulev2 = immediate, class:^(osu!.exe)
-      windowrulev2 = noblur, class:^(osu!.exe)
-
-      windowrulev2 = workspace name:Chat, class:^(WebCord)
-      windowrulev2 = workspace name:Chat, class:^(com.chatterino.)
-      layerrule = blur,rofi
-      # windowrulev2 = stayfocused, class:^(vueko)
-
-      misc:disable_splash_rendering = true
-      misc:disable_hyprland_logo = true
-      misc:vfr = true
-      misc:no_direct_scanout = false
-      misc:cursor_zoom_rigid = true
-
-      input:force_no_accel = true
       animations:enabled = no
-      xwayland:force_zero_scaling = true
+      decoration {
+        rounding = 0
+        # active_opacity = 1.0
+        # inactive_opacity = 0.75
+        drop_shadow = false
+        blur:enabled = true
+        blur:size = 16
+        blur:passes = 2
+      }
+
+      misc {
+        disable_splash_rendering = true
+        disable_hyprland_logo = true
+        vfr = true
+        no_direct_scanout = false
+        cursor_zoom_rigid = true
+      }
 
       master:new_is_master = false
       master:allow_small_split = true
 
+      env = WLR_DRM_NO_ATOMIC,1
+      xwayland:force_zero_scaling = true
+
+      windowrulev2 = immediate, class:^(osu!.exe)
+      windowrulev2 = noblur, class:^(osu!.exe)
+      windowrulev2 = workspace name:Chat, class:^(WebCord)
+      windowrulev2 = workspace name:Chat, class:^(com.chatterino.)
+      # windowrulev2 = stayfocused, class:^(vueko)
+      layerrule = blur,rofi
+
       $mod = SUPER
 
+      # screemshot
       bind = $mod, s, exec, grim -g "$(slurp -d)" - | wl-copy
+
+      # launch things
       bind = $mod, i, exec, kitty
       bind = $mod, b, exec, librewolf
       bind = $mod, space, exec, rofi -combi-modi drun,run,emoji -show combi -icon-theme Papirus -show-icons
 
+      # close things
       bind = $mod, q, killactive, 
       bind = $mod shift, X, exit, 
+      bind = $mod shift, l, exec, hyprlock
 
+      # scale things
       bind = $mod, f, fullscreen, 
       bind = $mod, t, togglefloating  
       bind = $mod, o, toggleopaque  
@@ -75,21 +130,24 @@
       bind = $mod, mouse:275, exec, hyprctl keyword misc:cursor_zoom_factor 3.0
       bindr = $mod, mouse:275,exec, hyprctl keyword misc:cursor_zoom_factor 1.0 
 
+      bind = $mod control, l, resizeactive, 100 0
+      bind = $mod control, h, resizeactive, -100 0
+      bind = $mod control, k, resizeactive, 0 -100
+      bind = $mod control, j, resizeactive, 0 100
+
       # Move focus with mainMod + arrow keys
       bind = $mod, h, movefocus, l
       bind = $mod, l, movefocus, r
       bind = $mod, k, movefocus, u
       bind = $mod, j, movefocus, d
 
-      bind = $mod control, l, resizeactive, 100 0
-      bind = $mod control, h, resizeactive, -100 0
-      bind = $mod control, k, resizeactive, 0 -100
-      bind = $mod control, j, resizeactive, 0 100
-
       bind = $mod, slash, layoutmsg, swapwithmaster master
       bind = $mod, comma, layoutmsg, rollnext
       bind = $mod, period, layoutmsg, rollprev
+      bind = $mod, semicolon, layoutmsg, addmaster
+      bind = $mod, p, layoutmsg, removemaster
 
+      # rotate workspace
       bind = $mod alt, l, layoutmsg, orientationright
       bind = $mod alt, h, layoutmsg, orientationleft
       bind = $mod alt, k, layoutmsg, orientationtop

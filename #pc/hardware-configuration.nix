@@ -10,7 +10,7 @@
     [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" "v4l2loopback" ];
-  boot.extraModulePackages = [ mod.pkgs.cachyos.v4l2loopback ];
+  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
   boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" = {
@@ -33,7 +33,8 @@
 
   swapDevices = [ ];
 
-  # hardware.opengl.package = pkgs.mesa.override { galliumDrivers = [ "auto" ]; };
+  # hardware.opengl.package =
+  #   pkgs.mesa.override { galliumDrivers = [ "radeonsi" "zink" "swrast" ]; };
 
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

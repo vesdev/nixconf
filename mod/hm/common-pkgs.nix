@@ -10,6 +10,7 @@ let
     switch = "sudo nixos-rebuild switch --flake .#${host}";
     cat = "bat";
     rg = "batgrep";
+    cr = "clear && cargo run";
     scan = "iwctl station wlan0 scan";
   };
 in {
@@ -31,6 +32,8 @@ in {
     bat-extras.prettybat
     xorg.xprop
     du-dust
+    comma
+    tlrc
 
     # deps
     libinput
@@ -65,10 +68,9 @@ in {
     keepassxc
   ];
 
+  services.dunst.enable = true;
   programs = {
     home-manager.enable = true;
-    zoxide.enable = true;
-    zoxide.enableBashIntegration = true;
 
     rofi = {
       enable = true;
@@ -76,21 +78,6 @@ in {
       plugins = with pkgs; [ rofi-calc rofi-emoji ];
       theme = "~/.local/share/rofi/themes/squared-material-red.rasi";
     };
-
-    bash = {
-      enable = true;
-      inherit shellAliases;
-
-      bashrcExtra = ''
-        export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-        export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
-        export PATH=$PATH:/var/lib/flatpak/exports/bin
-        export VIRSH_DEFAULT_CONNECT_URI=qemu:///system
-      '';
-    };
-
-    direnv.enable = true;
-    direnv.nix-direnv.enable = true;
 
     librewolf = {
       enable = true;
