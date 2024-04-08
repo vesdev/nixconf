@@ -17,6 +17,14 @@
       [[language]]
       name = "toml"
       auto-format = true
+
+      [[language]]
+      name = "php"
+      auto-format = true
+      file-types = [ "php", "inc", "module" ]
+
+      [language-server.intelephense.config]
+      "includePaths" = [ "core/", "core/includes", "../vendor/" ]
     '';
 
   home.file.".config/helix/config.toml".text = # toml
