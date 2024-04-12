@@ -42,6 +42,7 @@ in
 
   services.logind.lidSwitch = "lock";
   services.udev.packages = [ pkgs.qmk-udev-rules ];
+  programs.wireshark.enable = true;
 
   home-manager = {
     extraSpecialArgs = {
@@ -69,7 +70,9 @@ in
         hyprland.extraConfig = # bash
           ''
             monitor=eDP-1,1920x1080@60,0x0,1
-            workspace=1,m:eDP-1,
+            workspace=name:Main, monitor:eDP-1, default:true
+            windowrulev2 = workspace name:Chat, class:^(chromium-browser)
+            exec-once=chromium
           '';
 
         waybar.extraConfig = # bash

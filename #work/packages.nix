@@ -7,6 +7,7 @@
     brightnessctl
     openssl
     ffmpeg
+    vscodium
   ];
 
   home.shellAliases = {
