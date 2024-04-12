@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
 
   home.file.".config/kitty/kitty.conf".text = ''
     include ./theme.conf

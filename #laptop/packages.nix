@@ -1,10 +1,10 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 {
-  home.packages = with pkgs; [  
+  home.packages = with pkgs; [
     chatterino2
-     brightnessctl   
+    brightnessctl
   ];
-  
+
   home.shellAliases = {
     bright = "brightnessctl s";
   };

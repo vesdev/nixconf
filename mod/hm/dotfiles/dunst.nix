@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   services.dunst.configFile = ''
     geometry = 300x50-32+32
     monitor = 0

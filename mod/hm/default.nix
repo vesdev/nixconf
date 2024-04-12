@@ -1,4 +1,5 @@
-{ modArgs, ... }: {
+{ modArgs, ... }:
+{
   gtk = import ./gtk.nix modArgs;
   xdg = import ./xdg.nix modArgs;
   dotfiles = import ./dotfiles modArgs;

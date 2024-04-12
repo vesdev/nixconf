@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   home.file.".config/helix/languages.toml".text = # toml
     ''
       [language-server.rust-analyzer.config.check]

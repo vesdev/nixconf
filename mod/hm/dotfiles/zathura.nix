@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   home.file.".config/zathura/zathurarc".text = ''
     set window-title-basename "true" 
     set selection-clipboard "clipboard"
@@ -43,5 +44,4 @@
     set recolor true
 
   '';
-
 }

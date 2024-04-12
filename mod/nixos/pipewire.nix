@@ -1,4 +1,5 @@
-{ mod, ... }: {
+{ mod, ... }:
+{
   # imports = [ mod.nixosModules.pipewire ];
 
   sound.enable = true;

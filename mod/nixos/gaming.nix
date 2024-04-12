@@ -1,13 +1,12 @@
-{ pkgs, mod, ... }: {
+{ pkgs, mod, ... }:
+{
 
   # boot.kernelPackages = mod.pkgs.cachyos;
   # environment.systemPackages = [ mod.pkgs.scx ];
 
   nix.settings = {
     substituters = [ "https://nix-gaming.cachix.org" ];
-    trusted-public-keys = [
-      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-    ];
+    trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
   };
 
   systemd.tmpfiles.rules = [
@@ -36,8 +35,7 @@
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
-      package =
-        pkgs.steam.override { extraPkgs = pkgs: with pkgs; [ gamescope ]; };
+      package = pkgs.steam.override { extraPkgs = pkgs: with pkgs; [ gamescope ]; };
     };
   };
 
@@ -50,5 +48,4 @@
         AttrTabletSmoothing=0
       '';
   };
-
 }

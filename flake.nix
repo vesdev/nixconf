@@ -14,9 +14,14 @@
     # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     import ./mod {
       inherit inputs;
-      hosts = [ "pc" "laptop" "work" ];
+      hosts = [
+        "pc"
+        "laptop"
+        "work"
+      ];
     };
 }

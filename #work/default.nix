@@ -1,6 +1,14 @@
-{ pkgs, mod, host, home-manager, ... }:
-let username = "ves";
-in {
+{
+  pkgs,
+  mod,
+  host,
+  home-manager,
+  ...
+}:
+let
+  username = "ves";
+in
+{
   imports = with mod.nixos; [
 
     ./hardware-configuration.nix
@@ -12,7 +20,6 @@ in {
     pipewire
 
     home-manager.nixosModules.home-manager
-
   ];
 
   security.sudo.configFile = ''
@@ -21,7 +28,11 @@ in {
 
   users.users.${username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "video" ];
+    extraGroups = [
+      "wheel"
+      "docker"
+      "video"
+    ];
     initialPassword = username;
   };
   nix.settings.trusted-users = [ username ];
@@ -33,7 +44,9 @@ in {
   services.udev.packages = [ pkgs.qmk-udev-rules ];
 
   home-manager = {
-    extraSpecialArgs = { inherit mod host; };
+    extraSpecialArgs = {
+      inherit mod host;
+    };
 
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -44,7 +57,13 @@ in {
         stateVersion = "23.05";
       };
 
-      imports = with mod.hm; [ dotfiles gtk xdg common-pkgs ./packages.nix ];
+      imports = with mod.hm; [
+        dotfiles
+        gtk
+        xdg
+        common-pkgs
+        ./packages.nix
+      ];
 
       dotfiles = {
         hyprland.extraConfig = # bash

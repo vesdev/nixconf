@@ -3,7 +3,8 @@ let
   imageViewer = "feh.desktop";
   browser = "librewolf.desktop";
   textEditor = "helix.desktop";
-in {
+in
+{
   xdg = {
     mimeApps = {
       enable = true;
@@ -35,7 +36,10 @@ in {
         terminal = true;
         icon = "helix";
         startupNotify = false;
-        categories = [ "Utility" "TextEditor" ];
+        categories = [
+          "Utility"
+          "TextEditor"
+        ];
         mimeType = [
           "text/english"
           "text/plain"
@@ -62,7 +66,11 @@ in {
         terminal = false;
         icon = "feh";
         startupNotify = false;
-        categories = [ "Utility" "VectorGraphics" "RasterGraphics" ];
+        categories = [
+          "Utility"
+          "VectorGraphics"
+          "RasterGraphics"
+        ];
         mimeType = [
           "image/png"
           "image/jpeg"
@@ -80,7 +88,11 @@ in {
         terminal = false;
         icon = "zathura";
         startupNotify = false;
-        categories = [ "Utility" "VectorGraphics" "RasterGraphics" ];
+        categories = [
+          "Utility"
+          "VectorGraphics"
+          "RasterGraphics"
+        ];
         mimeType = [ "application/pdf" ];
       };
 

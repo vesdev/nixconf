@@ -13,7 +13,8 @@ let
     cr = "clear && cargo run";
     scan = "iwctl station wlan0 scan";
   };
-in {
+in
+{
   programs = {
     zoxide.enable = true;
     zoxide.enableBashIntegration = true;
@@ -33,4 +34,3 @@ in {
     direnv.nix-direnv.enable = true;
   };
 }
-

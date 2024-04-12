@@ -1,6 +1,14 @@
-{ pkgs, mod, host, home-manager, ... }:
-let username = "ves";
-in {
+{
+  pkgs,
+  mod,
+  host,
+  home-manager,
+  ...
+}:
+let
+  username = "ves";
+in
+{
 
   imports = with mod.nixos; [
     ./hardware-configuration.nix
@@ -19,7 +27,11 @@ in {
   # services.fwupd.enable = true;
   users.users.${username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "libvirt" ];
+    extraGroups = [
+      "wheel"
+      "docker"
+      "libvirt"
+    ];
   };
 
   nix.settings.trusted-users = [ username ];
@@ -28,7 +40,12 @@ in {
   services.flatpak.enable = true;
   services.ratbagd.enable = true;
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [ stdenv.cc.cc.lib icu openssl mono ];
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc.lib
+    icu
+    openssl
+    mono
+  ];
 
   services.postgresql = {
     enable = true;
@@ -41,16 +58,23 @@ in {
     '';
   };
 
-  services.vuekobot = {
+  services.vueko-frontend = {
     enable = true;
-    package = mod.pkgs.vuekobot;
-    configFile = "/home/ves/dev/vuekobot/vuekobot.toml";
+    package = mod.pkgs.vueko-frontend;
   };
+
+  # services.vueko-backend = {
+  #   enable = true;
+  #   package = mod.pkgs.vueko-backend;
+  #   configFile = "/home/ves/dev/vuekobot/vueko.toml";
+  # };
 
   # chaotic.mesa-git.enable = true;
 
   home-manager = {
-    extraSpecialArgs = { inherit mod host; };
+    extraSpecialArgs = {
+      inherit mod host;
+    };
     useGlobalPkgs = true;
     useUserPackages = true;
     users.${username} = {

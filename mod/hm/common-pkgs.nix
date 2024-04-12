@@ -13,7 +13,8 @@ let
     cr = "clear && cargo run";
     scan = "iwctl station wlan0 scan";
   };
-in {
+in
+{
   home.packages = with pkgs; [
     # cli/tui
     gh
@@ -42,7 +43,7 @@ in {
     openjdk
     pamixer
     pulseaudio
-    nixfmt
+    nixfmt-rfc-style
     nil
     taplo
     marksman
@@ -75,7 +76,10 @@ in {
     rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
-      plugins = with pkgs; [ rofi-calc rofi-emoji ];
+      plugins = with pkgs; [
+        rofi-calc
+        rofi-emoji
+      ];
       theme = "~/.local/share/rofi/themes/squared-material-red.rasi";
     };
 

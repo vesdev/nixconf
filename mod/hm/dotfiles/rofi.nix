@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   home.file.".local/share/rofi/themes/squared-material-red.rasi".text = # css
     ''
       * {

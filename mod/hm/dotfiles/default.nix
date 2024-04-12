@@ -9,7 +9,8 @@ let
   swayidle = import ./swayidle.nix;
   zathura = import ./zathura.nix;
   dunst = import ./dunst.nix;
-in {
+in
+{
   options."dotfiles" = with pkgs.lib; {
     hyprland = {
       extraConfig = mkOption {
@@ -25,5 +26,14 @@ in {
     };
   };
 
-  imports = [ helix rofi waybar kitty hyprland swayidle zathura dunst ];
+  imports = [
+    helix
+    rofi
+    waybar
+    kitty
+    hyprland
+    swayidle
+    zathura
+    dunst
+  ];
 }

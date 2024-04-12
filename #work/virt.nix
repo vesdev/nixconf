@@ -1,6 +1,8 @@
 { pkgs, ... }:
-let username = "ves";
-in {
+let
+  username = "ves";
+in
+{
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ username ];
 
@@ -16,5 +18,4 @@ in {
       * 2001::/64
     '';
   };
-
 }

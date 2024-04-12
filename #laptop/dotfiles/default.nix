@@ -1,5 +1,1 @@
-{
-  imports = [
-    ./polybar
-  ];
-}
+{ imports = [ ./polybar ]; }

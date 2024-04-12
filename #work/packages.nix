@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     ngrok
     qmk
@@ -8,5 +9,7 @@
     ffmpeg
   ];
 
-  home.shellAliases = { bright = "brightnessctl s"; };
+  home.shellAliases = {
+    bright = "brightnessctl s";
+  };
 }

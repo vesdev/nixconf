@@ -3,8 +3,7 @@ let
   xwayland = pkgs.xwayland.overrideAttrs (old: {
     patches = (old.patches or [ ]) ++ [
       (pkgs.fetchpatch {
-        url =
-          "https://raw.githubusercontent.com/hyprwm/Hyprland/8e9f010ee0bae1989279925e8f214bb18c36ba2e/nix/patches/xwayland-vsync.patch";
+        url = "https://raw.githubusercontent.com/hyprwm/Hyprland/8e9f010ee0bae1989279925e8f214bb18c36ba2e/nix/patches/xwayland-vsync.patch";
         hash = "sha256-VjquNMHr+7oMvnFQJ0G0whk1/253lZK5oeyLPamitOw=";
       })
     ];
@@ -12,12 +11,12 @@ let
 
   package = mod.pkgs.hyprland.override {
     inherit xwayland;
-    wlroots = mod.pkgs.wlroots-hyprland.override {
-      wlroots = pkgs.wlroots.override { inherit xwayland; };
-    };
-
+    # wlroots = mod.pkgs.wlroots-hyprland.override {
+    #   wlroots = pkgs.wlroots.override { inherit xwayland; };
+    # };
   };
-in {
+in
+{
 
   environment.variables.NIXOS_OZONE_WL = "1";
 
@@ -66,4 +65,3 @@ in {
     mod.pkgs.hyprlock
   ];
 }
-

@@ -1,6 +1,14 @@
-{ pkgs, mod, host, home-manager, ... }:
-let username = "ves";
-in {
+{
+  pkgs,
+  mod,
+  host,
+  home-manager,
+  ...
+}:
+let
+  username = "ves";
+in
+{
   imports = with mod; [
 
     ./hardware-configuration.nix
@@ -13,7 +21,11 @@ in {
     {
       users.users.${username} = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "docker" "video" ];
+        extraGroups = [
+          "wheel"
+          "docker"
+          "video"
+        ];
         initialPassword = username;
       };
 
@@ -40,7 +52,9 @@ in {
 
     home-manager.nixosModules.home-manager
     {
-      home-manager.extraSpecialArgs = { inherit mod host; };
+      home-manager.extraSpecialArgs = {
+        inherit mod host;
+      };
 
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
@@ -51,9 +65,14 @@ in {
           stateVersion = "23.05";
         };
 
-        imports = [ dotfiles gtk packages ./packages.nix ./dotfiles ];
+        imports = [
+          dotfiles
+          gtk
+          packages
+          ./packages.nix
+          ./dotfiles
+        ];
       };
     }
-
   ];
 }
