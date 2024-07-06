@@ -4,14 +4,12 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
-    nix-gaming.url = "github:fufexan/nix-gaming";
-    hyprland.url = "github:hyprwm/Hyprland";
+    nix-gaming.url = "github:fufexan/nix-gaming/bf9a8a83f9c9fc75b01c8467b4d1432e79dcc6ca";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprlock.url = "github:hyprwm/hyprlock";
-    eza.url = "github:eza-community/eza";
-    twitch-tui.url = "github:Xithrius/twitch-tui";
     helix.url = "github:helix-editor/helix";
-    vuekobot.url = "github:vesdev/vuekobot";
-    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    niri.url = "github:yalter/niri";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

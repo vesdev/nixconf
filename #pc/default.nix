@@ -9,7 +9,6 @@ let
   username = "ves";
 in
 {
-
   imports = with mod.nixos; [
     ./hardware-configuration.nix
     ./pcie-pass.nix
@@ -17,10 +16,11 @@ in
     common
     gaming
     network
-    hyprland
+    # hyprland
     pipewire
+    hyprland
 
-    mod.nixosModules.vuekobot
+    # mod.nixosModules.vuekobot
     mod.nixosModules.home-manager
   ];
 
@@ -39,12 +39,14 @@ in
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   services.flatpak.enable = true;
   services.ratbagd.enable = true;
+
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     stdenv.cc.cc.lib
     icu
     openssl
     mono
+    SDL2
   ];
 
   services.postgresql = {
@@ -58,10 +60,10 @@ in
     '';
   };
 
-  services.vueko-frontend = {
-    enable = true;
-    package = mod.pkgs.vueko-frontend;
-  };
+  # services.vueko-frontend = {
+  #   enable = true;
+  #   package = mod.pkgs.vueko-frontend;
+  # };
 
   # services.vueko-backend = {
   #   enable = true;
@@ -96,19 +98,20 @@ in
       dotfiles = {
         hyprland.extraConfig = # bash
           ''
-            monitor=DP-2,2560x1440@170,1080x480,1
-            monitor=DP-3,1920x1080@144,3640x840,1
-            monitor=HDMI-A-1,1920x1080@60,0x0,1,transform,1
-            workspace=name:Main, monitor:DP-2, default:true
-            workspace=name:Second, monitor:DP-3, default:true
-            workspace=name:Chat, monitor:HDMI-A-1, default:true, layoutopt:orientation:top
-            exec-once=webcord
+            monitor=DP-3,1920x1080@144,2560x1290,1
+            monitor=DP-2,2560x1440@170,0x930,1
+            monitor=HDMI-A-1,1920x1080@60,4480x450,1,transform,1
+            workspace=name:Main, monitor:DP-3, default:true
+            workspace=name:Second, monitor:DP-2, default:true
+            workspace=name:Chat, monitor:HDMI-A-1, default:true, layoutopt:orientation:left, layoutopt:new_is_master:true
+            exec-once=vesktop
             exec-once=chatterino
+            exec-once=element-desktop
           '';
 
         waybar.extraConfig = # bash
           ''
-            "output": [ "DP-2" ],
+            "output": [ "DP-3" ],
             "modules-left": [
               "hyprland/workspaces",
               "hyprland/mode"

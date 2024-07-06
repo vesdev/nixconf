@@ -2,12 +2,26 @@
 {
   home.file.".config/helix/languages.toml".text = # toml
     ''
+      [[language]]
+      name = "rust"
+
+      [language.debugger]
+      name = "lldb-vscode"
+      transport = "stdio"
+      command = "lldb-vscode"
+
+      [[language.debugger.templates]]
+      name = "binary"
+      request = "launch"
+      completion = [ { name = "binary", completion = "filename" } ]
+      args = { program = "{0}", runInTerminal = true }
+
       [language-server.rust-analyzer.config.check]
       command = "clippy"
 
       [[language]]
       name = "nix"
-      formatter = { command = "nixfmt" }
+      formatter = { command = "nixpkgs-fmt" }
       auto-format = true
       language-servers = [ "nil" ]
 

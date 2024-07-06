@@ -14,7 +14,7 @@
       # handbrake
       chatterino2
       obs-studio
-      osu-lazer
+      mod.pkgs.osu-lazer
       kitty
       qbittorrent
       yabridge
@@ -25,7 +25,12 @@
       ffmpeg
       piper
       element-desktop
-      bottles
+      fluffychat
       nuclear
+      insomnia
+      tor-browser
+      qpwgraph
+      guitarix
+      fretboard
     ];
 }

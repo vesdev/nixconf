@@ -26,7 +26,13 @@
     "kvm-amd"
     "v4l2loopback"
   ];
-  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
+
+  boot.extraModprobeConfig = ''
+    options v4l2loopback devices=2 video_nr=3,4 exclusive_caps=1,1 card_label="Virtual Camera","Virtual Camera 2"
+  '';
+
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  boot.extraModulePackages = [ pkgs.linuxKernel.packages.linux_xanmod_latest.v4l2loopback ];
   boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" = {

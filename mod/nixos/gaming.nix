@@ -1,14 +1,27 @@
 { pkgs, mod, ... }:
 {
 
-  # boot.kernelPackages = mod.pkgs.cachyos;
-  # environment.systemPackages = [ mod.pkgs.scx ];
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  environment.systemPackages = [
+    pkgs.mangohud
+    # pkgs.protonup-qt
+  ];
 
   nix.settings = {
     substituters = [ "https://nix-gaming.cachix.org" ];
     trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
   };
 
+  # audio
+  security.pam.loginLimits = [
+    { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
+    { domain = "@audio"; item = "rtprio"; type = "-"; value = "99"; }
+  ];
+
+  users.users.ves.extraGroups = [ "audio" "rtkit" ];
+  security.rtkit.enable = true;
+
+  # other opts
   systemd.tmpfiles.rules = [
     "w /proc/sys/vm/compaction_proactiveness - - - - 0"
     "w /proc/sys/vm/min_free_kbytes - - - - 1048576"
@@ -31,11 +44,17 @@
 
   programs = {
     gamemode.enable = true;
+
     steam = {
       enable = true;
+      gamescopeSession.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
-      package = pkgs.steam.override { extraPkgs = pkgs: with pkgs; [ gamescope ]; };
+      package = with pkgs; pkgs.steam.override {
+        extraLibraries = pkgs: [ pipewire.jack ];
+        extraPkgs = pkgs: [ wineasio ];
+
+      };
     };
   };
 

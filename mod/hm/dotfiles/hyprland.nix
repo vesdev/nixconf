@@ -66,12 +66,13 @@
           touchpad:natural_scroll = no
           force_no_accel = true
           sensitivity = 0
+          float_switch_override_focus=0
         }
 
         general {
-          gaps_in = 8
-          gaps_out = 16
-          border_size = 1
+          gaps_in = 0
+          gaps_out = 0
+          border_size = 0
           col.inactive_border = rgba(00000000) rgba(00000000) 90deg
           col.active_border = rgba(e4a88aff) rgba(00000000) 90deg
           layout = master
@@ -94,10 +95,10 @@
           disable_hyprland_logo = true
           vfr = true
           no_direct_scanout = false
-          cursor_zoom_rigid = true
+          # cursor_zoom_rigid = true
         }
 
-        master:new_is_master = false
+        # master:new_is_master = false
         master:allow_small_split = true
 
         env = WLR_DRM_NO_ATOMIC,1
@@ -105,8 +106,14 @@
 
         windowrulev2 = immediate, class:^(osu!.exe)
         windowrulev2 = noblur, class:^(osu!.exe)
-        windowrulev2 = workspace name:Chat, class:^(WebCord)
-        windowrulev2 = workspace name:Chat, class:^(com.chatterino.)
+        windowrule=windowdance, class:^(Civ6)$
+
+        windowrulev2 = tag +chat, class:^(vesktop)
+        windowrulev2 = tag +chat, class:^(com.chatterino.)
+        windowrulev2 = tag +chat, class:^(element-desktop)
+
+        windowrulev2 = workspace name:Chat, tag:chat
+
         # windowrulev2 = stayfocused, class:^(vueko)
         layerrule = blur,rofi
 
@@ -130,8 +137,8 @@
         bind = $mod, t, togglefloating  
         bind = $mod, o, toggleopaque  
         bind = $mod, m, fullscreen, 1 
-        bind = $mod, mouse:275, exec, hyprctl keyword misc:cursor_zoom_factor 3.0
-        bindr = $mod, mouse:275,exec, hyprctl keyword misc:cursor_zoom_factor 1.0 
+        # bind = $mod, mouse:275, exec, hyprctl keyword misc:cursor_zoom_factor 3.0
+        # bindr = $mod, mouse:275,exec, hyprctl keyword misc:cursor_zoom_factor 1.0 
 
         bind = $mod control, l, resizeactive, 100 0
         bind = $mod control, h, resizeactive, -100 0

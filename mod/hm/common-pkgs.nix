@@ -35,6 +35,7 @@ in
     du-dust
     comma
     tlrc
+    yazi
 
     # deps
     libinput
@@ -43,7 +44,7 @@ in
     openjdk
     pamixer
     pulseaudio
-    nixfmt-rfc-style
+    nixpkgs-fmt
     nil
     taplo
     marksman
@@ -62,7 +63,7 @@ in
     xfce.thunar
     xarchiver
     pavucontrol
-    webcord-vencord
+    vesktop
     chatterino2
     mullvad-vpn
     zathura
@@ -89,6 +90,13 @@ in
         "webgl.disabled" = false;
         "privacy.resistFingerprinting" = false;
         "media.ffmpeg.vaapi.enabled" = true;
+      };
+    };
+
+    cava = {
+      enable = true;
+      settings.color = {
+        foreground = "'#EE64AE'";
       };
     };
   };

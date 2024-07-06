@@ -8,7 +8,7 @@
     };
 
     iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
+      package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
     };
 
@@ -24,5 +24,10 @@
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
     size = 16;
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
   };
 }

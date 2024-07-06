@@ -21,8 +21,8 @@
   };
 
   hardware = {
-    opengl.enable = true;
-    opengl.driSupport32Bit = true;
+    graphics.enable = true;
+    graphics.enable32Bit = true;
     opentabletdriver = {
       enable = true;
     };
@@ -31,14 +31,7 @@
   security.rtkit.enable = true;
   security.polkit.enable = true;
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "DroidSansMono"
-      ];
-    })
-  ];
+  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "Monaspace" ]; }) ];
 
   # services.fwupd.enable = true;
   programs.git.enable = true;
