@@ -40,7 +40,7 @@ in
     # deps
     libinput
     nodePackages_latest.pnpm
-    linuxPackages_latest.perf
+    # linuxPackages_latest.perf
     openjdk
     pamixer
     pulseaudio

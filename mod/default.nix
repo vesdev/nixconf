@@ -17,7 +17,7 @@ let
       osu-stable = nix-gaming.packages.${pkgs.system}.osu-stable;
       osu-lazer = nix-gaming.packages.${pkgs.system}.osu-lazer-bin;
       helix = helix.packages.${pkgs.system}.default;
-      niri = niri.packages.${pkgs.system}.default;
+      # niri = niri.packages.${pkgs.system}.default;
       # vueko-backend = inputs.vuekobot.packages.${pkgs.system}.vueko-backend;
       # vueko-frontend = inputs.vuekobot.packages.${pkgs.system}.vueko-frontend;
       # cachyos = chaotic.packages.${pkgs.system}.linuxPackages_cachyos;
@@ -26,6 +26,7 @@ let
 
     nixosModules = {
       pipewire = inputs.nix-gaming.nixosModules.pipewireLowLatency;
+      musnix = inputs.musnix.nixosModules.musnix;
       # vuekobot = inputs.vuekobot.nixosModules.default;
       # chaotic = inputs.chaotic.nixosModules.default;
       home-manager = inputs.home-manager.nixosModules.home-manager;
@@ -42,11 +43,13 @@ let
   mod."hm" = import ./hm { inherit modArgs; };
 in
 with inputs;
-(import ./hosts.nix {
+(import ./hosts.nix
+{
   inherit
     nixpkgs
     home-manager
     mod
     pkgs
     ;
-} hosts)
+}
+  hosts)

@@ -32,5 +32,6 @@
       qpwgraph
       guitarix
       fretboard
+      wineWowPackages.stagingFull
     ];
 }

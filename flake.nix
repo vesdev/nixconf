@@ -8,8 +8,7 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprlock.url = "github:hyprwm/hyprlock";
     helix.url = "github:helix-editor/helix";
-    niri.url = "github:yalter/niri";
-    niri.inputs.nixpkgs.follows = "nixpkgs";
+    musnix.url = "github:musnix/musnix";
   };
 
   outputs =

@@ -1,9 +1,8 @@
-{
-  pkgs,
-  mod,
-  host,
-  home-manager,
-  ...
+{ pkgs
+, mod
+, host
+, home-manager
+, ...
 }:
 let
   username = "ves";
@@ -22,7 +21,16 @@ in
 
     # mod.nixosModules.vuekobot
     mod.nixosModules.home-manager
+    mod.nixosModules.musnix
   ];
+
+
+  musnix = {
+    enable = true;
+    kernel.realtime = true;
+    # kernel.optimize = true;
+    rtirq.enable = true;
+  };
 
   # services.fwupd.enable = true;
   users.users.${username} = {
@@ -31,6 +39,7 @@ in
       "wheel"
       "docker"
       "libvirt"
+      "audio"
     ];
   };
 
@@ -40,14 +49,14 @@ in
   services.flatpak.enable = true;
   services.ratbagd.enable = true;
 
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    stdenv.cc.cc.lib
-    icu
-    openssl
-    mono
-    SDL2
-  ];
+  # programs.nix-ld.enable = true;
+  # programs.nix-ld.libraries = with pkgs; [
+  #   stdenv.cc.cc.lib
+  #   icu
+  #   openssl
+  #   mono
+  #   SDL2
+  # ];
 
   services.postgresql = {
     enable = true;
@@ -59,19 +68,6 @@ in
       superuser_map      ves      postgres
     '';
   };
-
-  # services.vueko-frontend = {
-  #   enable = true;
-  #   package = mod.pkgs.vueko-frontend;
-  # };
-
-  # services.vueko-backend = {
-  #   enable = true;
-  #   package = mod.pkgs.vueko-backend;
-  #   configFile = "/home/ves/dev/vuekobot/vueko.toml";
-  # };
-
-  # chaotic.mesa-git.enable = true;
 
   home-manager = {
     extraSpecialArgs = {

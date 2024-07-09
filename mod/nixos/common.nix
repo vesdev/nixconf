@@ -40,6 +40,8 @@
   services.udisks2.enable = true;
   services.gvfs.enable = true;
 
+  environment.localBinInPath = true;
+
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";

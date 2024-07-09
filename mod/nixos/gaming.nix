@@ -1,7 +1,7 @@
 { pkgs, mod, ... }:
 {
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   environment.systemPackages = [
     pkgs.mangohud
     # pkgs.protonup-qt
