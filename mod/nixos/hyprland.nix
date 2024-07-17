@@ -59,5 +59,6 @@ in
     slurp
     wl-clipboard
     mod.pkgs.hyprlock
+    xclip
   ];
 }

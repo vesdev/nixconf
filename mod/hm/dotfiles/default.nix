@@ -8,7 +8,6 @@ let
   hyprland = import ./hyprland.nix;
   swayidle = import ./swayidle.nix;
   zathura = import ./zathura.nix;
-  dunst = import ./dunst.nix;
   yazi = import ./yazi.nix;
 in
 {
@@ -35,7 +34,6 @@ in
     hyprland
     swayidle
     zathura
-    dunst
     yazi
   ];
 }

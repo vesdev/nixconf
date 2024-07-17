@@ -106,7 +106,7 @@
 
         windowrulev2 = immediate, class:^(osu!.exe)
         windowrulev2 = noblur, class:^(osu!.exe)
-        windowrule=windowdance, class:^(Civ6)$
+        # windowrule=windowdance, class:^(Civ6)$
 
         windowrulev2 = tag +chat, class:^(vesktop)
         windowrulev2 = tag +chat, class:^(com.chatterino.)
@@ -196,5 +196,6 @@
         exec-once=udiskie -Ns &
 
         exec-once=mpvpaper '*' ~/.config/hypr/wp.mp4 -o "--panscan=1 --loop --hwdec=vaapi"
+        exec-once = wl-paste -t text -w xclip -selection clipboard
       '';
 }

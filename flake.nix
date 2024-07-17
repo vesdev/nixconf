@@ -9,6 +9,7 @@
     hyprlock.url = "github:hyprwm/hyprlock";
     helix.url = "github:helix-editor/helix";
     musnix.url = "github:musnix/musnix";
+    bo.url = "github:vesdev/bo";
   };
 
   outputs =

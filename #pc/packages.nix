@@ -33,5 +33,6 @@
       guitarix
       fretboard
       wineWowPackages.stagingFull
+      dislocker
     ];
 }

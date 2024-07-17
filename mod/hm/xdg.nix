@@ -24,6 +24,7 @@ in
         "text/english" = textEditor;
         "text/plain" = textEditor;
         "application/pdf" = "zathura.desktop";
+        "application/toml" = textEditor;
       };
     };
 

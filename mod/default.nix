@@ -17,6 +17,7 @@ let
       osu-stable = nix-gaming.packages.${pkgs.system}.osu-stable;
       osu-lazer = nix-gaming.packages.${pkgs.system}.osu-lazer-bin;
       helix = helix.packages.${pkgs.system}.default;
+      bo = bo.packages.${pkgs.system}.default;
       # niri = niri.packages.${pkgs.system}.default;
       # vueko-backend = inputs.vuekobot.packages.${pkgs.system}.vueko-backend;
       # vueko-frontend = inputs.vuekobot.packages.${pkgs.system}.vueko-frontend;

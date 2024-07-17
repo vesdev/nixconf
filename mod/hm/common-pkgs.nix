@@ -1,19 +1,5 @@
 { mod, pkgs, ... }:
 { host, ... }:
-let
-  shellAliases = {
-    nd = "nix develop";
-    nl = "echo $SHLVL";
-    ngc = "sudo nix-collect-garbage -d";
-    lg = "lazygit";
-    ls = "eza";
-    switch = "sudo nixos-rebuild switch --flake .#${host}";
-    cat = "bat";
-    rg = "batgrep";
-    cr = "clear && cargo run";
-    scan = "iwctl station wlan0 scan";
-  };
-in
 {
   home.packages = with pkgs; [
     # cli/tui
@@ -36,6 +22,8 @@ in
     comma
     tlrc
     yazi
+    buku
+    mod.pkgs.bo
 
     # deps
     libinput
@@ -67,10 +55,8 @@ in
     chatterino2
     mullvad-vpn
     zathura
-    keepassxc
   ];
 
-  services.dunst.enable = true;
   programs = {
     home-manager.enable = true;
 

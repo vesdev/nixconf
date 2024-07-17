@@ -25,12 +25,12 @@ in
   ];
 
 
-  musnix = {
-    enable = true;
-    kernel.realtime = true;
-    # kernel.optimize = true;
-    rtirq.enable = true;
-  };
+  # musnix = {
+  #   enable = true;
+  #   kernel.realtime = true;
+  #   # kernel.optimize = true;
+  #   rtirq.enable = true;
+  # };
 
   # services.fwupd.enable = true;
   users.users.${username} = {
