@@ -43,6 +43,31 @@
     }
   ];
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  environment.systemPackages = with pkgs; [
+    qemu
+    OVMF
+    dconf
+    looking-glass-client
+  ];
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu.ovmf.enable = true;
+    onBoot = "ignore";
+    onShutdown = "shutdown";
+    qemu.ovmf.packages = [
+      pkgs.pkgsCross.aarch64-multiplatform.OVMF.fd # AAVMF
+      pkgs.OVMF.fd
+    ];
+  };
+
+  programs.virt-manager.enable = true;
+  users.users."ves".extraGroups = [
+    "libvirtd"
+    "libvirt"
+  ];
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction

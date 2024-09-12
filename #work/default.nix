@@ -63,6 +63,7 @@ in
         gtk
         xdg
         common-pkgs
+        shell
         ./packages.nix
       ];
 
