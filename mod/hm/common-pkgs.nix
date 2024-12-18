@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     # cli/tui
     gh
-    neofetch
+    hyfetch
     jq
     bottom
     lazygit
@@ -13,7 +13,6 @@
     sshfs
     ripgrep
     mod.pkgs.helix
-    glow
     bat
     bat-extras.batgrep
     bat-extras.prettybat
@@ -21,17 +20,12 @@
     du-dust
     comma
     tlrc
-    yazi
-    buku
     mod.pkgs.bo
+    skim
 
     # deps
     libinput
-    nodePackages_latest.pnpm
-    # linuxPackages_latest.perf
-    openjdk
-    pamixer
-    pulseaudio
+    # openjdk
     nixpkgs-fmt
     nil
     taplo
@@ -40,33 +34,29 @@
     xdg-terminal-exec
     unrar
     udiskie
-    mpvpaper
+    lldb_16
 
     # other
     mpv
-    feh
     kitty
+    swappy
 
     # apps
     xfce.thunar
     xarchiver
-    pavucontrol
+    pwvucontrol
     vesktop
-    chatterino2
     mullvad-vpn
     zathura
   ];
 
+  services.arrpc.enable = true;
   programs = {
     home-manager.enable = true;
 
     rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
-      plugins = with pkgs; [
-        rofi-calc
-        rofi-emoji
-      ];
       theme = "~/.local/share/rofi/themes/squared-material-red.rasi";
     };
 
@@ -76,13 +66,6 @@
         "webgl.disabled" = false;
         "privacy.resistFingerprinting" = false;
         "media.ffmpeg.vaapi.enabled" = true;
-      };
-    };
-
-    cava = {
-      enable = true;
-      settings.color = {
-        foreground = "'#EE64AE'";
       };
     };
   };

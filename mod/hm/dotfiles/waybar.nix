@@ -10,7 +10,7 @@
       "position": "top",
 
       // If height property would be not present, it'd be calculated dynamically
-      "height": 50,
+      "height": 30,
       "battery": {
         "interval": 10,
         "states": {
@@ -53,13 +53,13 @@
       },
 
       "custom/keyboard-layout": {
-      "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
-      // Interval set only as a fallback, as the value is updated by signal
-      "interval": 30,
-      "format": "  {}", // Icon: keyboard
-      // Signal sent by Sway key binding (~/.config/sway/key-bindings)
-      "signal": 1, // SIGHUP
-      "tooltip": false
+          "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
+          // Interval set only as a fallback, as the value is updated by signal
+          "interval": 30,
+          "format": "  {}", // Icon: keyboard
+          // Signal sent by Sway key binding (~/.config/sway/key-bindings)
+          "signal": 1, // SIGHUP
+          "tooltip": false
       },
 
       "memory": {
@@ -90,8 +90,14 @@
       },
 
       "hyprland/workspaces": {
+        "format": "{icon}",
         "all-outputs": true,
         "disable-scroll": true,
+        "format-icons": {
+          "Main": "",  
+          "Chat": "󰭹",  
+          "Second": "",  
+        },
       },
 
       "pulseaudio": {
@@ -108,7 +114,7 @@
             "car": "",
             "default": ["", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pwvucontrol"
       },
 
       "temperature": {
@@ -192,10 +198,8 @@
 
         .modules-right,
         .modules-left {
-            margin-top: 16px;
-            background-color: rgba(0x1c, 0x1e, 0x26, 0.8);
-            border-radius: 6px;
-            border-bottom: 1px solid #e4a88a;
+            background-color: rgba(0, 0, 0, 0);
+            border-radius: 0px;
         }
 
         .modules-left {
@@ -207,7 +211,6 @@
         }
 
         .modules-center {
-            margin-top: 16px;
             border-bottom: 1px solid #e4a88a;
         }
 

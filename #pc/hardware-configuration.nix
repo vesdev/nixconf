@@ -51,8 +51,10 @@
     fsType = "ntfs";
   };
 
-  swapDevices = [ ];
-
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 16 * 1024;
+  }];
   # hardware.opengl.package =
   #   pkgs.mesa.override { galliumDrivers = [ "radeonsi" "zink" "swrast" ]; };
 

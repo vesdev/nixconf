@@ -1,7 +1,7 @@
 { pkgs, mod, ... }:
 {
 
-  # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   environment.systemPackages = [
     pkgs.mangohud
     # pkgs.protonup-qt
@@ -47,14 +47,14 @@
 
     steam = {
       enable = true;
-      gamescopeSession.enable = true;
+      # gamescopeSession.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
-      package = with pkgs; pkgs.steam.override {
-        extraLibraries = pkgs: [ pipewire.jack ];
-        extraPkgs = pkgs: [ wineasio ];
+      # package = with pkgs; pkgs.steam.override {
+      #   extraLibraries = pkgs: [ pipewire.jack ];
+      #   extraPkgs = pkgs: [ wineasio ];
 
-      };
+      # };
     };
   };
 

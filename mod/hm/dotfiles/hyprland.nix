@@ -82,9 +82,7 @@
         animations:enabled = no
         decoration {
           rounding = 0
-          # active_opacity = 1.0
-          # inactive_opacity = 0.75
-          drop_shadow = false
+          # drop_shadow = false
           blur:enabled = true
           blur:size = 16
           blur:passes = 2
@@ -94,33 +92,30 @@
           disable_splash_rendering = true
           disable_hyprland_logo = true
           vfr = true
-          no_direct_scanout = false
-          # cursor_zoom_rigid = true
+          background_color = 0x1C1E26
         }
 
-        # master:new_is_master = false
         master:allow_small_split = true
 
         env = WLR_DRM_NO_ATOMIC,1
+        env = AQ_DRM_DEVICES,/dev/dri/card1
         xwayland:force_zero_scaling = true
 
         windowrulev2 = immediate, class:^(osu!.exe)
         windowrulev2 = noblur, class:^(osu!.exe)
-        # windowrule=windowdance, class:^(Civ6)$
 
         windowrulev2 = tag +chat, class:^(vesktop)
         windowrulev2 = tag +chat, class:^(com.chatterino.)
         windowrulev2 = tag +chat, class:^(element-desktop)
+        windowrulev2 = tag +chat, class:^(fluffychat)
 
         windowrulev2 = workspace name:Chat, tag:chat
-
-        # windowrulev2 = stayfocused, class:^(vueko)
         layerrule = blur,rofi
 
         $mod = SUPER
 
         # screemshot
-        bind = $mod, s, exec, grim -g "$(slurp -d)" - | wl-copy
+        bind = $mod, s, exec, grim -g "$(slurp)" - | swappy -f -
 
         # launch things
         bind = $mod, i, exec, kitty
@@ -135,10 +130,7 @@
         # scale things
         bind = $mod, f, fullscreen, 
         bind = $mod, t, togglefloating  
-        bind = $mod, o, toggleopaque  
         bind = $mod, m, fullscreen, 1 
-        # bind = $mod, mouse:275, exec, hyprctl keyword misc:cursor_zoom_factor 3.0
-        # bindr = $mod, mouse:275,exec, hyprctl keyword misc:cursor_zoom_factor 1.0 
 
         bind = $mod control, l, resizeactive, 100 0
         bind = $mod control, h, resizeactive, -100 0
@@ -151,7 +143,16 @@
         bind = $mod, k, movefocus, u
         bind = $mod, j, movefocus, d
 
-        bind = $mod, slash, layoutmsg, swapwithmaster master
+        bind = $mod shift, k, layoutmsg, swapprev
+        bind = $mod shift, j, layoutmsg, swapnext
+
+        bind = $mod, r, focuswindow, runelite
+        # warframe
+        bind = $mod, w, focuswindow, steam_app_230410
+
+        bind = $mod, e, focuswindow, kitty
+
+        # bind = $mod, slash, layoutmsg, swapwithmaster
         bind = $mod, comma, layoutmsg, rollnext
         bind = $mod, period, layoutmsg, rollprev
         bind = $mod, semicolon, layoutmsg, addmaster
@@ -195,7 +196,7 @@
         exec=otd-daemon
         exec-once=udiskie -Ns &
 
-        exec-once=mpvpaper '*' ~/.config/hypr/wp.mp4 -o "--panscan=1 --loop --hwdec=vaapi"
-        exec-once = wl-paste -t text -w xclip -selection clipboard
+        # exec-once=mpvpaper '*' ~/.config/hypr/wp.mp4 -o "--panscan=1 --loop --hwdec=vaapi"
+        # exec-once = wl-paste -t text -w xclip -selection clipboard
       '';
 }

@@ -6,33 +6,40 @@
     [
       # (osu-stable.override { location = "$HOME/.local/share/osu-stable"; })
       # mod.pkgs.twitch-tui
+      carla
       blender
       ungoogled-chromium
-      vscodium
       qmk
       krita
+      pcsx2
+
       # handbrake
       chatterino2
-      obs-studio
       mod.pkgs.osu-lazer
-      kitty
       qbittorrent
       yabridge
       yabridgectl
-      ferium
       prismlauncher
       lutgen
       ffmpeg
       piper
-      element-desktop
       fluffychat
-      nuclear
-      insomnia
       tor-browser
-      qpwgraph
+      helvum
       guitarix
-      fretboard
       wineWowPackages.stagingFull
       dislocker
+      hoppscotch
+      runelite
+      bolt-launcher
+      ngrok
+      dolphin-emu
+      signal-desktop
+      rusty-man
     ];
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = [ pkgs.obs-studio-plugins.obs-pipewire-audio-capture ];
+  };
 }

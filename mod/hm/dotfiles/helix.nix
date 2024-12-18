@@ -1,4 +1,20 @@
-{ ... }:
+{ pkgs, ... }:
+let
+  lldb-script = pkgs.writeScriptBin "lldb_vscode_rustc_primer.py" ''
+    import subprocess
+    import pathlib
+    import lldb
+
+    # Determine the sysroot for the active Rust interpreter
+    rustlib_etc = pathlib.Path(subprocess.getoutput('rustc --print sysroot')) / 'lib' / 'rustlib' / 'etc'
+    if not rustlib_etc.exists():
+        raise RuntimeError('Unable to determine rustc sysroot')
+
+    # Load lldb_lookup.py and execute lldb_commands with the correct path
+    lldb.debugger.HandleCommand(f"""command script import "{rustlib_etc / 'lldb_lookup.py'}" """)
+    lldb.debugger.HandleCommand(f"""command source -s 0 "{rustlib_etc / 'lldb_commands'}" """)
+  '';
+in
 {
   home.file.".config/helix/languages.toml".text = # toml
     ''
@@ -14,7 +30,7 @@
       name = "binary"
       request = "launch"
       completion = [ { name = "binary", completion = "filename" } ]
-      args = { program = "{0}", runInTerminal = true }
+      args = { program = "{0}", initCommands = [ "command script import ${lldb-script}" ] }
 
       [language-server.rust-analyzer.config.check]
       command = "clippy"
@@ -39,7 +55,7 @@
       file-types = [ "php", "inc", "module" ]
 
       [language-server.intelephense.config]
-      "includePaths" = [ "core/", "core/includes", "../vendor/" ]
+      includePaths = [ "core/", "core/includes", "../vendor/" ]
     '';
 
   home.file.".config/helix/config.toml".text = # toml
@@ -93,5 +109,9 @@
       [editor.indent-guides]
       render = true
       character = "▏"
+
+      [editor.inline-diagnostics]
+      cursor-line = "error"
+      # other-lines = "error"
     '';
 }

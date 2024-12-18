@@ -9,6 +9,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  services.gnome.gnome-keyring.enable = true;
   environment = {
     pathsToLink = [ "/libexec" ];
     systemPackages = [
@@ -31,7 +32,11 @@
   security.rtkit.enable = true;
   security.polkit.enable = true;
 
-  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "Monaspace" ]; }) ];
+  # fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "Monaspace" ]; }) ];
+  fonts.packages = [
+    # pkgs.nerd-fonts._0xproto
+    pkgs.nerd-fonts.monaspace
+  ];
 
   # services.fwupd.enable = true;
   programs.git.enable = true;
@@ -41,6 +46,7 @@
   services.gvfs.enable = true;
 
   environment.localBinInPath = true;
+  networking.nameservers = [ "1.1.1.1" ];
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {

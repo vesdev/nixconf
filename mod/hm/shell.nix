@@ -13,6 +13,7 @@ let
     cr = "clear && cargo run";
     scan = "iwctl station wlan0 scan";
     b = "buku";
+    fzf = ''sk --ansi -i -c 'rg --color=always --line-number "{}"'';
   };
 in
 {
