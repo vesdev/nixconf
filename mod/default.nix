@@ -11,7 +11,7 @@ let
   };
 
   mod = {
-    pkgs = import ./pkgs;
+    pkgs = import ./pkgs { inherit inputs hosts pkgs; };
     nixosModules = {
       pipewire = inputs.nix-gaming.nixosModules.pipewireLowLatency;
       home-manager = inputs.home-manager.nixosModules.home-manager;

@@ -4,8 +4,8 @@
 
   programs.hyprland = {
     enable = true;
-    portalPackage = mod.pkgs.xdg-desktop-portal-hyprland;
-    package = mod.pkgs.hyprland;
+    # portalPackage = mod.pkgs.xdg-desktop-portal-hyprland;
+    # package = mod.pkgs.hyprland;
     # inherit package;
   };
 
@@ -42,7 +42,8 @@
     grim
     slurp
     wl-clipboard
-    mod.pkgs.hyprlock
+    hyprlock
+    # mod.pkgs.hyprlock
     xclip
   ];
 }

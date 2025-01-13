@@ -21,9 +21,13 @@ in
 
     # mod.nixosModules.vuekobot
     mod.nixosModules.home-manager
-    mod.nixosModules.musnix
   ];
 
+  networking.firewall =
+    {
+      enable = true;
+      allowedTCPPorts = [ 6969 ];
+    };
 
   # musnix = {
   #   enable = true;

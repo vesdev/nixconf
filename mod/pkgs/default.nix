@@ -1,4 +1,4 @@
-{ inputs, hosts }: with inputs; {
+{ inputs, hosts, pkgs }: with inputs; {
   hyprland = hyprland.packages.${pkgs.system}.hyprland;
   hyprlock = hyprlock.packages.${pkgs.system}.hyprlock;
   wlroots-hyprland = hyprland.packages.${pkgs.system}.wlroots-hyprland;
