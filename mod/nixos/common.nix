@@ -10,6 +10,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   services.gnome.gnome-keyring.enable = true;
+
   environment = {
     pathsToLink = [ "/libexec" ];
     systemPackages = [
@@ -43,10 +44,13 @@
   programs.dconf.enable = true;
 
   services.udisks2.enable = true;
-  services.gvfs.enable = true;
+  services.gvfs = {
+    enable = true;
+    package = pkgs.lib.mkForce pkgs.gnome.gvfs;
+  };
 
   environment.localBinInPath = true;
-  networking.nameservers = [ "1.1.1.1" ];
+  # networking.nameservers = [ "1.1.1.1" ];
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {

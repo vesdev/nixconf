@@ -32,8 +32,14 @@ in
       completion = [ { name = "binary", completion = "filename" } ]
       args = { program = "{0}", initCommands = [ "command script import ${lldb-script}" ] }
 
-      [language-server.rust-analyzer.config.check]
-      command = "clippy"
+      [language-server.rust-analyzer.config]
+      procMacro = { ignored = { leptos_macro = [
+          # Optional:
+          # "component",
+          # "server"
+      ] } } 
+      cargo = { features = "all" }
+      check = { command = "clippy" }
 
       [[language]]
       name = "nix"
@@ -56,6 +62,7 @@ in
 
       [language-server.intelephense.config]
       includePaths = [ "core/", "core/includes", "../vendor/" ]
+
     '';
 
   home.file.".config/helix/config.toml".text = # toml

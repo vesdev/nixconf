@@ -3,6 +3,7 @@
 
   home.file.".config/kitty/kitty.conf".text = ''
     include ./theme.conf
+    shell fish
     font_family MonaspaceAr Nerd Font
     confirm_os_window_close 0
     enabled_layouts splits:split_axis=horizontal

@@ -1,5 +1,6 @@
-{ pkgs, mod, ... }:
+{ pkgs, mod, config, ... }:
 {
+
   home.packages =
     with pkgs;
     with mod.pkgs;
@@ -23,7 +24,7 @@
       lutgen
       ffmpeg
       piper
-      fluffychat
+      # fluffychat
       tor-browser
       helvum
       guitarix
@@ -36,10 +37,20 @@
       dolphin-emu
       signal-desktop
       rusty-man
+
+      muffon
+      overskride
+      bluez
+      godot_4
+      libreoffice
     ];
 
   programs.obs-studio = {
     enable = true;
     plugins = [ pkgs.obs-studio-plugins.obs-pipewire-audio-capture ];
   };
+
+  # systemd.services.mullvad-daemon.path = [
+  #   config.networking.resolvconf.package
+  # ];
 }

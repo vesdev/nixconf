@@ -55,8 +55,22 @@
     device = "/var/lib/swapfile";
     size = 16 * 1024;
   }];
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    modesetting.enable = false;
+    open = false;
+  };
+  hardware.opengl.extraPackages = [
+    pkgs.nvidia-vaapi-driver
+  ];
   # hardware.opengl.package =
   #   pkgs.mesa.override { galliumDrivers = [ "radeonsi" "zink" "swrast" ]; };
+
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.enableAllFirmware = true;
 
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
