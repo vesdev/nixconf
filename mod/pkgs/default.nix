@@ -7,4 +7,10 @@
   osu-lazer = nix-gaming.packages.${pkgs.system}.osu-lazer-bin;
   helix = helix.packages.${pkgs.system}.default;
   bo = bo.packages.${pkgs.system}.default;
+  keebi = keebi.packages.${pkgs.system}.default;
+  niri = niri.packages.${pkgs.system}.default.overrideAttrs (_: { doCheck = false; });
+  xwayland-satellite = xwayland-satellite.packages.${pkgs.system}.default;
+  ashell = ashell.defaultPackage.${pkgs.system};
+  mullvad = pkgs.callPackage ./mullvad.nix { };
+  inherit potatofox;
 }

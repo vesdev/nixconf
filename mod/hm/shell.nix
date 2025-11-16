@@ -13,6 +13,7 @@ let
     cr = "clear && cargo run";
     scan = "iwctl station wlan0 scan";
     b = "buku";
+    wun = ''PROTON_VERB="run GAMEID=0" PROTONPATH="GE-Proton" umu-run -SkipBuildPatchPrereq'';
     # fzf = ''sk --ansi -i -c 'rg --color=always --line-number "{}"'';
   };
 in
@@ -83,6 +84,7 @@ in
       # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
       interactiveShellInit = ''
+        set -gx fish_key_bindings fish_vi_key_bindings
         set -gx XDG_DATA_DIRS $XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
         set -gx PATH $PATH /var/lib/flatpak/exports/bin
         set -gx VIRSH_DEFAULT_CONNECT_URI qemu:///system

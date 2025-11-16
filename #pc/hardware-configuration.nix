@@ -46,11 +46,6 @@
     fsType = "vfat";
   };
 
-  fileSystems."/media/HDD" = {
-    device = "/dev/disk/by-uuid/229819DE9819B0F1";
-    fsType = "ntfs";
-  };
-
   swapDevices = [{
     device = "/var/lib/swapfile";
     size = 16 * 1024;

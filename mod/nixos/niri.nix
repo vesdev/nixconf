@@ -10,7 +10,7 @@
           --time \
           --asterisks \
           --user-menu \
-          --cmd "niri --session"
+          --cmd "niri-session"
       '';
     };
   };
@@ -26,9 +26,19 @@
     TTYVTDisallocate = true;
   };
 
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [
+    pkgs.xdg-desktop-portal-gnome
+    pkgs.xdg-desktop-portal-gtk
+  ];
+
   environment.systemPackages = with pkgs; [
     alacritty
     mod.pkgs.niri
+    mod.pkgs.ashell
+    mod.pkgs.xwayland-satellite
+    gamescope
+    swww
     wayland
     wdisplays
     hyprpaper
@@ -37,5 +47,6 @@
     slurp
     wl-clipboard
     mod.pkgs.hyprlock
+    nautilus
   ];
 }

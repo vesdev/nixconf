@@ -18,16 +18,14 @@ in
     gaming
     network
     pipewire
-    hyprland
+    niri
+    # hyprland
 
     mod.nixosModules.home-manager
+    mod.nixosModules.chaotic
   ];
 
-  networking.firewall =
-    {
-      enable = true;
-      allowedTCPPorts = [ 6969 ];
-    };
+  chaotic.mesa-git.enable = true;
 
   users.users.${username} = {
     isNormalUser = true;
@@ -40,8 +38,14 @@ in
   };
 
   nix.settings.trusted-users = [ username ];
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+  networking.extraHosts = ''
+    192.168.178.81 navi
+    167.235.241.82  www.growtopia1.com
+    167.235.241.82  www.growtopia2.com
+    167.235.241.82  growtopia1.com
+    167.235.241.82  growtopia2.com
+  '';
 
   home-manager = {
     extraSpecialArgs = {

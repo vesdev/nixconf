@@ -25,9 +25,9 @@
   hardware = {
     graphics.enable = true;
     graphics.enable32Bit = true;
-    opentabletdriver = {
-      enable = true;
-    };
+    # opentabletdriver = {
+    #   enable = true;
+    # };
   };
 
   security.rtkit.enable = true;
@@ -41,6 +41,7 @@
 
   # services.fwupd.enable = true;
   programs.git.enable = true;
+  programs.git.lfs.enable = true;
   programs.dconf.enable = true;
 
   services.udisks2.enable = true;
@@ -50,7 +51,7 @@
   };
 
   environment.localBinInPath = true;
-  # networking.nameservers = [ "1.1.1.1" ];
+  networking.nameservers = [ "192.168.178.1" ];
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {

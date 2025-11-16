@@ -16,7 +16,21 @@
       name = "Sans";
       size = 11;
     };
+
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
   };
+
 
   home.pointerCursor = {
     gtk.enable = true;
@@ -30,4 +44,6 @@
     enable = true;
     platformTheme.name = "gtk";
   };
+
+  home.sessionVariables.GTK_THEME = "Flat-Remix-GTK-Grey-Darkest";
 }

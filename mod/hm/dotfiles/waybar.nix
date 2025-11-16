@@ -74,9 +74,7 @@
       "network": {
         "interval": 5,
         "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
-        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
         "format-disconnected": "⚠  Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr}"
       },
 
       "hyprland/mode": {
@@ -175,7 +173,7 @@
 
         /* The whole bar */
         #waybar {
-            background: rgba(0, 0, 0, 0);
+            background: #1c1e26;
             color: #e4a88a;
             font-family: Fira Code, monospace;
             font-size: 14px;

@@ -82,7 +82,7 @@
         animations:enabled = no
         decoration {
           rounding = 0
-          # drop_shadow = false
+          shadow:enabled = false
           blur:enabled = true
           blur:size = 16
           blur:passes = 2
@@ -111,6 +111,11 @@
 
         windowrulev2 = workspace name:Chat, tag:chat
         layerrule = blur,rofi
+
+        windowrulev2 = float, class:floatingAppFocus
+        windowrulev2 = stayfocused, class:floatingAppFocus
+        windowrulev2 = size 640 480, class:floatingAppFocus
+        windowrulev2 = center, class:floatingAppFocus
 
         $mod = SUPER
 
@@ -191,10 +196,16 @@
         bindm = $mod, mouse:272, movewindow
         bindm = $mod, mouse:273, resizewindow
 
+        bind=$mod,g,exec,wl-kbptr 
+
         # exec-once=hyprpaper
         exec-once=waybar
         exec=otd-daemon
         exec-once=udiskie -Ns &
+        exec = gsettings set org.gnome.desktop.interface gtk-theme "YOUR_DARK_GTK3_THEME"   # for GTK3 apps
+        exec = gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"   # for GTK4 apps
+
+        env = QT_QPA_PLATFORM,wayland
 
         # exec-once=mpvpaper '*' ~/.config/hypr/wp.mp4 -o "--panscan=1 --loop --hwdec=vaapi"
         # exec-once = wl-paste -t text -w xclip -selection clipboard

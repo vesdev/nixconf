@@ -17,6 +17,8 @@
 
   # map ctrl+shift+m toggle_layout stack
   home.file.".config/kitty/theme.conf".text = ''
+    background_opacity 0.95
+
     background #1c1e26
     foreground #e0e0e0
 

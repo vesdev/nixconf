@@ -7,7 +7,7 @@
     [
       # (osu-stable.override { location = "$HOME/.local/share/osu-stable"; })
       # mod.pkgs.twitch-tui
-      carla
+      # carla
       blender
       ungoogled-chromium
       qmk
@@ -16,23 +16,27 @@
 
       # handbrake
       chatterino2
-      mod.pkgs.osu-lazer
+      (mod.pkgs.osu-lazer.override {
+        releaseStream = "tachyon";
+      })
       qbittorrent
-      yabridge
-      yabridgectl
       prismlauncher
       lutgen
       ffmpeg
       piper
+
       # fluffychat
       tor-browser
       helvum
-      guitarix
       wineWowPackages.stagingFull
+
+      yabridge
+      yabridgectl
+
       dislocker
       hoppscotch
       runelite
-      bolt-launcher
+      (bolt-launcher.override { enableRS3 = true; })
       ngrok
       dolphin-emu
       signal-desktop
@@ -41,14 +45,28 @@
       muffon
       overskride
       bluez
-      godot_4
+      godot
       libreoffice
+      element-desktop
+      protonup-qt
+      kdePackages.kdenlive
+      python3
+      python3Packages.pip
+      keymapp
+      tonelib-metal
+      tonelib-gfx
+      tonelib-jam
+      labwc
+      tesseract
+      qwen-code
+      keebi
     ];
 
   programs.obs-studio = {
     enable = true;
     plugins = [ pkgs.obs-studio-plugins.obs-pipewire-audio-capture ];
   };
+
 
   # systemd.services.mullvad-daemon.path = [
   #   config.networking.resolvconf.package

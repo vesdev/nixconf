@@ -45,5 +45,6 @@
     hyprlock
     # mod.pkgs.hyprlock
     xclip
+    wl-kbptr
   ];
 }

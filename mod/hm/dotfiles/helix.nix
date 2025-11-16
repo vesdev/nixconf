@@ -102,6 +102,7 @@ in
 
       [editor]
       # mouse = false
+      shell = ["fish", "-c"]
       bufferline = "always"
       line-number = "relative"
       true-color = true

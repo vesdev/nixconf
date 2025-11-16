@@ -9,6 +9,7 @@ let
   swayidle = import ./swayidle.nix;
   zathura = import ./zathura.nix;
   yazi = import ./yazi.nix;
+  tridactyl = import ./tridactyl.nix;
 in
 {
   options."dotfiles" = with pkgs.lib; {
@@ -35,5 +36,6 @@ in
     swayidle
     zathura
     yazi
+    tridactyl
   ];
 }
