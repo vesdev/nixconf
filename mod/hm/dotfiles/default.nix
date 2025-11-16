@@ -1,11 +1,11 @@
 { pkgs, ... }:
 let
-
   helix = import ./helix.nix;
   rofi = import ./rofi.nix;
   waybar = import ./waybar.nix;
   kitty = import ./kitty.nix;
   hyprland = import ./hyprland.nix;
+  niri = import ./niri.nix;
   swayidle = import ./swayidle.nix;
   zathura = import ./zathura.nix;
   yazi = import ./yazi.nix;
@@ -37,5 +37,6 @@ in
     zathura
     yazi
     tridactyl
+    niri
   ];
 }
